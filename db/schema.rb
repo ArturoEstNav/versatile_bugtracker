@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_185747) do
+ActiveRecord::Schema.define(version: 2020_12_16_054938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.bigint "ticket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_events_on_ticket_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "memos", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_memos_on_ticket_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -25,11 +45,11 @@ ActiveRecord::Schema.define(version: 2020_12_14_185747) do
     t.text "description"
     t.string "status"
     t.bigint "project_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "creator_id"
+    t.integer "owner_id"
     t.index ["project_id"], name: "index_tickets_on_project_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +68,9 @@ ActiveRecord::Schema.define(version: 2020_12_14_185747) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "tickets"
+  add_foreign_key "events", "users"
+  add_foreign_key "memos", "tickets"
+  add_foreign_key "memos", "users"
   add_foreign_key "tickets", "projects"
-  add_foreign_key "tickets", "users"
 end
