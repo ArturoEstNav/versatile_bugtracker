@@ -3,5 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :tickets
+  has_many :memos, through: :tickets
+  has_many :events, through: :tickets
+
+  validates :first_name, :last_name, :tier, presence: true
+  validates :email, :employee_id, uniqueness: true, presence: true
 end
