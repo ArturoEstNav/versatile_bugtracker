@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :projects, only: [ :create, :update, :show ]
   resources :tickets, only: [ :create, :update, :show, :index ] do
     resources :memos, only: [ :create, :update, :show ]
+    resources :events, only: [ :create, :show ]
   end
 end
