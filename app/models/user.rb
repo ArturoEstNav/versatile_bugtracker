@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :tier, presence: true
   validates :email, :employee_id, uniqueness: true, presence: true
+
+  # user methods only to be accessed by sups
+  # retrieve history of events
+  # retrieve memo history
 end

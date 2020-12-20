@@ -5,10 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    # Add a added by to users
-
     if @user.save
+      # if user_signed_in? add user creation to events
       redirect_to root_path
     else
       render :new
@@ -41,6 +39,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name,
-      :tier, :email, :employee_id)
+      :supervisor, :email, :employee_id)
   end
 end
