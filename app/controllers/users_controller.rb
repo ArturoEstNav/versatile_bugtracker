@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    # Add a added by to users
+
     if @user.save
       redirect_to root_path
     else
@@ -33,12 +36,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
-  #   redirect_to user_path(current_user)
-  # end
 
   private
 

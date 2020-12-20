@@ -8,6 +8,7 @@ class MemosController < ApplicationController
     @memo.user_id = current_user.id
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
+      # create event
       redirect_to memos_show_path(params[:id])
     else
       render :new
@@ -21,6 +22,7 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     @memo.update(memo_params)
+    # create event
   end
 
   private

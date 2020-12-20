@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
     @ticket.owner_id = current_user
 
     if @ticket.save
+      # create event
       redirect_to root_path
     else
       render :new
@@ -22,6 +23,7 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
+      # create event
       redirect_to ticket_path(params[:id])
     else
       render :edit
