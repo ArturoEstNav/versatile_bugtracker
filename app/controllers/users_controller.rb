@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.username = "#{@user.first_name.downcase}_#{@user.last_name.downcase}"
+    @user.active = true
     if @user.save
       # if user_signed_in? add user creation to events
       redirect_to root_path
@@ -39,6 +41,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name,
-      :supervisor, :email, :employee_id)
+      :supervisor, :email, :employee_number)
   end
 end
+

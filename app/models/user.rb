@@ -6,10 +6,6 @@ class User < ApplicationRecord
   has_many :memos, through: :tickets
   has_many :events, through: :tickets
 
-  validates :first_name, :last_name, :tier, presence: true
-  validates :email, :employee_id, uniqueness: true, presence: true
-
-  # user methods only to be accessed by sups
-  # retrieve history of events
-  # retrieve memo history
+  validates :first_name, :last_name, presence: true
+  validates :email, :employee_number, uniqueness: true, presence: true
 end
