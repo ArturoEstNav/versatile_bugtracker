@@ -2,3 +2,25 @@
 <p>Find me in app/views/tickets/new.html.erb</p>
 <!-- description -->
 <!-- relevance urgencym, etc -->
+<%= simple_form_for @ticket do |f|%>
+  <%= f.input :description %>
+  <%= f.input :urgency %>
+ <!--  <%=  %>
+  <%=  %>
+  <%=  %>
+  <%=  %> -->
+
+<% end %>
+
+<!--
+    t.text "description"
+    t.string "status"
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "creator_id"
+    t.bigint "owner_id"
+    t.index ["creator_id"], name: "index_tickets_on_creator_id"
+    t.index ["owner_id"], name: "index_tickets_on_owner_id"
+    t.index ["project_id"], name: "index_tickets_on_project_id"
+   -->
