@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    @user.username = "#{@user.first_name.downcase}_#{@user.last_name.downcase}"
-    @user.active = true
+    @user = User.new(user_params, active: true)
     if @user.save
       # if user_signed_in? add user creation to events
       redirect_to root_path
