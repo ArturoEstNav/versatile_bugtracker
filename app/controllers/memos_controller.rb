@@ -19,6 +19,7 @@ class MemosController < ApplicationController
     @memo = Memo.find(params[:id])
   end
 
+# only owner can update it
   def update
     @memo = Memo.find(params[:id])
     @memo.update(memo_params)

@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     @project.active = true
     if @project.save
       redirect_to
+      # adding event
     else
       render :new
     end
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    # adding event
   end
 
   def update
@@ -43,5 +45,4 @@ class ProjectsController < ApplicationController
   def update_params
     params.require(:project).permit(:active)
   end
-
 end

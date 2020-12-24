@@ -1,4 +1,7 @@
 <h1>Tickets#edit</h1>
-<p>Find me in app/views/tickets/edit.html.erb</p>
-<!-- status -->
-<!-- solve -->
+<%= simple_form_for @ticket do |f| %>
+  <%= f.input :status %>
+  <%= f.input :priority %>
+  <%= f.input :category %>
+  <%= f.button :submit %>
+<% end %>

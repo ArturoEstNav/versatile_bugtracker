@@ -1,2 +1,5 @@
 <h1>Memos#edit</h1>
-<p>Find me in app/views/memos/edit.html.erb</p>
+<%= simple_form_for @memo do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>

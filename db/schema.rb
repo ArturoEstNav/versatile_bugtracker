@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_044110) do
+ActiveRecord::Schema.define(version: 2020_12_23_174322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,17 +39,19 @@ ActiveRecord::Schema.define(version: 2020_12_23_044110) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active"
+    t.boolean "active", default: true
   end
 
   create_table "tickets", force: :cascade do |t|
     t.text "description"
-    t.string "status"
+    t.string "status", default: "open"
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "creator_id"
     t.bigint "owner_id"
+    t.string "priority", default: "3"
+    t.string "category"
     t.index ["creator_id"], name: "index_tickets_on_creator_id"
     t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["project_id"], name: "index_tickets_on_project_id"
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_044110) do
     t.integer "employee_number"
     t.boolean "active", default: true
     t.boolean "supervisor"
+    t.string "username", default: "first_name_last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

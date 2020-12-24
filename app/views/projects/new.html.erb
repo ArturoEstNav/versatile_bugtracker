@@ -1,7 +1,5 @@
 <h1>Projects#new</h1>
-<!-- make me into a pop up -->
-<!-- t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active" -->
-<p>Find me in app/views/projects/new.html.erb</p>
+<%= simple_form_for @project do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
+<% end %>
