@@ -10,6 +10,8 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       # create event
+      # event = Event.new()
+      # event.save
       redirect_to root_path
     else
       render :new
