@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_224543) do
+ActiveRecord::Schema.define(version: 2020_12_26_024208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2020_12_24_224543) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "memo_id"
     t.bigint "project_id"
+    t.bigint "owner_id"
     t.index ["memo_id"], name: "index_events_on_memo_id"
+    t.index ["owner_id"], name: "index_events_on_owner_id"
     t.index ["project_id"], name: "index_events_on_project_id"
     t.index ["ticket_id"], name: "index_events_on_ticket_id"
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_224543) do
   add_foreign_key "events", "projects"
   add_foreign_key "events", "tickets"
   add_foreign_key "events", "users"
+  add_foreign_key "events", "users", column: "owner_id"
   add_foreign_key "memos", "tickets"
   add_foreign_key "memos", "users"
   add_foreign_key "tickets", "projects"

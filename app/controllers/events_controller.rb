@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
-
   #  TODO: autogenerate with everthing is done
-
   def new
   end
 
@@ -12,5 +10,3 @@ class EventsController < ApplicationController
 
   end
 end
-
-
