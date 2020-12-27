@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
     @project.active = true
     if @project.save
       redirect_to
-      # adding event
+      # if user_signed_in? do
+      #   description = "#{current_user.username} created project #{project.id}"
+      #   event = Event.new("project", description)
+      #   event.save
+      # end
     else
       render :new
     end
@@ -16,12 +20,16 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    # adding event
   end
 
   def update
     @projects = Project.find(params[:id])
     if @project.update(update_params)
+      # if user_signed_in? do
+      #   description = "#{current_user.username} modified project #{project.id}"
+      #   event = Event.new("project", description)
+      #   event.save
+      # end
       redirect_to root_path
     else
       render :edit

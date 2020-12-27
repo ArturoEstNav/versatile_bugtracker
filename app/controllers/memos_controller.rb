@@ -8,7 +8,11 @@ class MemosController < ApplicationController
     @memo.user_id = current_user.id
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
-      # create event
+      # if user_signed_in? do
+      #   description = "#{current_user.username} created memo #{memo.id}"
+      #   event = Event.new("memo", description)
+      #   event.save
+      # end
       redirect_to memos_show_path(params[:id])
     else
       render :new
@@ -23,7 +27,7 @@ class MemosController < ApplicationController
   def update
     @memo = Memo.find(params[:id])
     @memo.update(memo_params)
-    # create event
+
   end
 
   private
