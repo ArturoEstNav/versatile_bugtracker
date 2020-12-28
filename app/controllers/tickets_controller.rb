@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
+    @projects= Project.all
   end
 
   def create
@@ -45,22 +46,8 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:description, :project_id, :email, :employee_id, )
+    params.require(:ticket).permit(:description, :project_id, :status,
+      :priority, :category, :title )
   end
 end
 # end
-
-
-
- # t.text "description"
- #    t.string "status", default: "open"
- #    t.bigint "project_id", null: false
- #    t.datetime "created_at", precision: 6, null: false
- #    t.datetime "updated_at", precision: 6, null: false
- #    t.bigint "creator_id"
- #    t.bigint "owner_id"
- #    t.string "priority", default: "3"
- #    t.string "category"
- #    t.index ["creator_id"], name: "index_tickets_on_creator_id"
- #    t.index ["owner_id"], name: "index_tickets_on_owner_id"
- #    t.index ["project_id"], name: "index_tickets_on_project_id"

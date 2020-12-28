@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(create_params)
     @project.active = true
     if @project.save
-      redirect_to
+      redirect_to root_path
       # if user_signed_in? do
       #   description = "#{current_user.username} created project #{project.id}"
       #   event = Event.new("project", description)

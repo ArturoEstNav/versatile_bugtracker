@@ -1,5 +1,5 @@
 <h1>Projects#new</h1>
 <%= simple_form_for @project do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, hint: "If the project name has multiple words separate them with _" %>
   <%= f.button :submit %>
 <% end %>
