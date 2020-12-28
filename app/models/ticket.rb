@@ -5,6 +5,5 @@ class Ticket < ApplicationRecord
   has_many :memos
   # add new column
   validates :description, :creator_id, :priority, :status, :owner_id,
-            :project_id, :title, presence: true
-  validates :email, :employee_id, uniqueness: true, presence: true
+            :project_id, :creator_id, :owner_id, :title, presence: true
 end

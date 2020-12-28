@@ -1,13 +1,16 @@
 class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
-    @projects= Project.all
+    @projects= Project.all.map {|project| [project.name, project.id] }
+    # [0, 'female'], ['1', 'male']
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.creator_id = current_user
-    @ticket.owner_id = current_user
+    @ticket.creator_id = current_user.id
+    @ticket.owner_id = current_user.id
+
+    # TICKETS NOT BEING CREATED
 
     if @ticket.save
       # if user_signed_in? do

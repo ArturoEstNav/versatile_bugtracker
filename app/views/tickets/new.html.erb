@@ -1,7 +1,9 @@
 <h1>Tickets#new</h1>
 <%= simple_form_for @ticket do |f|%>
+  <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :priority %>
+  <%= f.input :priority , hint: "1 stands for time sensitive matters, whereas 3 tickets will be queued" %>
+  <%= f.input :project_id, collection: @projects%>
   <%= f.input :category %>
   <%= f.input :status %>
   <%= f.button :submit  %>
