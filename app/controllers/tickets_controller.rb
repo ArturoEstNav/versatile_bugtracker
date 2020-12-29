@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = current_user
+    @ticket.user_id = current_user.id
 
     # TICKETS NOT BEING CREATED
 
@@ -18,8 +18,9 @@ class TicketsController < ApplicationController
       # end
       redirect_to root_path
     else
-      @errors = "#{}"
+      @errors = "#{doctor.errors.messages}"
       render :new
+      p doctor.errors.messages
     end
   end
 
