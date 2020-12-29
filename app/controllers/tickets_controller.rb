@@ -2,13 +2,12 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @projects= Project.all.map {|project| [project.name, project.id] }
-    # [0, 'female'], ['1', 'male']
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.creator_id = current_user.id
-    @ticket.owner_id = current_user.id
+    @ticket.creator_id = current_user
+    @ticket.owner_id = current_user
 
     # TICKETS NOT BEING CREATED
 
@@ -20,6 +19,7 @@ class TicketsController < ApplicationController
       # end
       redirect_to root_path
     else
+      @errors = "#{}"
       render :new
     end
   end

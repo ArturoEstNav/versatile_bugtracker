@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_27_232417) do
+ActiveRecord::Schema.define(version: 2020_12_29_021536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_232417) do
     t.bigint "project_id"
     t.bigint "owner_id"
     t.index ["memo_id"], name: "index_events_on_memo_id"
-    t.index ["owner_id"], name: "index_events_on_owner_id"
     t.index ["project_id"], name: "index_events_on_project_id"
     t.index ["ticket_id"], name: "index_events_on_ticket_id"
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_232417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ticket_id"], name: "index_memos_on_ticket_id"
-    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -46,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_232417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "active", default: true
+    t.text "description"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -55,13 +54,12 @@ ActiveRecord::Schema.define(version: 2020_12_27_232417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "creator_id"
-    t.bigint "owner_id"
-    t.string "priority", default: "3"
+    t.bigint "user_id"
+    t.string "priority", default: "necessary"
     t.string "category"
     t.string "title"
-    t.index ["creator_id"], name: "index_tickets_on_creator_id"
-    t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["project_id"], name: "index_tickets_on_project_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,6 +88,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_232417) do
   add_foreign_key "memos", "tickets"
   add_foreign_key "memos", "users"
   add_foreign_key "tickets", "projects"
+  add_foreign_key "tickets", "users"
   add_foreign_key "tickets", "users", column: "creator_id"
-  add_foreign_key "tickets", "users", column: "owner_id"
 end

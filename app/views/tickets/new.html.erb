@@ -1,4 +1,7 @@
 <h1>Tickets#new</h1>
+<div style="border: 1px solid red;">
+  <%= @errors %>
+</div>
 <%= simple_form_for @ticket do |f|%>
   <%= f.input :title %>
   <%= f.input :description %>

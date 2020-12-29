@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-  # experimental
-
-  # experimental
-
   def new
     user = User.new
   end
