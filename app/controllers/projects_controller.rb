@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   private
 
   def create_params
-    params.require(:project).permit(:name)
+    params.require(:project).permit(:name, :description)
   end
 
   def update_params

@@ -6,8 +6,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.creator_id = current_user
-    @ticket.owner_id = current_user
+    @ticket.user = current_user
 
     # TICKETS NOT BEING CREATED
 

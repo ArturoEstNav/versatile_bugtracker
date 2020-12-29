@@ -4,48 +4,13 @@
 # Test user
 # create a sandbox user, if sandbox user
 puts 'Cleaning database'
+puts 'Cleaning users'
 User.delete_all
-
-#Seeding page
-first_names = ['arturo', 'pepe', 'tony', 'ana']
-last_names = ['estrada', 'garcia', 'romero', 'rico']
-employee_ids = [123, 124, 125, 126]
-emails = ['arturo@bugtracker', 'pepe@bugtracker', 'tony@bugtracker', 'ana@bugtracker']
-encrypted_passwords = ['arturo1', 'pepe1', 'tony1', 'ana1']
-
-
-p "Creating users"
-first_names.each_with_index do |employee, index|
-  # p "Creating user #{index + 1}"
-  # new_user = User.new
-  # p "Adding user first_name"
-  # new_user.first_name = employee
-  # p "Adding user last_name"
-  # new_user.last_name = last_names[index]
-  # p "Adding user employee_id"
-  # new_user.employee_number = employee_ids[index]
-  # p "Adding user email"
-  # new_user.email = emails[index]
-  # p "Adding user encrypted_password"
-  # new_user.encrypted_password = encrypted_passwords[index]
-  # p "Adding user tier"
-  # new_user.supervisor = false
-  new_user = User.new({
-            first_name: employee,
-            last_name: last_names[index],
-            employee_number: employee_ids[index],
-            email: emails[index],
-            encrypted_password: encrypted_passwords[index],
-            password_confirmation: encrypted_passwords[index],
-            active: true,
-            supervisor: false})
-  if new_user.save
-    p "saved"
-  end
-end
-
-# p "Upgrading user 1 to supervisor"
-
-# User.first.supervisor = true
-
-p "All done"
+puts 'Cleaning projects'
+Project.delete_all
+puts 'Cleaning tickets'
+Ticket.delete_all
+puts 'Cleaning memo'
+Memo.delete_all
+puts 'Cleaning events'
+Event.delete_all
