@@ -1,4 +1,9 @@
 class TicketsController < ApplicationController
+
+  def index
+    @tickets = Ticket.all
+  end
+
   def new
     @ticket = Ticket.new
     @projects= Project.all.map {|project| [project.name, project.id] }
@@ -45,6 +50,8 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find(params[:id])
   end
+
+
 
   private
 

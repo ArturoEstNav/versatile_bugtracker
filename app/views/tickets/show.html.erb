@@ -1,5 +1,6 @@
-<h1>Tickets#show</h1>
-<p>Find me in app/views/tickets/show.html.erb</p>
-<!-- edit form on toṕ -->
-<!-- ticket description -->
-<!-- all memos in desc order, sortable -->
+<h1><%= @ticket.title %></h1>
+<p><%= @ticket.description %></p>
+<br><br><br>
+<%= link_to "add a new memo", new_ticket_memo_path(ticket) %>
+<br><br><br>
+<%= link_to "project list", tickets_path %>

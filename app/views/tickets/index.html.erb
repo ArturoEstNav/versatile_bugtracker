@@ -1,0 +1,7 @@
+<h1>All of the tickets</h1>
+<% @tickets.each do |ticket| %>
+  <div style="">
+    <h3><%= ticket.title %></h3>
+    <%= link_to "go to ticket", ticket_path(ticket) %>
+  </div>
+<% end %>

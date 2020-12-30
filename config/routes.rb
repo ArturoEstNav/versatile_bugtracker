@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
-    resources :events, only: [ :new, :update ]
+    resources :events, only: [ :new, :edit ]
   end
-  resources :projects, only: [ :create, :update, :show ] do
+  resources :projects, only: [ :create, :edit, :show ] do
     resources :events, only: [ :new ]
   end
-  resources :tickets, only: [ :create, :update, :show, :index ] do
-    resources :memos, only: [ :create, :update, :show ]
+  resources :tickets, only: [ :new, :edit, :show, :index ] do
+    resources :memos, only: [ :new, :edit, :show ]
     resources :events, only: [ :new ]
   end
 end
