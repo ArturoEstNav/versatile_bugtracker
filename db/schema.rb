@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_021536) do
+ActiveRecord::Schema.define(version: 2020_12_31_045947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_12_29_021536) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "memo_id"
     t.bigint "project_id"
-    t.bigint "owner_id"
     t.bigint "user_id"
     t.index ["memo_id"], name: "index_events_on_memo_id"
     t.index ["project_id"], name: "index_events_on_project_id"
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_12_29_021536) do
 
   create_table "memos", force: :cascade do |t|
     t.bigint "ticket_id", null: false
-    t.bigint "user_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -83,9 +81,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_021536) do
   add_foreign_key "events", "memos"
   add_foreign_key "events", "projects"
   add_foreign_key "events", "tickets"
-  add_foreign_key "events", "users", column: "owner_id"
   add_foreign_key "memos", "tickets"
-  add_foreign_key "memos", "users"
   add_foreign_key "tickets", "projects"
   add_foreign_key "tickets", "users", column: "creator_id"
 end

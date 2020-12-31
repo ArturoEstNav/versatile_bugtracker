@@ -8,7 +8,6 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
-    @memo.user_id = current_user
     if @memo.save
       # if user_signed_in? do
       #   description = "#{current_user.username} created memo #{memo.id}"

@@ -4,13 +4,13 @@
 # Test user
 # create a sandbox user, if sandbox user
 puts 'Cleaning database'
+puts 'Cleaning memo'
+Memo.delete_all
+puts 'Cleaning tickets'
+Ticket.delete_all
 puts 'Cleaning users'
 User.delete_all
 puts 'Cleaning projects'
 Project.delete_all
-puts 'Cleaning tickets'
-Ticket.delete_all
-puts 'Cleaning memo'
-Memo.delete_all
 puts 'Cleaning events'
 Event.delete_all
