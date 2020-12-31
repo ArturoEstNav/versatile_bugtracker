@@ -1,19 +1,21 @@
 class MemosController < ApplicationController
+
   def new
+    @ticket = Ticket.find(params[:ticket_id])
     @memo = Memo.new
   end
 
   def create
     @memo = Memo.new(memo_params)
-    @memo.user_id = current_user.id
     @memo.ticket_id = params[:ticket_id]
+    @memo.user_id = current_user
     if @memo.save
       # if user_signed_in? do
       #   description = "#{current_user.username} created memo #{memo.id}"
       #   event = Event.new("memo", description)
       #   event.save
       # end
-      redirect_to memos_show_path(params[:id])
+      redirect_to root_path
     else
       render :new
     end

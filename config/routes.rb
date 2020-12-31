@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   get 'tickets/new'
   get 'tickets/edit'
   get 'tickets/show'
-  get 'memos/new'
-  get 'memos/edit'
-  get 'memos/show'
   get 'users/new'
   get 'users/edit'
   get 'users/show'
@@ -22,8 +19,8 @@ Rails.application.routes.draw do
   resources :projects, only: [ :create, :edit, :show ] do
     resources :events, only: [ :new ]
   end
-  resources :tickets, only: [ :new, :edit, :show, :index ] do
-    resources :memos, only: [ :new, :edit, :show ]
-    resources :events, only: [ :new ]
+  resources :tickets, only: [ :new, :edit, :show, :index, :create, :update ] do
+    resources :memos
+    resources :events, only: [ :new, :create ]
   end
 end
