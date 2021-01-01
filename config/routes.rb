@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'tickets/new'
+  get 'tickets/edit'
+  get 'tickets/show'
   get 'users/new'
   get 'users/edit'
   get 'users/show'
