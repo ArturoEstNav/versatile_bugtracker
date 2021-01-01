@@ -49,6 +49,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
   end
 
 

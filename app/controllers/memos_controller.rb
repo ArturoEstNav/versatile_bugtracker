@@ -9,12 +9,8 @@ class MemosController < ApplicationController
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
-      # if user_signed_in? do
-      #   description = "#{current_user.username} created memo #{memo.id}"
-      #   event = Event.new("memo", description)
-      #   event.save
-      # end
-      redirect_to root_path
+
+      redirect_to ticket_path(params[:ticket_id])
     else
       render :new
     end
@@ -37,7 +33,6 @@ class MemosController < ApplicationController
     params.require(:memo).permit(:content)
   end
 end
-
 
 
 
