@@ -16,13 +16,18 @@ class MemosController < ApplicationController
   end
 
   def edit
+    @ticket = Ticket.find(params[:ticket_id])
     @memo = Memo.find(params[:id])
   end
 
 # only owner can update it
   def update
     @memo = Memo.find(params[:id])
-    @memo.update(memo_params)
+    if @memo.update(memo_params)
+      redirect_to ticket_path(params[:ticket_id])
+    else
+      render :edit
+    end
 
   end
 

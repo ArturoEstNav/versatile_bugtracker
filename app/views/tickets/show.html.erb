@@ -1,4 +1,5 @@
 <h1><%= @ticket.title %></h1>
+<h3>Descripcion</h3>
 <p><%= @ticket.description %></p>
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
@@ -10,7 +11,9 @@ CURRENT USER <%= current_user.id %>
 <div style="border: 3px solid green;">
   <% @memos.each do |memo| %>
     <div style="border: 3px solid red;">
-      <%= memo.content   %>
+      <%= memo.content %>
+      <br>
+      <%= link_to 'edit', edit_ticket_memo_path(memo.id) %>
     </div>
   <% end %>
 </div>
