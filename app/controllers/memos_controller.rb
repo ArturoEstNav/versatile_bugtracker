@@ -9,7 +9,6 @@ class MemosController < ApplicationController
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
-
       redirect_to ticket_path(params[:ticket_id])
     else
       render :new

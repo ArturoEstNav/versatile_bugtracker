@@ -12,5 +12,3 @@ puts 'Cleaning users'
 User.delete_all
 puts 'Cleaning projects'
 Project.delete_all
-puts 'Cleaning events'
-Event.delete_all

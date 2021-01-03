@@ -4,7 +4,9 @@
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
 <br><br><br>
 <%= link_to "project list", tickets_path %>
-
+<br><br><br>
+CURRENT USER <%= current_user.id %>
+<br><br><br>
 <div style="border: 3px solid green;">
   <% @memos.each do |memo| %>
     <div style="border: 3px solid red;">
