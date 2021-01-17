@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    params[:first_name].downcase
-    params[:last_name].downcase
-    params[:first_name].gsub(/[\s\W]/, "_")
-    params[:last_name].gsub(/[\s\W]/, "_")
+    params[:first_name] = params[:first_name].downcase
+    params[:last_name] = params[:last_name].downcase
+    params[:first_name] = params[:first_name].gsub(/[\s\W]/, "_")
+    params[:last_name] = params[:last_name].gsub(/[\s\W]/, "_")
     user = User.new(user_params, active: true)
     if user.save
       if user_signed_in? do
