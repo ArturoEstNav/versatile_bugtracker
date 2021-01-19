@@ -15,8 +15,8 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name, hint: "Please separate multiple names with underscore", required: true %>
-    <%= f.input :last_name, hint: "Please separate multiple names with underscore", required: true %>
+    <%= f.input :first_name, hint: "Please use lowercase and separate multiple names with underscore", required: true %>
+    <%= f.input :last_name, hint: "Please use lowercase and separate multiple names with underscore", required: true %>
     <%= f.input :employee_number, required: true %>
     <%= f.input :supervisor %>
   </div>
