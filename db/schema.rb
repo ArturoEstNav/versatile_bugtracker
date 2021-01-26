@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_031613) do
+ActiveRecord::Schema.define(version: 2021_01_26_015338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,10 @@ ActiveRecord::Schema.define(version: 2021_01_16_031613) do
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "creator_id"
     t.string "priority", default: "necessary"
     t.string "category"
     t.string "title"
-    t.bigint "user_id"
     t.index ["project_id"], name: "index_tickets_on_project_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,7 +63,6 @@ ActiveRecord::Schema.define(version: 2021_01_16_031613) do
     t.string "last_name"
     t.integer "employee_number"
     t.boolean "active", default: true
-    t.boolean "supervisor"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -84,5 +80,4 @@ ActiveRecord::Schema.define(version: 2021_01_16_031613) do
 
   add_foreign_key "memos", "tickets"
   add_foreign_key "tickets", "projects"
-  add_foreign_key "tickets", "users", column: "creator_id"
 end
