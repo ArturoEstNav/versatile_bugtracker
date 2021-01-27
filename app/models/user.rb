@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tickets
+  has_many :events, as: :eventable
+
 
   validates :first_name, :last_name, presence: true
   validates :email, :employee_number, uniqueness: true, presence: true

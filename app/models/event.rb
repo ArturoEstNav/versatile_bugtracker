@@ -3,7 +3,9 @@ class Event < ApplicationRecord
 
   def initalize(attributes = {})
     super
+
     @description = attributes[:description]
     @eventable_id = attributes[:eventable_id]
+    @eventable_link = attributes[:eventable_link]
   end
 end
