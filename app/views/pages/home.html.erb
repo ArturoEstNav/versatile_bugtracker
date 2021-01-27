@@ -1,14 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <div>
-  <% if current_user.supervisor == true %>
     <%= link_to "Add a project", projects_new_path %>
     <br><br><br>
-  <% end %>
   <% if @projects.last %>
-    <% if current_user.supervisor == true %>
       <%= link_to "project list", projects_index_path %><br>
-    <% end %>
     <%= link_to "new ticket", tickets_new_path %><br>
     <% if @tickets.last %>
     <%= link_to "ticket list", tickets_path %><br>
