@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tickets, through: :tickets_users
-  has_many :events
+  has_many :user_events
   has_many :events, as: :eventable
 
 

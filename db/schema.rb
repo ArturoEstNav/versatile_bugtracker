@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_175245) do
+ActiveRecord::Schema.define(version: 2021_01_28_194827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_175245) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "eventable_link", default: ""
+    t.string "event_link", default: ""
     t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
   end
 
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_175245) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "event_link", default: ""
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
