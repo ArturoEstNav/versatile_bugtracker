@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :tickets
+  has_many :tickets, through: :tickets_users
+  has_many :events
   has_many :events, as: :eventable
 
 
