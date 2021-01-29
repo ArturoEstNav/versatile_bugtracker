@@ -9,9 +9,18 @@ class MemosController < ApplicationController
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
-      event = UserEvent.new(description: " created new memo",
-              user_id: current_user.id)
+      event = Event.new(
+              description: "event test",
+              user: current_user,
+              eventable: @memo,
+              link: "ticket_memos_path(@ticket.id)")
       event.save
+      user_event = UserEvent.new(
+              description: "user event test",
+              user: current_user,
+              link: "ticket_memos_path(@ticket.id)"
+              )
+      user_event.save
 
       redirect_to ticket_path(params[:ticket_id])
     else
