@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_194827) do
+ActiveRecord::Schema.define(version: 2021_01_29_054303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string "eventable_type", null: false
-    t.bigint "eventable_id", null: false
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "event_link", default: ""
+    t.string "eventable_type"
+    t.bigint "eventable_id"
+    t.bigint "user_id"
+    t.string "description"
+    t.string "link", default: ""
     t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "memos", force: :cascade do |t|
@@ -64,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_194827) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "event_link", default: ""
+    t.string "link", default: ""
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
