@@ -39,7 +39,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @test = "hi"
+    # @user = current_user
+    user_events = UserEvent.where(user_id: current_user)
+    events = Event.where(user_id: current_user) + user_events
+    # inject each one of them
+    # @events = events.order(created_at: :desc)
   end
 
   def index

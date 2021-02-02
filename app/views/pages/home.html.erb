@@ -1,6 +1,9 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <div>
+    <br>
+      <%= link_to "PROFILE", user_path(current_user) %>
+    <br>
     <%= link_to "Add a project", projects_new_path %>
     <br><br><br>
   <% if @projects.last %>
