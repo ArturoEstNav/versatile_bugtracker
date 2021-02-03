@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    user_events = @events = Event.where(user: current_user)
+    user_events = Event.where(user: current_user)
     events = Event.where(user: current_user) + user_events
     @events = events
+    @test = 'link_to "TEST TO HOME", root_path'
   end
 
   def new
@@ -41,18 +42,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-  end
-
-  def create_path(link_attribute, foreign_key)
-    if link_attribute == "memo"
-      return tickets_show_path(foreign_key)
-    elsif link_attribute == "ticket"
-      return tickets_show_path(foreign_key)
-    elsif link_attribute == "project"
-      return projects_show_path(foreign_key)
-    elsif link_attribute == "user"
-      return  user_path(foreign_key)
-    end
   end
 
   private
