@@ -10,19 +10,12 @@ class MemosController < ApplicationController
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
       event = Event.new(
-              description: "second event test",
+              description: "added a memo on ticket #{params[:ticket_id]}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
               )
       event.save
-      user_event = UserEvent.new(
-              description: "second user event test",
-              user: current_user,
-              link: "/tickets/#{params[:ticket_id]}"
-              )
-      user_event.save
-
       redirect_to ticket_path(params[:ticket_id])
     else
       render :new
@@ -39,6 +32,13 @@ class MemosController < ApplicationController
     @memo = Memo.find(params[:id])
     if @memo.update(memo_params)
       redirect_to ticket_path(params[:ticket_id])
+      event = Event.new(
+              description: " modified a memo on #{params[:ticket_id]}",
+              user: current_user,
+              eventable: @memo,
+              link: "/tickets/#{params[:ticket_id]}"
+              )
+      event.save
     else
       render :edit
     end

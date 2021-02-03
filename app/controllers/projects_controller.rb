@@ -7,12 +7,14 @@ class ProjectsController < ApplicationController
     @project = Project.new(create_params)
     @project.active = true
     if @project.save
+      event = Event.new(
+              description: " added project #{@project.name]}",
+              user: current_user,
+              eventable: @project,
+              link: "/projects/#{@project.id]}"
+              )
+      event.save
       redirect_to root_path
-      # if user_signed_in? do
-      #   description = "#{current_user.username} created project #{project.id}"
-      #   event = Event.new("project", description)
-      #   event.save
-      # end
     else
       render :new
     end
@@ -25,11 +27,13 @@ class ProjectsController < ApplicationController
   def update
     @projects = Project.find(params[:id])
     if @project.update(update_params)
-      # if user_signed_in? do
-      #   description = "#{current_user.username} modified project #{project.id}"
-      #   event = Event.new("project", description)
-      #   event.save
-      # end
+      event = Event.new(
+              description: " modified project #{@project.name]}",
+              user: current_user,
+              eventable: @project,
+              link: "/projects/#{@project.id]}"
+              )
+      event.save
       redirect_to root_path
     else
       render :edit

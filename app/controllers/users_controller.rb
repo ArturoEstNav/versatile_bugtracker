@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     user_events = Event.where(user: current_user)
     events = Event.where(user: current_user) + user_events
     @events = events
-    @test = 'link_to "TEST TO HOME", root_path'
   end
 
   def new
