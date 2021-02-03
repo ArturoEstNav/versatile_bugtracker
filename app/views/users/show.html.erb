@@ -1,5 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<!-- info and project -->
-<!-- add event history -->
-<!-- add tickets -->
+<h1><%= current_user.first_name %></h1>
+
+<div>
+  <% @events.each do |event| %>
+    <%= link_to current_user.create_path(event.link, event.eventable_id) do %>
+      <p>
+        <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
+        <%= event.description %> &nbsp;
+        <%= event.created_at %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+<!-- password reset -->
+
+<%= link_to "go back", root_path %>

@@ -10,15 +10,16 @@ class MemosController < ApplicationController
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
       event = Event.new(
-              description: "event test",
+              description: "second event test",
               user: current_user,
               eventable: @memo,
-              link: "ticket_memos_path(@ticket.id)")
+              link: "memo"
+              )
       event.save
       user_event = UserEvent.new(
-              description: "user event test",
+              description: "second user event test",
               user: current_user,
-              link: "ticket_memos_path(@ticket.id)"
+              link: "memo"
               )
       user_event.save
 
@@ -53,3 +54,24 @@ end
 
 
 
+
+ # create_table "events", force: :cascade do |t|
+ #    t.datetime "created_at", precision: 6, null: false
+ #    t.datetime "updated_at", precision: 6, null: false
+ #    t.string "eventable_type"
+ #    t.bigint "eventable_id"
+ #    t.bigint "user_id"
+ #    t.string "description"
+ #    t.string "link", default: ""
+ #    t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
+ #    t.index ["user_id"], name: "index_events_on_user_id"
+ #  end
+
+ #    create_table "user_events", force: :cascade do |t|
+ #    t.text "description"
+ #    t.bigint "user_id", null: false
+ #    t.datetime "created_at", precision: 6, null: false
+ #    t.datetime "updated_at", precision: 6, null: false
+ #    t.string "link", default: ""
+ #    t.index ["user_id"], name: "index_user_events_on_user_id"
+ #  end
