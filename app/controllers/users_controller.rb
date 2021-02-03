@@ -11,12 +11,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    # user_params[:first_name] = user_params[:first_name].downcase.gsub(/[\s\W]/, "_")
-    # user_params[:last_name] = user_params[:last_name].downcase.gsub(/[\s\W]/, "_")
     user = User.new(user_params, active: true)
 
     if user.save
-      if user_signed_in? do
+      if user_signed_in?
         description = "#{current_user.username} created user #{user.username}"
         event = Event.new("user", description)
         event.save
@@ -34,11 +32,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    # if user_signed_in? do
-    #   description = "#{current_user.username} modified user #{user.id}"
-    #   event = Event.new("user", description)
-    #   event.save
-    # end
       redirect_to user_path(params[:id])
     else
       render :edit
@@ -56,6 +49,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name,
       :supervisor, :email, :employee_number)
   end
-end
 end
 
