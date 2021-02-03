@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  def show
+    user_events = @events = Event.where(user: current_user)
+    events = Event.where(user: current_user) + user_events
+    @events = events
+  end
+
   def new
     user = User.new
   end
@@ -38,14 +45,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @test = "hi"
-    # @user = current_user
-    user_events = UserEvent.where(user_id: current_user)
-    events = Event.where(user_id: current_user) + user_events
-    # inject each one of them
-    # @events = events.order(created_at: :desc)
-  end
 
   def index
     @users = User.all

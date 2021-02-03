@@ -10,15 +10,16 @@ class MemosController < ApplicationController
     @memo.ticket_id = params[:ticket_id]
     if @memo.save
       event = Event.new(
-              description: "event test",
+              description: "second event test",
               user: current_user,
               eventable: @memo,
-              link: "ticket_memos_path(@ticket.id)")
+              link: tickets_show_path(params[:ticket_id])
+              )
       event.save
       user_event = UserEvent.new(
-              description: "user event test",
+              description: "second user event test",
               user: current_user,
-              link: "ticket_memos_path(@ticket.id)"
+              link: tickets_show_path(params[:ticket_id])
               )
       user_event.save
 

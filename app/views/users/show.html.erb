@@ -1,7 +1,14 @@
 <h1><%= current_user.first_name %></h1>
 
 <div>
-  <% @events.each do %>
+  <% @events.each do |event| %>
+    <%= link_to event.link do %>
+      <p>
+        <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
+        <%= event.description %> &nbsp;
+        <%= event.created_at %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 <!-- password reset -->

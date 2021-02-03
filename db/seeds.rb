@@ -8,6 +8,10 @@ puts 'Cleaning memo'
 Memo.delete_all
 puts 'Cleaning tickets'
 Ticket.delete_all
+puts 'Cleaning user events'
+UserEvent.delete_all
+puts 'Cleaning event'
+Event.delete_all
 puts 'Cleaning users'
 User.delete_all
 puts 'Cleaning projects'
