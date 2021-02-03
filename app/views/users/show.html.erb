@@ -2,7 +2,7 @@
 
 <div>
   <% @events.each do |event| %>
-    <%= link_to event.link do %>
+    <%= link_to current_user.create_path(event.link, event.eventable_id) do %>
       <p>
         <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
         <%= event.description %> &nbsp;

@@ -43,6 +43,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def create_path(link_attribute, foreign_key)
+    if link_attribute == "memo"
+      return tickets_show_path(foreign_key)
+    elsif link_attribute == "ticket"
+      return tickets_show_path(foreign_key)
+    elsif link_attribute == "project"
+      return projects_show_path(foreign_key)
+    elsif link_attribute == "user"
+      return  user_path(foreign_key)
+    end
+  end
+
   private
 
   def user_params
