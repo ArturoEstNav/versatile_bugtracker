@@ -12,14 +12,14 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
 
-    # TICKETS NOT BEING CREATED
-
     if @ticket.save
-      # if user_signed_in? do
-      #   description = "#{current_user.username} created ticket #{ticket.id}"
-      #   event = Event.new("ticket", description)
-      #   event.save
-      # end
+      event = Event.new(
+              description: " added ticket #{@ticket.name]}",
+              user: current_user,
+              eventable: @ticket,
+              link: "/tickets/#{@ticket.id]}"
+              )
+      event.save
       redirect_to root_path
     else
       @errors = "#{@ticket.errors.messages}"
@@ -34,11 +34,12 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
-      # if user_signed_in? do
-      #   description = "#{current_user.username} modified ticket #{ticket.id}"
-      #   event = Event.new("ticket", description)
-      #   event.save
-      # end
+      event = Event.new(
+              description: " modified ticket #{@ticket.name]}",
+              user: current_user,
+              eventable: @ticket,
+              link: "/tickets/#{@ticket.id]}")
+      event.save
       redirect_to ticket_path(params[:id])
     else
       render :edit
