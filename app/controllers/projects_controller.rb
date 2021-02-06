@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
               description: " added project #{@project.name}",
               user: current_user,
               eventable: @project,
-              link: "/projects/#{@project.id]}"
+              link: "/projects/#{@project.id}"
               )
       event.save
       redirect_to root_path
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
               description: " modified project #{@project.name}",
               user: current_user,
               eventable: @project,
-              link: "/projects/#{@project.id]}"
+              link: "/projects/#{@project.id}"
               )
       event.save
       redirect_to root_path
