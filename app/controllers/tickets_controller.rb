@@ -14,10 +14,10 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       event = Event.new(
-              description: " added ticket #{@ticket.name]}",
+              description: " added ticket #{@ticket.name}",
               user: current_user,
               eventable: @ticket,
-              link: "/tickets/#{@ticket.id]}"
+              link: "/tickets/#{@ticket.id}"
               )
       event.save
       redirect_to root_path
@@ -35,10 +35,10 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       event = Event.new(
-              description: " modified ticket #{@ticket.name]}",
+              description: " modified ticket #{@ticket.name}",
               user: current_user,
               eventable: @ticket,
-              link: "/tickets/#{@ticket.id]}")
+              link: "/tickets/#{@ticket.id}")
       event.save
       redirect_to ticket_path(params[:id])
     else

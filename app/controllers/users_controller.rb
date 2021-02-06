@@ -32,6 +32,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+        description = "#{current_user.username} modified user #{user.username}"
+        event = Event.new("user", description)
+        event.save
       redirect_to user_path(params[:id])
     else
       render :edit
