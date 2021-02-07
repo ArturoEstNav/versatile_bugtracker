@@ -51,13 +51,14 @@ class TicketsController < ApplicationController
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
   end
 
-
-
   private
 
   def ticket_params
     params.require(:ticket).permit(:description, :project_id, :status,
       :priority, :category, :title )
   end
+  # starts counter
+  # stops counter
+  # calculates time difference
+  # adds time difference to current timing
 end
-# end
