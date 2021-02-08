@@ -13,7 +13,7 @@ class Ticket < ApplicationRecord
   def end_timer
     set_end_time
     update_completion_hours(calculate_hour_difference)
-  end
+  end_time
 
   private
 

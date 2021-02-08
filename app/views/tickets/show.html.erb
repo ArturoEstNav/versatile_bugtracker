@@ -2,6 +2,7 @@
 <h3>Descripcion</h3>
 <p><%= @ticket.description %></p>
 <!-- controls for pausing and starting methods -->
+<p>Hour tracker: <%= @ticket.completion_time %></p>
 <!--  -->
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
