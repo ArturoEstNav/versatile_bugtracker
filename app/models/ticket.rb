@@ -13,4 +13,18 @@ class Ticket < ApplicationRecord
   def end_timer
     @end_time = Time.now
   end
+
+  # def calculate_time_difference
+
+  # end
+
+  # def update_completion_hours(time_object)
+
+  # end
 end
+
+  # calculates time difference
+    # gets difference between start time and end time and returns result (in hours)
+  # adds time difference to current timing
+    # sums calculation to current value
+  # adjust completion hours (Admins only)
