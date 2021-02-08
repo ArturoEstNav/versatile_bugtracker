@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       event = Event.new(
-              description: " added ticket #{@ticket.name}",
+              description: " added ticket #{@ticket.title}",
               user: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}"
@@ -35,7 +35,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     if @ticket.update(ticket_params)
       event = Event.new(
-              description: " modified ticket #{@ticket.name}",
+              description: " modified ticket #{@ticket.title}",
               user: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}")
@@ -57,8 +57,5 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(:description, :project_id, :status,
       :priority, :category, :title )
   end
-  # starts counter
-  # stops counter
-  # calculates time difference
-  # adds time difference to current timing
+
 end
