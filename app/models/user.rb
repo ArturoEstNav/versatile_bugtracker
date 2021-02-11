@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :events, as: :eventable
 
 
-  validates :first_name, :last_name, presence: true
-  validates :email, :employee_number, uniqueness: true, presence: true
+  # validates :first_name, :last_name, presence: true
+  # validates :email, :employee_number, uniqueness: true, presence: true
 end
