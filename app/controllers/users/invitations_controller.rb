@@ -13,7 +13,8 @@ class Users::InvitationsController < Devise::InvitationsController
                                       keys: [
                                       :first_name,
                                       :last_name,
-                                      :employee_number
+                                      :employee_number,
+                                      :admin
                                       ])
   end
 end

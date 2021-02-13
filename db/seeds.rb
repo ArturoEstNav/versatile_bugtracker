@@ -29,7 +29,8 @@ user = User.new(
         password_confirmation: "123456",
         first_name: "Arturo",
         last_name: "Estrada Navarrete",
-        employee_number: (rand * 1000000).round
+        employee_number: (rand * 1000000).round,
+        admin: true
         )
 user.save
 
