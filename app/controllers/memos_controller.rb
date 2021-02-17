@@ -11,7 +11,7 @@ class MemosController < ApplicationController
     authorize @memo
     if @memo.save
       event = Event.new(
-              description: "#{current_user.first_name} added memo \"#{@memo.content}\" to ticket #{params[:ticket_id]}",
+              description: "#{current_user.first_name} added memo \"#{@memo.content}\" to ticket \##{params[:ticket_id]}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
@@ -35,7 +35,7 @@ class MemosController < ApplicationController
     if @memo.update(memo_params)
       redirect_to ticket_path(params[:ticket_id])
       event = Event.new(
-              description: "#{current_user.first_name} updated memo to  \"#{@memo.content}\" to ticket #{params[:ticket_id]}",
+              description: "#{current_user.first_name} updated memo to  \"#{@memo.content}\" to ticket \##{params[:ticket_id]}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
