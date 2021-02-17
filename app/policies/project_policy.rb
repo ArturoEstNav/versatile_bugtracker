@@ -4,4 +4,20 @@ class ProjectPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  # def new?
+  #   admin
+  # end
+
+  # def update?
+  #   admin
+  # end
+
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
 end

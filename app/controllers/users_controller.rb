@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     user_events = Event.where(user: current_user)
     events = Event.where(user: current_user) + user_events
     @events = events
+    authorize current_user
   end
 
   def new
