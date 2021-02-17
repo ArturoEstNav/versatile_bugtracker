@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       event = Event.new(
-              description: " added ticket #{@ticket.title}",
+              description: "#{current_user.first_name} created ticket for #{@ticket.title}",
               user: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}"
@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.update(ticket_params)
       event = Event.new(
-              description: " modified ticket #{@ticket.title}",
+              description: "#{current_user.first_name}  modified ticket #{@ticket.title}",
               user: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}")

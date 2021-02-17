@@ -8,10 +8,11 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
+    @ticket = Ticket.find(params[:ticket_id])
     authorize @memo
     if @memo.save
       event = Event.new(
-              description: "#{current_user.first_name} added memo \"#{@memo.content}\" to ticket \##{params[:ticket_id]}",
+              description: "#{current_user.first_name} added memo \"#{@memo.content}\" to ticket #{@ticket.decription}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
@@ -31,11 +32,12 @@ class MemosController < ApplicationController
 
   def update
     @memo = Memo.find(params[:id])
+    @ticket = Ticket.find(params[:ticket_id])
     authorize @memo
     if @memo.update(memo_params)
       redirect_to ticket_path(params[:ticket_id])
       event = Event.new(
-              description: "#{current_user.first_name} updated memo to  \"#{@memo.content}\" to ticket \##{params[:ticket_id]}",
+              description: "#{current_user.first_name} updated memo to  \"#{@memo.content}\" to ticket #{@ticket.decription}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
