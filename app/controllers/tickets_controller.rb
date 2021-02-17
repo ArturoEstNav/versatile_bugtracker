@@ -1,8 +1,7 @@
 class TicketsController < ApplicationController
 
   def index
-    @tickets = Ticket.all
-    authorize @tickets
+    @tickets = policy_scope(Ticket).order(created_at: :desc)
   end
 
   def new

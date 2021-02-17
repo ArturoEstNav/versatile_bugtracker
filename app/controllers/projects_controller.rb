@@ -47,8 +47,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
-    authorize @projects
+    @projects = policy_scope(Project).order(created_at: :desc)
   end
 
   private
