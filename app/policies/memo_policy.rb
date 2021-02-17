@@ -14,10 +14,22 @@ class MemoPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    user = current_user
+    record = @memo
+    if user == record.user
+      true
+    else
+      false
+    end
   end
 
   def update?
-    true
+    user = current_user
+    record = @memo
+    if user == record.user
+      true
+    else
+      false
+    end
   end
 end

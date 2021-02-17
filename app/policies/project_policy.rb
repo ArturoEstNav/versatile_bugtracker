@@ -5,13 +5,21 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
-  # def new?
-  #   admin
-  # end
+  def new?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
 
-  # def update?
-  #   admin
-  # end
+  def update?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
 
   def index?
     true

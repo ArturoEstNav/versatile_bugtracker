@@ -9,20 +9,37 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  # def new
-  #   only admin
-  # end
+  def new
+    if user.admin
+      true
+    else
+      false
+    end
+  end
 
-  # def create
-  #   only admin
+  def create
+    if user.admin
+      true
+    else
+      false
+    end
+  end
 
-  # end
+  def edit
+    user = User.find(params[:id])
+    if user == current_user
+      true
+    else
+      false
+    end
+  end
 
-  # def edit
-  #   only self
-  # end
-
-  # def update
-  #   only self
-  # end
+  def update
+    user = User.find(params[:id])
+    if user == current_user
+      true
+    else
+      false
+    end
+  end
 end
