@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project.active = true
     if @project.save
       event = Event.new(
-              description: " added project #{@project.name}",
+              description: "#{current_user.first_name} added project #{@project.name}",
               user: current_user,
               eventable: @project,
               link: "/projects/#{@project.id}"
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     @projects = Project.find(params[:id])
     if @project.update(update_params)
       event = Event.new(
-              description: " modified project #{@project.name}",
+              description: "#{current_user.first_name} has edited the project #{@project.name} status" ,
               user: current_user,
               eventable: @project,
               link: "/projects/#{@project.id}"
