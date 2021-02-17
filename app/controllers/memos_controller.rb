@@ -1,5 +1,4 @@
 class MemosController < ApplicationController
-
   def new
     @ticket = Ticket.find(params[:ticket_id])
     @memo = Memo.new
@@ -12,7 +11,7 @@ class MemosController < ApplicationController
     authorize @memo
     if @memo.save
       event = Event.new(
-              description: "added a memo on ticket #{params[:ticket_id]}",
+              description: "#{current_user.first_name} added memo \"#{@memo.content}\" to ticket #{params[:ticket_id]}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
@@ -30,14 +29,13 @@ class MemosController < ApplicationController
     authorize @memo
   end
 
-# only owner can update it
   def update
     @memo = Memo.find(params[:id])
     authorize @memo
     if @memo.update(memo_params)
       redirect_to ticket_path(params[:ticket_id])
       event = Event.new(
-              description: " modified a memo on #{params[:ticket_id]}",
+              description: "#{current_user.first_name} updated memo to  \"#{@memo.content}\" to ticket #{params[:ticket_id]}",
               user: current_user,
               eventable: @memo,
               link: "/tickets/#{params[:ticket_id]}"
@@ -46,7 +44,6 @@ class MemosController < ApplicationController
     else
       render :edit
     end
-
   end
 
   private
