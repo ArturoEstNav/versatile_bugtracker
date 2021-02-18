@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(create_params)
     @project.active = true
+    authorize @project
     if @project.save
       event = Event.new(
               description: "#{current_user.first_name} added project #{@project.name}",
@@ -23,10 +24,12 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def update
     @projects = Project.find(params[:id])
+    authorize @project
     if @project.update(update_params)
       event = Event.new(
               description: "#{current_user.first_name} has edited the project #{@project.name} status" ,

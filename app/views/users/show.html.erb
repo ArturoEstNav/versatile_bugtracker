@@ -4,7 +4,6 @@
   <% @events.each do |event| %>
     <%= tag.a(href: event.link) do%>
       <p>
-        <%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
         <%= event.description %> &nbsp;
         <%= event.created_at %>
       </p>

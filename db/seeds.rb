@@ -43,8 +43,8 @@ project.save
 
 puts 'Creating sample ticket'
 ticket = Ticket.new(
-          title: "Descriptive title",
-          description: "Specifics of the tastk",
+          title: "Business Logic",
+          description: "Make sure that the basic functions of the application work as intended",
           priority: "necessary" ,
           project_id: Project.last.id,
           category: "back end",

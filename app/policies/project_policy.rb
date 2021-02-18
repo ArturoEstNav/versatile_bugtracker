@@ -13,6 +13,22 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
+
+  def edit?
+    if user.admin
+      true
+    else
+      false
+    end
+  end
+
   def update?
     if user.admin
       true

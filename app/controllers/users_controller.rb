@@ -9,15 +9,20 @@ class UsersController < ApplicationController
 
   def new
     user = User.new
+    authorize current_user
   end
 
   def create
     user = User.new(user_params, active: true)
-
+    authorize current_user
     if user.save
       if user_signed_in?
-        description = "#{current_user.username} created user #{user.username}"
-        event = Event.new("user", description)
+        description = ""
+        event = UserEvent.new(
+              description: "#{current_user.username} created user #{user.username}",
+              user: current_user,
+              link: "/user/#{user.id}"
+              )
         event.save
       end
       redirect_to root_path
@@ -33,9 +38,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-        description = "#{current_user.username} modified user #{user.username}"
-        event = Event.new("user", description)
-        event.save
       redirect_to user_path(params[:id])
     else
       render :edit
