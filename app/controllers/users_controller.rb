@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     authorize current_user
     if user.save
       if user_signed_in?
-        description = ""
+        # make it trigger on command
         event = UserEvent.new(
-              description: "#{current_user.username} created user #{user.username}",
+              description: "#{current_user.username} created user #{user.first_name} #{user.last_name}",
               user: current_user,
               link: "/user/#{user.id}"
               )
@@ -43,7 +43,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
 
   def index
     @users = policy_scope(User).order(created_at: :desc)
