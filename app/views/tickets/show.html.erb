@@ -2,6 +2,7 @@
 <h3>Descripcion</h3>
 <p><%= @ticket.description %></p>
 <!-- controls for pausing and starting methods -->
+<%= link_to "modify/assign ticket", edit_ticket_path %>
 <p>Hour tracker: <%= @ticket.completion_time %></p>
 <!--  -->
 
