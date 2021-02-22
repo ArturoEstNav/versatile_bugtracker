@@ -48,5 +48,6 @@ ticket = Ticket.new(
           priority: "necessary" ,
           project_id: Project.last.id,
           category: "back end",
+          user_id: User.last.id
           )
 ticket.save

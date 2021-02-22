@@ -1,6 +1,6 @@
 <h1>Tickets#edit</h1>
 <%= simple_form_for @ticket do |f| %>
-  <%= f.input :user %>
+  <%= f.input :user_id, collection: @users %>
   <%= f.input :status %>
   <%= f.input :priority %>
   <%= f.input :category %>

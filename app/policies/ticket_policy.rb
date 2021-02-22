@@ -14,18 +14,15 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def edit?
-    # user = current_user
-    # if user == user.admin
+    if user.admin
       true
-    # else
-    #   false
-    # end
+    else
+      false
+    end
   end
 
   def update?
-    user = current_user
-    record = @ticket
-    if user == record.user
+    if user.admin
       true
     else
       false

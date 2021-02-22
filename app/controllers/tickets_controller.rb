@@ -30,6 +30,9 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = Ticket.find(params[:id])
+    @users = User.all.map do |user|
+      ["#{user.first_name} #{user.last_name}", user.id]
+    end
     authorize @ticket
   end
 
@@ -59,7 +62,7 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(:description, :project_id, :status,
-      :priority, :category, :title, :user )
+      :priority, :category, :title, :user_id )
   end
 
 end
