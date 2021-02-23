@@ -18,7 +18,8 @@ CURRENT USER <%= current_user.id %>
     <div>
       <%= memo.content %>
       <br>
-      <%= link_to 'edit', edit_ticket_memo_path(memo.id) %>
+      <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
+
     </div>
   <% end %>
 

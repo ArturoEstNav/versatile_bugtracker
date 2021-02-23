@@ -26,8 +26,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit
-    user = User.find(params[:id])
-    if user == current_user
+    if record.user == current_user
       true
     else
       false
@@ -35,8 +34,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update
-    user = User.find(params[:id])
-    if user == current_user
+    if record.user == current_user
       true
     else
       false
