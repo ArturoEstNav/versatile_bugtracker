@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_041247) do
+ActiveRecord::Schema.define(version: 2021_02_23_052620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 2021_02_13_041247) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["ticket_id"], name: "index_memos_on_ticket_id"
+    t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -53,12 +55,9 @@ ActiveRecord::Schema.define(version: 2021_02_13_041247) do
     t.string "category"
     t.string "title"
     t.integer "completion_time", default: 0
+    t.bigint "user_id"
     t.index ["project_id"], name: "index_tickets_on_project_id"
-  end
-
-  create_table "tickets_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "ticket_id", null: false
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "user_events", force: :cascade do |t|

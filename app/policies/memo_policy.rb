@@ -14,9 +14,7 @@ class MemoPolicy < ApplicationPolicy
   end
 
   def edit?
-    user = current_user
-    record = @memo
-    if user == record.user
+    if record.user_id == user.id
       true
     else
       false
@@ -24,9 +22,7 @@ class MemoPolicy < ApplicationPolicy
   end
 
   def update?
-    user = current_user
-    record = @memo
-    if user == record.user
+    if record.user_id == user.id
       true
     else
       false

@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       event = Event.new(
               description: "#{current_user.first_name} created ticket for #{@ticket.title}",
-              user: current_user,
+              user_id: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}"
               )
@@ -30,6 +30,9 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = Ticket.find(params[:id])
+    @users = User.all.map do |user|
+      ["#{user.first_name} #{user.last_name}", user.id]
+    end
     authorize @ticket
   end
 
@@ -59,7 +62,7 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(:description, :project_id, :status,
-      :priority, :category, :title, :user )
+    :priority, :category, :title, :user_id )
   end
 
 end

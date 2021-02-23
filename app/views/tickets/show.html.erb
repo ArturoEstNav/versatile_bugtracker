@@ -2,6 +2,7 @@
 <h3>Descripcion</h3>
 <p><%= @ticket.description %></p>
 <!-- controls for pausing and starting methods -->
+<%= link_to "modify/assign ticket", edit_ticket_path %>
 <p>Hour tracker: <%= @ticket.completion_time %></p>
 <%= link_to "assign users", edit_ticket_path %>
 <!--  -->
@@ -18,7 +19,8 @@ CURRENT USER <%= current_user.id %>
     <div>
       <%= memo.content %>
       <br>
-      <%= link_to 'edit', edit_ticket_memo_path(memo.id) %>
+      <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
+
     </div>
   <% end %>
 

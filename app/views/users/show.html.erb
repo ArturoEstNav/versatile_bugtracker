@@ -1,6 +1,8 @@
 <h1><%= current_user.first_name %></h1>
 
 <div>
+  <%= link_to "Edit user registration path", edit_user_registration_path %>
+  <br><br><br>
   <% @events.each do |event| %>
     <%= tag.a(href: event.link) do%>
       <p>
