@@ -2,8 +2,9 @@ class UsersController < ApplicationController
 
   def show
     user_events = Event.where(user: current_user)
-    events = Event.where(user: current_user) + user_events
-    @events = events
+    # user events go here
+    # events = Event.where(user: current_user) + user_events
+    @events = user_events #events
     authorize current_user
   end
 
