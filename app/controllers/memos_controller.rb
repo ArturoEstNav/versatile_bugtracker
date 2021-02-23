@@ -8,6 +8,7 @@ class MemosController < ApplicationController
   def create
     @memo = Memo.new(memo_params)
     @memo.ticket_id = params[:ticket_id]
+    @memo.user_id = current_user
     @ticket = Ticket.find(params[:ticket_id])
     authorize @memo
     if @memo.save
