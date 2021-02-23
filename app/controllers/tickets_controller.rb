@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       event = Event.new(
               description: "#{current_user.first_name} created ticket for #{@ticket.title}",
-              user: current_user,
+              user_id: current_user,
               eventable: @ticket,
               link: "/tickets/#{@ticket.id}"
               )

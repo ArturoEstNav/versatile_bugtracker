@@ -14,7 +14,7 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def edit?
-    if user.admin
+    if user.admin || record.user_id == user.id
       true
     else
       false
@@ -22,7 +22,7 @@ class TicketPolicy < ApplicationPolicy
   end
 
   def update?
-    if user.admin
+    if user.admin || record.user_id == user.id
       true
     else
       false
