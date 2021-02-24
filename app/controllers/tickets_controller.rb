@@ -38,12 +38,8 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-    change_list = []
     authorize @ticket
-    change_list << "user" unless @ticket.user_id == ticket_params[:user_id]
-    change_list << "status" unless @ticket.status == ticket_params[:status]
-    change_list << "priority" unless @ticket.priority == ticket_params[:priority]
-    change_list << "ticket" unless @ticket.category == ticket_params[:category]
+    change_list = Event.set_changes_list(ticket: @ticket, params: ticket_params)
     changes = Event.stringify_changes(change_list)
 
     if @ticket.update(ticket_params)

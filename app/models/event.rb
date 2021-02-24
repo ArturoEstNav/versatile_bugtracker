@@ -15,4 +15,13 @@ class Event < ApplicationRecord
       "#{first_half} and #{second_half}"
     end
   end
+
+  def self.set_changes_list(attributes = {})
+    changes = []
+    changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id]
+    changes << "status" unless attributes[:ticket].status == attributes[:params][:status]
+    changes << "priority" unless attributes[:ticket].priority == attributes[:params][:priority]
+    changes << "category" unless attributes[:ticket].category == attributes[:params][:category]
+    changes
+  end
 end
