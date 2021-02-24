@@ -2,6 +2,15 @@ class Event < ApplicationRecord
   belongs_to :eventable, polymorphic: true
   belongs_to :user
 
+  def self.set_changes_list(attributes = {})
+    changes = []
+    changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id] || attributes[:params][:user_id].nil? || attributes[:params][:user_id] == ""
+    changes << "status" unless attributes[:ticket].status == attributes[:params][:status]
+    changes << "priority" unless attributes[:ticket].priority == attributes[:params][:priority]
+    changes << "category" unless attributes[:ticket].category == attributes[:params][:category]
+    changes
+  end
+
   def self.stringify_changes(array)
     if array.size == 0
       "no changes"
@@ -14,14 +23,5 @@ class Event < ApplicationRecord
       first_half = array.join(', ')
       "#{first_half} and #{second_half}"
     end
-  end
-
-  def self.set_changes_list(attributes = {})
-    changes = []
-    changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id]
-    changes << "status" unless attributes[:ticket].status == attributes[:params][:status]
-    changes << "priority" unless attributes[:ticket].priority == attributes[:params][:priority]
-    changes << "category" unless attributes[:ticket].category == attributes[:params][:category]
-    changes
   end
 end
