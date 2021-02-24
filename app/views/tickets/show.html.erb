@@ -1,12 +1,19 @@
 <h1><%= @ticket.title %></h1>
 <h3>Descripcion</h3>
 <p><%= @ticket.description %></p>
-<!-- controls for pausing and starting methods -->
-<%= link_to "modify/assign ticket", edit_ticket_path %>
+<% if current_user.admin %>
+  <%= link_to "modify/assign ticket", edit_ticket_path %>
+<% else %>
+  <%= link_to "modify ticket", edit_ticket_path %>
+<% end %>
+<br><br>
+<div style="display: inline-block;" data-controller="hours">
+  <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
+  <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;
+  <i class="fas fa-stop" data-action="click->hours#stop"></i>
+</div>
+<br><br><br>
 <p>Hour tracker: <%= @ticket.completion_time %></p>
-<%= link_to "assign users", edit_ticket_path %>
-<!--  -->
-
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
 <br><br><br>
