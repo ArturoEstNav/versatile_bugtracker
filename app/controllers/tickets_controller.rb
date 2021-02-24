@@ -15,10 +15,10 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       event = Event.new(
-              description: "#{current_user.first_name} created ticket for #{@ticket.title}",
-              user_id: current_user,
+              description: "#{current_user.first_name} opened ticket #{@ticket.title}",
+              user: current_user,
               eventable: @ticket,
-              link: "/tickets/#{@ticket.id}"
+              link: "/tickets/#{params[:ticket_id]}"
               )
       event.save
       redirect_to root_path
