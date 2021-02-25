@@ -22,7 +22,7 @@ class Ticket < ApplicationRecord
   end
 
   def update_completion_hours(time_object)
-    completion_time += time_object
+    self.completion_time += time_object
   end
 
   def calculate_hour_difference
