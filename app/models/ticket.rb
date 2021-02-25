@@ -15,13 +15,13 @@ class Ticket < ApplicationRecord
     update_completion_hours(calculate_hour_difference)
   end
 
-  private
 
   def set_end_time
     @end_time = Time.now.to_i
   end
 
   def update_completion_hours(time_object)
+    self.completion_time = self.completion_time.to_f if self.completion_time == 0
     self.completion_time += time_object
   end
 
@@ -30,4 +30,5 @@ class Ticket < ApplicationRecord
     result = (difference / 60.0) / 60.0
     (result * 100).round / 100.0
   end
+  private
 end
