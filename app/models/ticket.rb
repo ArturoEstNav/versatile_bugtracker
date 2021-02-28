@@ -21,7 +21,6 @@ class Ticket < ApplicationRecord
   end
 
   def update_completion_hours(time_object)
-    self.completion_time = self.completion_time.to_f if self.completion_time == 0
     self.completion_time += time_object
   end
 

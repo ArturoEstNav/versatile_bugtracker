@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_052620) do
+ActiveRecord::Schema.define(version: 2021_02_28_053038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_052620) do
     t.string "priority", default: "necessary"
     t.string "category"
     t.string "title"
-    t.integer "completion_time", default: 0
     t.bigint "user_id"
+    t.float "completion_time", default: 0.0
     t.index ["project_id"], name: "index_tickets_on_project_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
