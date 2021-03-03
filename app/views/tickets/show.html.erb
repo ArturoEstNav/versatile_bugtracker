@@ -13,6 +13,13 @@
   <i class="fas fa-stop" data-action="click->hours#stop"></i>
 </div>
 <br><br><br>
+
+<% if @ticket.active %>
+  <h2>Active</h2>
+<% else %>
+  <h2>Not active</h2>
+<% end %>
+
 <p>Hour tracker: <%= @ticket.completion_time %></p>
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
