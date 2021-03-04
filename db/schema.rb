@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_053038) do
-
+ActiveRecord::Schema.define(version: 2021_03_03_210043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +55,10 @@ ActiveRecord::Schema.define(version: 2021_02_28_053038) do
     t.string "title"
     t.bigint "user_id"
     t.float "completion_time", default: 0.0
+<<<<<<< HEAD
+=======
+    t.boolean "active", default: false
+>>>>>>> feature/ticket-hours-controls
     t.index ["project_id"], name: "index_tickets_on_project_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
