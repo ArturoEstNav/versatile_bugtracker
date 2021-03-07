@@ -13,6 +13,10 @@ class TicketPolicy < ApplicationPolicy
     true
   end
 
+  def update_hours?
+    true
+  end
+
   def edit?
     if user.admin || record.user_id == user.id
       true

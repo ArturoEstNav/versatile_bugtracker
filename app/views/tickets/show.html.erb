@@ -14,6 +14,9 @@
 </div>
 <br><br><br>
 
+<%= link_to "Sat", update_hours_ticket_path(params[:id]), method: :patch, remote: true %>
+
+
 <% if @ticket.active %>
   <h2>Active</h2>
 <% else %>

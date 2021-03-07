@@ -58,6 +58,21 @@ class TicketsController < ApplicationController
     end
   end
 
+  def update_hours
+    @ticket = Ticket.find(params[:id])
+    authorize @ticket
+
+    unless @ticket.active
+      @ticket.start_timer
+    else
+      @ticket.end_timer
+    end
+
+    respond_to do |format|
+      format.html { redirect_to redirect_to ticket_path(params[:id]) }
+    end
+  end
+
   def show
     @ticket = Ticket.find(params[:id])
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)

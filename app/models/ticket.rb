@@ -8,11 +8,14 @@ class Ticket < ApplicationRecord
 
   def start_timer
     @start_time = Time.now.to_i
+    self.active = true
+    self.save
   end
 
   def end_timer
     set_end_time
     update_completion_hours(calculate_hour_difference)
+    self.active = false
     self.save
   end
 
