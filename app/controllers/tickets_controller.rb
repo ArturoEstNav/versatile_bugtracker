@@ -61,15 +61,12 @@ class TicketsController < ApplicationController
   def update_hours
     @ticket = Ticket.find(params[:id])
     authorize @ticket
-
-    unless @ticket.active
-      @ticket.start_timer
-    else
+    if @ticket.active
       @ticket.end_timer
-    end
-
-    respond_to do |format|
-      format.html { redirect_to redirect_to ticket_path(params[:id]) }
+      redirect_to ticket_path(params[:id])
+    else
+      @ticket.start_timer
+      redirect_to ticket_path(params[:id])
     end
   end
 

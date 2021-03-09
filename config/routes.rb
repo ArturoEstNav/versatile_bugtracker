@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'projects/edit'
   get 'projects/show'
   get 'projects/index'
-  # patch 'tickets/update_hours/:id' => "tickets#update_hours", as: :update_hours_ticket
+  patch 'tickets/update_hours/:id' => "tickets#update_hours", as: :update_hours_ticket
 
   devise_for :users, controllers: { invitations: 'users/invitations' }
   root to: 'pages#home'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :projects, only: [ :create, :edit, :show, :index ] do
     resources :events, only: [ :new ]
   end
-  resources :tickets, only: [ :new, :edit, :show, :index, :create, :update, :update_hours ] do
+  resources :tickets, only: [ :new, :edit, :show, :index, :create, :update ] do
     resources :memos
     resources :events, only: [ :new, :create ]
   end

@@ -9,13 +9,8 @@
 <br><br>
 <div style="display: inline-block;" data-controller="hours">
   <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
-  <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;
-  <i class="fas fa-stop" data-action="click->hours#stop"></i>
-</div>
+  <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;</div>
 <br><br><br>
-
-<%= link_to "Sat", update_hours_ticket_path(params[:id]), method: :patch, remote: true %>
-
 
 <% if @ticket.active %>
   <h2>Active</h2>
@@ -24,6 +19,11 @@
 <% end %>
 
 <p>Hour tracker: <%= @ticket.completion_time %></p>
+
+<h1>BUTTON</h1>
+
+<%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch %>
+
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
 <br><br><br>
