@@ -7,7 +7,7 @@ class Ticket < ApplicationRecord
   attr_accessor :start_time, :end_time
 
   def start_timer
-    @start_time = Time.now.to_i
+    self.start_time = Time.now.to_i
     self.active = true
     self.save
   end
@@ -16,13 +16,15 @@ class Ticket < ApplicationRecord
     set_end_time
     update_completion_hours(calculate_hour_difference)
     self.active = false
+    self.end_time = 0
+    self.start_time = 0
     self.save
   end
 
   private
 
   def set_end_time
-    @end_time = Time.now.to_i
+    self.end_time = Time.now.to_i
   end
 
   def update_completion_hours(time_object)
@@ -30,7 +32,7 @@ class Ticket < ApplicationRecord
   end
 
   def calculate_hour_difference
-    difference = @end_time - @start_time
+    difference = self.end_time - self.start_time
     result = (difference / 60.0) / 60.0
     (result * 100).round / 100.0
   end
