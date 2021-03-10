@@ -64,9 +64,21 @@ class TicketsController < ApplicationController
     if @ticket.active
       @ticket.end_timer
       redirect_to ticket_path(params[:id])
+      event = Event.new(
+                description: "#{current_user.first_name} started working on ticket #{@ticket.title}",
+                user: current_user,
+                eventable: @ticket,
+                link: "/tickets/#{@ticket.id}")
+      event.save
     else
       @ticket.start_timer
       redirect_to ticket_path(params[:id])
+      event = Event.new(
+                description: "#{current_user.first_name} stopped working on ticket #{@ticket.title}",
+                user: current_user,
+                eventable: @ticket,
+                link: "/tickets/#{@ticket.id}")
+      event.save
     end
   end
 

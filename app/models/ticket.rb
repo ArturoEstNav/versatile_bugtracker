@@ -4,7 +4,6 @@ class Ticket < ApplicationRecord
   has_many :events, as: :eventable
   validates :description, :priority, :status, :project_id,
             :title, presence: true
-  attr_accessor :start_time, :end_time
 
   def start_timer
     self.start_time = Time.now.to_i
@@ -13,7 +12,7 @@ class Ticket < ApplicationRecord
   end
 
   def end_timer
-    set_end_time
+    self.end_time = Time.now.to_i
     update_completion_hours(calculate_hour_difference)
     self.active = false
     self.end_time = 0
@@ -22,10 +21,6 @@ class Ticket < ApplicationRecord
   end
 
   private
-
-  def set_end_time
-    self.end_time = Time.now.to_i
-  end
 
   def update_completion_hours(time_object)
     self.completion_time += time_object
