@@ -22,7 +22,7 @@
 
 <h1>BUTTON</h1>
 
-<%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch %>
+<%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %>
 
 <br><br><br>
 <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
