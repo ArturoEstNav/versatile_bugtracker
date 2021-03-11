@@ -10,14 +10,20 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body data-controller="darkmode" data-target="darkmode.page">
-    <%= render 'shared/navbar' %>
-    <div class="container">
+    <%= render 'shared/navbar_user' %>
+    <div>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= render 'shared/flashes' %>
-      <%= yield %>
+      <div class="container-layout">
+        <div class="navbar-menu">
+          <%= render 'shared/navbar_menu' %>
+        </div>
+        <div class="container-main">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

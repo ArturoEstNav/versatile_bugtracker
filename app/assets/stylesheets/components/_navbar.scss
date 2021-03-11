@@ -1,12 +1,18 @@
-.navbar-bugtracker {
+.navbar-user {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-bugtracker .navbar-collapse {
+.navbar-user .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-bugtracker .navbar-brand img {
+.navbar-user .navbar-brand img {
   width: 40px;
+}
+
+.navbar-menu {
+  border: 1px solid blue;
+  flex-basis: 20%;
+  padding: 16px 0 0 48px;
 }

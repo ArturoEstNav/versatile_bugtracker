@@ -1,0 +1,12 @@
+ <%= link_to "PROFILE", user_path(current_user) %><br>
+  <%= link_to "employee list", users_path  %>
+  <br>
+  <%= link_to "Add a project", projects_new_path %>
+  <br><br><br>
+  <% if @projects.last %>
+    <%= link_to "project list", projects_index_path %><br>
+    <%= link_to "new ticket", tickets_new_path %><br>
+    <% if @tickets.last %>
+    <%= link_to "ticket list", tickets_path %><br>
+    <% end %>
+  <% end %>
