@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-user">
-  <%= link_to "HOME", root_path %>
+  <%= link_to "Dashboard", root_path %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,15 +8,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <div class="btn custom-btn-nav toggle-btn",
+      <div class="navbar-user-option btn custom-btn-nav toggle-btn",
         data-target="darkmode.toggle",
         data-action="click->darkmode#adjustBackground">
         <i class="far fa-moon"></i>
       </div>
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
+        <li class="navbar-user-option  nav-item dropdown">
+          <!-- <div class="text-avatar"> -->
+            <!-- <i class="far fa-user"></i> -->
+          <!-- </div> -->
           <%= image_tag "profile_picture.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profile", user_path(current_user) %><br>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

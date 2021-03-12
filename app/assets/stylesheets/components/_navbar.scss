@@ -1,6 +1,7 @@
 .navbar-user {
   justify-content: space-between;
   background: white;
+  padding: 16px 48px 16px 48px;
 }
 
 .navbar-user .navbar-collapse {
@@ -12,7 +13,10 @@
 }
 
 .navbar-menu {
-  border: 1px solid blue;
-  flex-basis: 20%;
+  flex-basis: 18%;
   padding: 16px 0 0 48px;
+}
+
+.navbar-user-option {
+  margin-left: 16px;
 }
