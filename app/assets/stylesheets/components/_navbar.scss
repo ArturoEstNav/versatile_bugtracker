@@ -20,3 +20,25 @@
 .navbar-user-option {
   margin-left: 16px;
 }
+
+.navbar-show{
+  border-bottom: 1px solid black;
+  margin: 16px 0 32px 0;
+}
+
+.navbar-show-item{
+  display: inline-block;
+  padding-left: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-style: italic;
+
+  &:hover, &:active{
+    font-weight: 500;
+  }
+}
+
+.navbar-selected-item {
+  font-style: normal;
+  font-weight: 500;
+}

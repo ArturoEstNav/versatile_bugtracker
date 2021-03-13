@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     # user events go here
     # events = Event.where(user: current_user) + user_events
     @events = user_events #events
+    @user_tickets = Ticket.where(user_id: current_user)
     authorize current_user
   end
 

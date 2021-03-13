@@ -1,19 +1,41 @@
-<h1><%= current_user.first_name %></h1>
-
 <div>
+  <h1><%= current_user.first_name %></h1>
+  <!-- show user information -->
   <%= link_to "Edit user registration path", edit_user_registration_path %>
-  <br><br><br>
-  <% @events.each do |event| %>
-    <%= tag.a(href: event.link) do%>
-      <p>
-        <%= event.description %> &nbsp;
-        <%= event.created_at %>
-      </p>
-    <% end %>
-  <% end %>
-  <!-- turn on/off notifications -->
-  <!-- turn on/off activity send -->
-  <!-- update data -->
-  <!-- activity feed will be placed on a separate tab -->
 </div>
-<%= link_to "go back", root_path %>
+
+<div data-controller="navbar">
+  <div class="navbar-show">
+    <ul>
+      <li data-target="navbar.ticketsToggle" class="navbar-show-item">
+        Tickets
+      </li>
+      <li data-target="navbar.historyToggle" class="navbar-show-item">
+        History
+      </li>
+    </ul>
+  </div>
+  <div data-target="navbar.history" style="display: none;">
+    <ul>
+      <% @events.each do |event| %>
+        <li>
+          <%= tag.a(href: event.link) do%>
+            <%= event.description %> &nbsp;
+            <%= event.created_at %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  XXXXXXXXXXXXX
+  <div data-target="navbar.tickets" style="display: block;">
+    <ul>
+      <% @user_tickets.each do |ticket|%>
+        <li>
+          <%= link_to ticket.title, ticket_path(ticket) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%= link_to "<< go back", root_path, class: "link-navigation" %>
