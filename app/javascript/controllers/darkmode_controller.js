@@ -15,7 +15,6 @@ export default class extends Controller {
       this.element.classList.remove("dark-mode");
       localStorage.setItem('darkMode', 'false');
       this.toggleTarget.innerHTML = '<i class="far fa-moon"></i>';
-
     } else {
       this.element.classList.add("dark-mode");
       localStorage.setItem('darkMode', 'true');
