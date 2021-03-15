@@ -1,10 +1,17 @@
-<h1>Tickets#edit</h1>
-<%= simple_form_for @ticket do |f| %>
-  <% if current_user.admin %>
-    <%= f.input :user_id, collection: @users %>
-  <% end %>
-  <%= f.input :status %>
-  <%= f.input :priority %>
-  <%= f.input :category %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+    <h1>Tickets#edit</h1>
+    <%= simple_form_for @ticket do |f| %>
+      <% if current_user.admin %>
+        <%= f.input :user_id, collection: @users %>
+      <% end %>
+      <%= f.input :status %>
+      <%= f.input :priority %>
+      <%= f.input :category %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VersatileBugtracker</title>
+    <title>Versatile Bugtracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,18 +12,11 @@
   </head>
   <body data-controller="darkmode" data-target="darkmode.page">
     <%= render 'shared/navbar_user' %>
+    <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <p class="alert"><%= alert %></p> -->
+    <%= render 'shared/flashes' %>
     <div>
-      <!-- <p class="notice"><%= notice %></p> -->
-      <!-- <p class="alert"><%= alert %></p> -->
-      <%= render 'shared/flashes' %>
-      <div class="container-layout">
-        <div class="navbar-menu">
-          <%= render 'shared/navbar_menu' %>
-        </div>
-        <div class="container-main">
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
     </div>
   </body>
 </html>

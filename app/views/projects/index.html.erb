@@ -1,12 +1,19 @@
-<h1>Project list</h1>
-<% if current_user.admin %>
-  <%= link_to "Add a project", projects_new_path %>
-<% end %>
-<ul>
-  <% @projects.each do |project| %>
-    <div style="">
-     <%= project.name %><br>
-     <%= link_to 'edit', edit_project_path(project.id) %>
-    </div>
-  <% end %>
-</ul>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+    <h1>Project list</h1>
+    <% if current_user.admin %>
+      <%= link_to "Add a project", projects_new_path %>
+    <% end %>
+    <ul>
+      <% @projects.each do |project| %>
+        <div style="">
+         <%= project.name %><br>
+         <%= link_to 'edit', edit_project_path(project.id) %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,44 +1,51 @@
-<div>
-  <h1><%= current_user.first_name %></h1>
-  <!-- show user information -->
-  <%= link_to "Edit user registration path", edit_user_registration_path %>
-</div>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+    <div>
+      <h1><%= current_user.first_name %></h1>
+      <!-- show user information -->
+      <%= link_to "Edit user registration path", edit_user_registration_path %>
+    </div>
 
-<div data-controller="navbar">
-  <div>
-    <ul class="navbar-show">
-      <li data-navbar-target="ticketsToggle"
-      data-action="click->navbar#setDisplay"
-      class="navbar-selected-item">
-        Tickets
-      </li>
-      <li data-navbar-target="historyToggle"
-      data-action="click->navbar#setDisplay"
-      class="navbar-show-item">
-        History
-      </li>
-    </ul>
-  </div>
-  <div data-navbar-target="history" style="display: none;">
-    <ul>
-      <% @events.each do |event| %>
-        <li>
-          <%= tag.a(href: event.link) do%>
-            <%= event.description %> &nbsp;
-            <%= event.created_at %>
+    <div data-controller="navbar">
+      <div>
+        <ul class="navbar-show">
+          <li data-navbar-target="ticketsToggle"
+          data-action="click->navbar#setDisplay"
+          class="navbar-selected-item">
+            Tickets
+          </li>
+          <li data-navbar-target="historyToggle"
+          data-action="click->navbar#setDisplay"
+          class="navbar-show-item">
+            History
+          </li>
+        </ul>
+      </div>
+      <div data-navbar-target="history" style="display: none;">
+        <ul>
+          <% @events.each do |event| %>
+            <li>
+              <%= tag.a(href: event.link) do%>
+                <%= event.description %> &nbsp;
+                <%= event.created_at %>
+              <% end %>
+            </li>
           <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <div data-navbar-target="tickets" style="display: block;">
-    <ul>
-      <% @user_tickets.each do |ticket|%>
-        <li>
-          <%= link_to ticket.title, ticket_path(ticket) %>
-        </li>
-      <% end %>
-    </ul>
+        </ul>
+      </div>
+      <div data-navbar-target="tickets" style="display: block;">
+        <ul>
+          <% @user_tickets.each do |ticket|%>
+            <li>
+              <%= link_to ticket.title, ticket_path(ticket) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <%= link_to "<< go back", root_path, class: "link-navigation" %>
   </div>
 </div>
-<%= link_to "<< go back", root_path, class: "link-navigation" %>

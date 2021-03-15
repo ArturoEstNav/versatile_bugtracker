@@ -1,7 +1,14 @@
-<h1>All of the tickets</h1>
-<% @tickets.each do |ticket| %>
-  <div style="">
-    <h3><%= ticket.title %></h3>
-    <%= link_to "go to ticket", ticket_path(ticket) %>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
   </div>
-<% end %>
+  <div class="container-main">
+    <h1>All of the tickets</h1>
+    <% @tickets.each do |ticket| %>
+      <div style="">
+        <h3><%= ticket.title %></h3>
+        <%= link_to "go to ticket", ticket_path(ticket) %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,44 +1,51 @@
-<h1><%= @ticket.title %></h1>
-<h3>Descripcion</h3>
-<p><%= @ticket.description %></p>
-<% if current_user.admin %>
-  <%= link_to "modify/assign ticket", edit_ticket_path %>
-<% else %>
-  <%= link_to "modify ticket", edit_ticket_path %>
-<% end %>
-<br><br>
-<div style="display: inline-block;" data-controller="hours">
-  <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
-  <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;</div>
-<br><br><br>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+    <h1><%= @ticket.title %></h1>
+    <h3>Descripcion</h3>
+    <p><%= @ticket.description %></p>
+    <% if current_user.admin %>
+      <%= link_to "modify/assign ticket", edit_ticket_path %>
+    <% else %>
+      <%= link_to "modify ticket", edit_ticket_path %>
+    <% end %>
+    <br><br>
+    <div style="display: inline-block;" data-controller="hours">
+      <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
+      <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;</div>
+    <br><br><br>
 
-<% if @ticket.active %>
-  <h2>Active</h2>
-<% else %>
-  <h2>Not active</h2>
-<% end %>
+    <% if @ticket.active %>
+      <h2>Active</h2>
+    <% else %>
+      <h2>Not active</h2>
+    <% end %>
 
-<p>Hour tracker: <%= @ticket.completion_time %></p>
+    <p>Hour tracker: <%= @ticket.completion_time %></p>
 
-<h1>BUTTON</h1>
+    <h1>BUTTON</h1>
 
-<%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %>
+    <%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %>
 
-<br><br><br>
-<%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
-<br><br><br>
-<%= link_to "back to tickets list", tickets_path %>
-<br><br><br>
-CURRENT USER <%= current_user.id %>
-<br><br><br>
-<div>
-  <% @memos.each do |memo| %>
+    <br><br><br>
+    <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
+    <br><br><br>
+    <%= link_to "back to tickets list", tickets_path %>
+    <br><br><br>
+    CURRENT USER <%= current_user.id %>
+    <br><br><br>
     <div>
-      <%= memo.content %>
-      <br>
-      <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
+      <% @memos.each do |memo| %>
+        <div>
+          <%= memo.content %>
+          <br>
+          <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
+
+        </div>
+      <% end %>
 
     </div>
-  <% end %>
-
+  </div>
 </div>

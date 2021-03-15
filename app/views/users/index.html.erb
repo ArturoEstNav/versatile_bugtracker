@@ -1,6 +1,13 @@
-<div>
-  <% @users.each do |user| %>
-    <p><%= user.first_name %></p>
-  <% end %>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+    <div>
+      <% @users.each do |user| %>
+        <p><%= user.first_name %></p>
+      <% end %>
+    </div>
+    <%= link_to 'add new user', new_user_invitation_path %>
+  </div>
 </div>
-<%= link_to 'add new user', new_user_invitation_path %>

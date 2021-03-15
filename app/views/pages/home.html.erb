@@ -1,11 +1,22 @@
-<div>
-  <p>libre comercio y competitividad</p>
-  <ul>
-    <% @user_tickets.each do |ticket|%>
-      <li>
-        <h3><%= ticket.title %></h3>
-        <%= link_to "go to ticket", ticket_path(ticket) %>
-      </li>
-    <% end %>
-  </ul>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
+  </div>
+  <div class="container-main">
+      <p>libre comercio y competitividad</p>
+      <ul>
+        <% @user_tickets.each do |ticket|%>
+          <li>
+            <h3><%= ticket.title %></h3>
+            <%= link_to "go to ticket", ticket_path(ticket) %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
 </div>
+
+
+
+
+
+
