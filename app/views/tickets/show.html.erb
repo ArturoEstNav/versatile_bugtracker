@@ -4,46 +4,49 @@
   </div>
   <div class="container-main">
     <h1><%= @ticket.title %></h1>
-    <h3>Descripcion</h3>
-    <p><%= @ticket.description %></p>
+    <div>
+      <h2>Descripcion</h2>
+      <p><%= @ticket.description %></p>
+    </div>
     <% if current_user.admin %>
       <%= link_to "modify/assign ticket", edit_ticket_path %>
     <% else %>
       <%= link_to "modify ticket", edit_ticket_path %>
     <% end %>
     <br><br>
-    <div style="display: inline-block;" data-controller="hours">
-      <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
-      <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;</div>
-    <br><br><br>
-    <div class="custom-container-hour-control" data-controller="hours">
-      <div data-hours-target="sign">
-        <% if @ticket.active %>
-          Active
-        <% else %>
-          Not active
-        <% end %>
-      </div>
-      <div data-hours-target="toggle"
-      data-action="click->hours#toggleIcons">
-        BUTTON
-      </div>
-      <!-- <%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %> -->
 
-      <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
-        <i class="fas fa-play" data-hours-target="test"></i>
-      <% end %>
-      <!-- <div data-hours-target="toggle">UNCHANGED</div> -->
+    <div style="display: inline-block;" data-controller="hours">
+      <h3>Statistics</h3>
+      <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
+      <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;
+      <p>case owner</p>
+      <div class="custom-container-hour-control" data-controller="hours">
+        <div data-hours-target="sign">
+          <% if @ticket.active %>
+            Active
+          <% else %>
+            Not active
+          <% end %>
+        </div>
+        <div data-hours-target="toggle"
+        data-action="click->hours#toggleIcons">
+          BUTTON
+        </div>
+        <!-- <%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %> -->
+
+        <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
+          <i class="fas fa-play" data-hours-target="test"></i>
+        <% end %>
+        <!-- <div data-hours-target="toggle">UNCHANGED</div> -->
+      </div>
     </div>
 
     <p>Hour tracker: <%= @ticket.completion_time %></p>
     <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
-    <br><br><br>
-    <%= link_to "back to tickets list", tickets_path %>
-    <br><br><br>
-    CURRENT USER <%= current_user.id %>
-    <br><br><br>
+
+
     <div>
+      <h2>Memo list</h2>
       <% @memos.each do |memo| %>
         <div>
           <%= memo.content %>
@@ -51,8 +54,12 @@
           <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
 
         </div>
+        <div>
+          <h3>add a new memo</h3>
+        </div>
       <% end %>
 
     </div>
+    <%= link_to "back to tickets list", tickets_path %>
   </div>
 </div>

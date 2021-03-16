@@ -1,6 +1,6 @@
 .navbar-user {
   justify-content: space-between;
-  background: white;
+  background: transparent;
   padding: 16px 48px 16px 48px;
   display: flex;
   justify-content: end;
@@ -17,6 +17,12 @@
 .navbar-menu {
   flex-basis: 18%;
   padding: 16px 0 0 0;
+}
+
+.navbar-menu-option {
+  font-weight: 300;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 .navbar-user-option {

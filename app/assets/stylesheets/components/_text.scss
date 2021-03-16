@@ -20,6 +20,12 @@ ul, li {
 
 a {
   font-weight: 500;
+  color: inherit;
+  text-transform: capitalize;
+
+  &:active, &:visited, &:hover {
+    color: inherit;
+  }
 }
 
 .custom-link {
