@@ -1,15 +1,16 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  play() {
-    console.log(`Play!`)
-  }
+  static targets = [ "sign", "button" ]
 
-  pause() {
-    console.log(`Pause!`)
-  }
+  toggleIcons() {
+    if(this.signTarget.innerText.toLowerCase() == "active"){
+      console.log('active')
 
-  stop() {
-    console.log(`Stop!`)
+    } else{
+      console.log('not active')
+      // console.log(event.explicitOriginalTarget.innerText)
+      this.buttonTarget.innerText = "Respuesta"
+    }
   }
 }

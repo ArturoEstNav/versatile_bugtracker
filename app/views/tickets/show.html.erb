@@ -16,20 +16,27 @@
       <i class="fas fa-play" data-action="click->hours#play"></i>&nbsp;&nbsp;
       <i class="fas fa-pause" data-action="click->hours#pause"></i>&nbsp;&nbsp;</div>
     <br><br><br>
+    <div class="custom-container-hour-control" data-controller="hours">
+      <div data-hours-target="sign">
+        <% if @ticket.active %>
+          Active
+        <% else %>
+          Not active
+        <% end %>
+      </div>
+      <div data-hours-target="toggle"
+      data-action="click->hours#toggleIcons">
+        BUTTON
+      </div>
+      <!-- <%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %> -->
 
-    <% if @ticket.active %>
-      <h2>Active</h2>
-    <% else %>
-      <h2>Not active</h2>
-    <% end %>
+      <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
+        <i class="fas fa-play" data-hours-target="test"></i>
+      <% end %>
+      <!-- <div data-hours-target="toggle">UNCHANGED</div> -->
+    </div>
 
     <p>Hour tracker: <%= @ticket.completion_time %></p>
-
-    <h1>BUTTON</h1>
-
-    <%= link_to "work!", update_hours_ticket_path(@ticket), method: :patch, remote: true %>
-
-    <br><br><br>
     <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
     <br><br><br>
     <%= link_to "back to tickets list", tickets_path %>
