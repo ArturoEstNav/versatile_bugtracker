@@ -6,11 +6,9 @@ export default class extends Controller {
   toggleIcons() {
     if(this.signTarget.innerText.toLowerCase() == "active"){
       console.log('active')
-
     } else{
       console.log('not active')
       // console.log(event.explicitOriginalTarget.innerText)
-      this.buttonTarget.innerText = "Respuesta"
     }
   }
 }
