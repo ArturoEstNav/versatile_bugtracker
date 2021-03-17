@@ -22,7 +22,6 @@ User.delete_all
 puts 'Cleaning projects'
 Project.delete_all
 
-puts 'Creating sample user'
 user = User.new(
         email: "arturoestradanav@gmail.com",
         password: "123456",
@@ -32,22 +31,20 @@ user = User.new(
         employee_number: (rand * 1000000).round,
         admin: true
         )
-user.save
+puts 'Sample user created' if user.save
 
-puts 'Creating sample project'
 project = Project.new(
           name: "Versatile bugtracker",
           description: "Create a bugtracker that enhances productivity"
           )
-project.save
+puts 'Sample project created' if project.save
 
-puts 'Creating sample ticket'
 ticket = Ticket.new(
           title: "Business Logic",
           description: "Make sure that the basic functions of the application work as intended",
           priority: "necessary" ,
-          project_id: Project.last.id,
+          project_id: Project.last,
           category: "back end",
-          user_id: User.last.id
+          user_id: User.last
           )
-ticket.save
+puts 'Sample ticket created' if ticket.save

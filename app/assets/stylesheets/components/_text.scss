@@ -1,14 +1,24 @@
 body {
   font-weight: 300;
+  color: $black;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
-}
-h4, h5, h6 {
   text-transform: capitalize;
 }
 
+h1 {
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 24pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
 
 ul, li {
   list-style: none;

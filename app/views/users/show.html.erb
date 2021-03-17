@@ -4,9 +4,9 @@
   </div>
   <div class="container-main">
     <div>
-      <h1><%= current_user.first_name %></h1>
+      <h1><%= @user.first_name %></h1>
       <!-- show user information -->
-      <%= link_to "Edit user registration path", edit_user_registration_path %>
+      <%= link_to "Edit user registration path", edit_user_registration_path(@user) %>
     </div>
 
     <div data-controller="navbar">
