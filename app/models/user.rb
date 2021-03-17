@@ -10,5 +10,4 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, :employee_number, uniqueness: true, presence: true
 
-    attr_reader :first_name, :last_name
 end

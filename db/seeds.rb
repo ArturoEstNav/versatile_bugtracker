@@ -28,7 +28,7 @@ user = User.new(
         password_confirmation: "123456",
         first_name: "Arturo",
         last_name: "Estrada Navarrete",
-        employee_number: (rand * 1000000).round,
+        employee_number: 53,
         admin: true
         )
 puts 'Sample user created' if user.save
@@ -43,8 +43,8 @@ ticket = Ticket.new(
           title: "Business Logic",
           description: "Make sure that the basic functions of the application work as intended",
           priority: "necessary" ,
-          project_id: Project.last,
+          project_id: Project.last.id,
           category: "back end",
-          user_id: User.last
+          user_id: User.last.id
           )
 puts 'Sample ticket created' if ticket.save

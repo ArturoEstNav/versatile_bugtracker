@@ -87,7 +87,7 @@ class TicketsController < ApplicationController
     @ticket_user = User.where(id: @ticket.user_id)
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
     authorize @ticket
-    authorize @ticket_user
+
   end
 
   private

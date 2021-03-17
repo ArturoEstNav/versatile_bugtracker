@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    user_events = Event.where(user: @user.id)
+    user_events = Event.where(user: @user)
     # user events go here
     # events = Event.where(user: current_user) + user_events
     @events = user_events #events
-    @user_tickets = Ticket.where(user_id: @user.id)
+    @user_tickets = Ticket.where(user_id: @user)
     authorize @user
   end
 
