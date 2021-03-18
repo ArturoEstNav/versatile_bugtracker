@@ -7,4 +7,43 @@
   padding: 16px 48px 0 0;
 }
 
+.container-section {
+  padding: 0 16px;
+  margin: 0 0 32px 0;
+}
 
+.container-ticket-data{
+  border: 1px solid red;
+  display: flex;
+}
+
+.container-ticket-description{
+  border: 1px solid blue;
+  flex-basis: 70%;
+}
+
+.container-ticket-hours{
+  border: 1px solid green;
+  flex-basis: 30%;
+}
+
+.container-ticket-memos{
+  border: 1px solid coral;
+  // display: flex;
+  height: 500px;
+}
+
+.container-memo-list{
+  // flex-basis: 55%;
+  border: 1px solid blue;
+}
+
+.container-memo-new{
+  // flex-basis: 45%;
+  border: 1px solid green;
+}
+
+.container-memo-show{
+  border: 1px solid red;
+  margin-bottom: 16px;
+}

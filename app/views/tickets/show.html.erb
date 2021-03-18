@@ -3,19 +3,17 @@
     <%= render 'shared/navbar_menu' %>
   </div>
   <div class="container-main">
-    <div class="container-ticket-data">
+    <h1><%= @ticket.title %>
+      <span class="button-link-icon">
+        <%= link_to edit_ticket_path(@ticket) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </span>
+    </h1>
+    <div class="container-section container-ticket-data">
       <div class="container-ticket-description">
-        <h1><%= @ticket.title %>
-          <span class="button-link-icon">
-            <%= link_to edit_ticket_path(@ticket) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-          </span>
-        </h1>
         <div>
-
           <p><%= @ticket.description %></p>
-
         <!--
         </div>
         <% if current_user.admin %>
@@ -25,9 +23,7 @@
         <% end %>
          -->
         </div>
-
     </div>
-
     <div style="display: inline-block;"
          data-controller="hours"
          class="container-ticket-hours" >
@@ -53,27 +49,29 @@
           <i class="fas fa-play" data-hours-target="test"></i>
         <% end %>
         <!-- <div data-hours-target="toggle">UNCHANGED</div> -->
+        <p>Hour tracker: <%= @ticket.completion_time %></p>
       </div>
     </div>
-
-    <p>Hour tracker: <%= @ticket.completion_time %></p>
-    <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
-
-    <div class="container-ticket-memos">
-      <h2>Memo list</h2>
-      <% @memos.each do |memo| %>
-        <div>
-          <%= memo.content %>
-          <br>
-          <%= link_to 'edit', edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) %>
-
-        </div>
-        <div>
-          <h3>add a new memo</h3>
-        </div>
-      <% end %>
-
-    </div>
-    <%= link_to "back to tickets list", tickets_path %>
   </div>
+  <h2>Memo list</h2>
+  <div class=" container-section container-ticket-memos">
+    <div class="container-memo-list">
+      <% @memos.each do |memo| %>
+        <div class="container-memo-show">
+           <%= memo.content %>
+           <span class="button-link-icon">
+            <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+           </span>
+          <br>
+        </div>
+       <% end %>
+    </div>
+    <!-- <div class="container-memo-new">
+      <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
+    </div> -->
+    <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
+  </div>
+  <!-- <%= link_to "back to tickets list", tickets_path %> -->
 </div>
