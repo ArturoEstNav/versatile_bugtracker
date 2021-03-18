@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     authorize current_user
     if user.save
       if user_signed_in?
-        # make it trigger on command
         event = UserEvent.new(
               description: "#{current_user.username} created user #{user.first_name} #{user.last_name}",
               user: current_user,
