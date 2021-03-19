@@ -6,7 +6,7 @@
     <h1>My assigned tickets</h1>
     <ul>
       <% @user_tickets.each do |ticket|%>
-        <li>
+        <li class="container-ticket-item">
           <h2><%= ticket.title %></h2>
           <%= link_to "go to ticket", ticket_path(ticket) %>
         </li>

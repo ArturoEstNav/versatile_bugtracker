@@ -12,11 +12,25 @@
     </h1>
     <div class="container-section container-ticket-data">
       <div class="container-ticket-description">
+      <h2 class="header-margin-override">Statistics</h2>
         <div>
-          <h3>Statistics</h3>
-          <p><%= @ticket.description %></p>
-          <p>Hour tracker: <%= @ticket.completion_time %></p>
-          <!-- <p>case owner</p> -->
+          <p>
+            <span class="text-accent">
+              Ticket goals:&nbsp;
+            </span>
+            <%= @ticket.description %>
+          </p>
+          <p>
+            <span class="text-accent">
+              Worked hours:&nbsp;
+            </span>
+           <%= @ticket.completion_time %>
+          </p>
+          <p>
+            <span class="text-accent">
+              Ticket owner:&nbsp;
+            </span>
+          </p>
         </div>
     </div>
     <div style="display: inline-block;"

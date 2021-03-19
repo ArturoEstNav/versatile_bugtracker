@@ -39,6 +39,14 @@ a {
   }
 }
 
+.text-accent{
+  font-weight: 500;
+}
+
+.header-margin-override{
+  margin-left: -16px;
+}
+
 .custom-link {
   color: $black
 }
@@ -46,4 +54,10 @@ a {
 .link-navigation {
   font-weight: 300;
   font-style: italic;
+}
+
+.text-title{
+  text-transform: uppercase;
+  font-size: 18pt;
+
 }

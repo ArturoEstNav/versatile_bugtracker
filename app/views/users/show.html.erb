@@ -39,7 +39,7 @@
       <div data-navbar-target="tickets" style="display: block;">
         <ul>
           <% @user_tickets.each do |ticket|%>
-            <li>
+            <li class="container-ticket-item">
               <%= link_to ticket.title, ticket_path(ticket) %>
             </li>
           <% end %>

@@ -10,11 +10,13 @@
         <% end %>
       </span>
     </h1>
-    <% @tickets.each do |ticket| %>
-      <div style="">
-        <h3><%= ticket.title %></h3>
-        <%= link_to "go to ticket", ticket_path(ticket) %>
-      </div>
-    <% end %>
+    <ul>
+      <% @tickets.each do |ticket| %>
+        <li class="container-ticket-item">
+          <h3><%= ticket.title %></h3>
+          <%= link_to "go to ticket", ticket_path(ticket) %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
