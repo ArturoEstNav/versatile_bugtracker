@@ -33,10 +33,12 @@
         <ul>
           <% @events.each do |event| %>
             <li>
-              <%= tag.a(href: event.link) do%>
-                <%= event.description %> &nbsp;
-                <%= event.created_at %>
-              <% end %>
+              <div class="container-event">
+                <%= tag.a(href: event.link) do%>
+                  <%= event.description %> &nbsp;
+                  <%= event.created_at %>
+                <% end %>
+              </div>
             </li>
           <% end %>
         </ul>
