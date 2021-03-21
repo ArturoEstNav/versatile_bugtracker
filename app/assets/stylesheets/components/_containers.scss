@@ -43,7 +43,17 @@
   margin-bottom: 16px;
 }
 
-.container-ticket-item{
-  border: 1px solid red;
-  font-style: italic;
+.navbar-selected-item {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.container-clickable {
+  margin: 0 0 16px 0;
+
+  a, h3 {
+    &:hover, &:active{
+      font-weight: 500;
+    }
+  }
 }

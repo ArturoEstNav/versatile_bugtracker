@@ -6,9 +6,15 @@
     <h1>My assigned tickets</h1>
     <ul>
       <% @user_tickets.each do |ticket|%>
-        <li class="container-ticket-item">
-          <h2><%= ticket.title %></h2>
-          <%= link_to "go to ticket", ticket_path(ticket) %>
+        <li class="container-clickable">
+          <%= link_to ticket_path(ticket) do %>
+            <h3 class="text-caps">
+              <%= ticket.title %>
+            </h3>
+            <p>
+              <%= ticket.description %>
+            </p>
+          <% end %>
         </li>
       <% end %>
     </ul>

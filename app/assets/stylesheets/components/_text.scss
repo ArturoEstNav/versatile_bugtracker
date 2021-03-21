@@ -1,3 +1,4 @@
+// OVERRIDE DEFAULT ELEMENT BEHAVIOR
 body {
   font-weight: 300;
   color: $black;
@@ -28,17 +29,21 @@ ul, li {
   padding: 0;
   margin: 0;
 }
-
-a {
-  font-weight: 500;
+// LINK RELATED GOES HERE
+a, .link-to {
   color: inherit;
   text-transform: capitalize;
 
   &:active, &:visited, &:hover {
+    text-decoration: none;
     color: inherit;
   }
 }
 
+.link-to{
+  font-weight: 500;
+}
+// TEXT FORMATING
 .text-accent{
   font-weight: 500;
 }
@@ -56,8 +61,19 @@ a {
   font-style: italic;
 }
 
-.text-title{
+.text-title {
   text-transform: uppercase;
-  font-size: 18pt;
-
 }
+
+.text-caps {
+  font-size: 18pt;
+  text-transform: uppercase;
+  display: block;
+  margin: 0 0 8px 0;
+  font-style: italic;
+  font-size: 15pt;
+}
+
+
+
+

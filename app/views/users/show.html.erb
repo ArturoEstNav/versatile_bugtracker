@@ -4,9 +4,14 @@
   </div>
   <div class="container-main">
     <div>
-      <h1><%= @user.first_name %></h1>
-      <!-- show user information -->
-      <%= link_to "Edit user registration path", edit_user_registration_path(@user) %>
+      <h1>
+        <%= @user.first_name %>
+        <span class="button-link button-edit">
+          <%= link_to edit_user_registration_path(@user) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </span>
+      </h1>
     </div>
 
     <div data-controller="navbar">
@@ -36,11 +41,18 @@
           <% end %>
         </ul>
       </div>
-      <div data-navbar-target="tickets" style="display: block;">
+        <div data-navbar-target="tickets" style="display: block;">
         <ul>
           <% @user_tickets.each do |ticket|%>
-            <li class="container-ticket-item">
-              <%= link_to ticket.title, ticket_path(ticket) %>
+            <li class="container-clickable">
+              <%= link_to ticket_path(ticket) do %>
+                <h3 class="text-caps">
+                  <%= ticket.title %>
+                </h3>
+                <p>
+                  <%= ticket.description %>
+                </p>
+              <% end %>
             </li>
           <% end %>
         </ul>
