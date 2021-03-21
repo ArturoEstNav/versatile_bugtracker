@@ -39,7 +39,9 @@
                 </div>
                 <div class="container-event-description">
                   <%= tag.a(href: event.link) do%>
-                    <%= event.description %> &nbsp;
+                    <span class="link-to">
+                      <%= event.description %>
+                    </span>
                   <% end %>
                 </div>
               </div>

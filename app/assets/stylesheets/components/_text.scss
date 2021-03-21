@@ -42,6 +42,10 @@ a, .link-to {
 
 .link-to{
   font-weight: 500;
+
+  &:hover{
+    opacity: 0.5;
+  }
 }
 // TEXT FORMATING
 .text-accent{
