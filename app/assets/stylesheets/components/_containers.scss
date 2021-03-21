@@ -59,5 +59,18 @@
 }
 
 .container-event {
+  border: 1px solid red;
   margin-bottom: 16px;
+  display: flex;
+}
+
+.container-event-date{
+  border: 1px solid blue;
+  flex-basis: 25%;
+}
+
+.container-event-description{
+  border: 1px solid green;
+  flex-basis: 75%;
+  padding-left: 16px;
 }

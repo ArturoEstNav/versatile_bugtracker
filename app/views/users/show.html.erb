@@ -34,10 +34,14 @@
           <% @events.each do |event| %>
             <li>
               <div class="container-event">
-                <%= tag.a(href: event.link) do%>
-                  <%= event.description %> &nbsp;
-                  <%= event.created_at %>
-                <% end %>
+                <div class="container-event-date">
+                  <%= event.created_at.in_time_zone('America/Mexico_City').strftime("%m/%d/%Y at %I:%M%p") %>
+                </div>
+                <div class="container-event-description">
+                  <%= tag.a(href: event.link) do%>
+                    <%= event.description %> &nbsp;
+                  <% end %>
+                </div>
               </div>
             </li>
           <% end %>
@@ -60,6 +64,5 @@
         </ul>
       </div>
     </div>
-    <%= link_to "<< go back", root_path, class: "link-navigation" %>
   </div>
 </div>

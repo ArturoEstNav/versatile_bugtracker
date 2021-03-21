@@ -31,7 +31,7 @@ ul, li {
 }
 // LINK RELATED GOES HERE
 a, .link-to {
-  color: inherit;
+   color: inherit;
   text-transform: capitalize;
 
   &:active, &:visited, &:hover {
@@ -54,11 +54,6 @@ a, .link-to {
 
 .custom-link {
   color: $black
-}
-
-.link-navigation {
-  font-weight: 300;
-  font-style: italic;
 }
 
 .text-title {

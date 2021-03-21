@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     user_events = Event.where(user: @user)
     # user events go here
     # events = Event.where(user: current_user) + user_events
-    @events = user_events #events
+    @events = user_events.order('created_at DESC')
     @user_tickets = Ticket.where(user_id: @user)
     authorize @user
   end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if user.save
       if user_signed_in?
         event = UserEvent.new(
-              description: "#{current_user.username} created user #{user.first_name} #{user.last_name}",
+              description: "Created user #{user.first_name} #{user.last_name}",
               user: current_user,
               link: "/user/#{user.id}"
               )

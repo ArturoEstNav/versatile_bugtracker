@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     authorize @project
     if @project.save
       event = Event.new(
-              description: "#{current_user.first_name} added project #{@project.name}",
+              description: "Added project #{@project.name}",
               user: current_user,
               eventable: @project,
               link: "/projects/#{@project.id}"
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
     authorize @project
     if @project.update(update_params)
       event = Event.new(
-              description: "#{current_user.first_name} has edited the project #{@project.name} status" ,
+              description: "Edited the project #{@project.name} status" ,
               user: current_user,
               eventable: @project,
               link: "/projects/#{@project.id}"
