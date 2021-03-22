@@ -21,7 +21,7 @@
 
 .navbar-show{
   display: block;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $black;
   margin: 16px 0 32px 0;
   padding-bottom: 12px;
 }
@@ -34,6 +34,7 @@
 }
 
 .navbar-show-item{
+  color: $black;
   display: inline-block;
   font-style: italic;
 
@@ -43,6 +44,7 @@
 }
 
 .navbar-selected-item {
+  color: $black;
   font-style: normal;
   font-weight: 500;
 }

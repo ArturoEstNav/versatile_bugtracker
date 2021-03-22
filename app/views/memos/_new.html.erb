@@ -2,5 +2,5 @@
 <!-- Possible example picture -->
 <%= simple_form_for [ @ticket, @memo ] do |f| %>
   <%= f.input :content, hint: "Please use short, sweet, github style comments." %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "button-custom" %>
 <% end %>

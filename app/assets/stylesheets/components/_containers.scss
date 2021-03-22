@@ -64,6 +64,7 @@
 .container-event {
   margin-bottom: 16px;
   display: flex;
+  color: $black;
 }
 
 .container-event-date{
@@ -73,4 +74,23 @@
 .container-event-description{
   flex-basis: 75%;
   padding-left: 16px;
+}
+
+.link-shared-container{
+  display: block;
+  padding-top: 24px;
+
+  a {
+    display: inline;
+    margin: 0;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 300;
+
+    &:hover, &:active {
+      background-color: transparent;
+      font-weight: 500;
+    }
+
+  }
 }

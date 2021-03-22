@@ -76,18 +76,12 @@ a, .link-to {
   margin: 0 0 8px 0;
   font-style: italic;
   font-size: 15pt;
-
 }
 
 .link-navbar-user {
+  color: $black;
   padding-top: 8px;
   margin: 0;
   font-style: italic;
-
-  // &:hover, &:active {
-  //   background-color: transparent;
-  //   font-weight: 500;
-  // }
 }
-
 
