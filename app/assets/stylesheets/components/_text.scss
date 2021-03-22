@@ -60,8 +60,13 @@ a, .link-to {
   color: $black
 }
 
-.text-title {
+.text-title, .text-caps, .link-navbar-user {
   text-transform: uppercase;
+
+  &:hover, &:active {
+    background-color: transparent;
+    font-weight: 500;
+  }
 }
 
 .text-caps {
@@ -71,8 +76,18 @@ a, .link-to {
   margin: 0 0 8px 0;
   font-style: italic;
   font-size: 15pt;
+
 }
 
+.link-navbar-user {
+  padding-top: 8px;
+  margin: 0;
+  font-style: italic;
 
+  // &:hover, &:active {
+  //   background-color: transparent;
+  //   font-weight: 500;
+  // }
+}
 
 
