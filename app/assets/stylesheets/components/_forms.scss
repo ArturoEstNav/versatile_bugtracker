@@ -1,3 +1,46 @@
-input, .form-control, .string, .email, .optional{
+  .form-control,
+ -internal-autofill-selected{
+  border: 1px solid $black;
+  color: $black;
   background-color: transparent;
+
+  &:active {
+    color: $black;
+    background-color: transparent;
+  }
+}
+
+.form-group, .text, .required {
+  input {
+    border: 1px solid $black;
+    color: $black;
+    background-color: transparent;
+
+    &:active {
+      color: $black;
+      background-color: transparent;
+    }
+
+    &:focus {
+      color: $black;
+      background-color: transparent;
+    }
+
+    &:not(:disabled):not(.disabled):active {
+      color: $black;
+      background-color: transparent;
+    }
+  }
+}
+select {
+  color: $black;
+  background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  background-color: transparent !important;
+
 }
