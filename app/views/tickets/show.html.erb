@@ -29,6 +29,9 @@
           <p>
             <span class="text-accent">
               Ticket owner:&nbsp;
+              <%= link_to user_path(@ticket_user.first) do %>
+                <%= "#{@ticket_user.first.first_name} #{@ticket_user.first.last_name}"%>
+              <% end %>
             </span>
           </p>
         </div>
