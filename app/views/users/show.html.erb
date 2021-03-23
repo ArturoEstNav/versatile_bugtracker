@@ -29,24 +29,28 @@
         </ul>
       </div>
       <div data-navbar-target="history" style="display: none;">
-        <ul>
-          <% @events.each do |event| %>
-            <li>
-              <div class="container-event">
-                <div class="container-event-date">
-                  <%= event.created_at.in_time_zone('America/Mexico_City').strftime("%m/%d/%Y at %I:%M%p") %>
+        <% unless @events.empty? %>
+          <ul>
+            <% @events.each do |event| %>
+              <li>
+                <div class="container-event">
+                  <div class="container-event-date">
+                    <%= event.created_at.in_time_zone('America/Mexico_City').strftime("%m/%d/%Y at %I:%M%p") %>
+                  </div>
+                  <div class="container-event-description">
+                    <%= tag.a(href: event.link) do%>
+                      <span class="link-to">
+                        <%= event.description %>
+                      </span>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="container-event-description">
-                  <%= tag.a(href: event.link) do%>
-                    <span class="link-to">
-                      <%= event.description %>
-                    </span>
-                  <% end %>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>You have no activity yet.</p>
+        <% end %>
       </div>
         <div data-navbar-target="tickets" style="display: block;">
         <ul>
