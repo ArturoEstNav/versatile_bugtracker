@@ -71,10 +71,9 @@
         </div>
        <% end %>
     </div>
-    <!-- <div class="container-memo-new">
-      <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
-    </div> -->
-    <%= link_to "add a new memo", new_ticket_memo_path(params[:id]) %>
+    <div class="container-memo-new">
+      <h3>Add new memo</h3>
+      <%= render 'memos/new' %>
+    </div>
   </div>
-  <!-- <%= link_to "back to tickets list", tickets_path %> -->
 </div>

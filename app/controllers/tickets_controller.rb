@@ -86,6 +86,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     ticket_user = User.where(id: @ticket.user_id).map
     @ticket_user = ticket_user.first
+    @memo = Memo.new
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
     authorize @ticket
 
