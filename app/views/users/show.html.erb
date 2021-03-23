@@ -5,7 +5,7 @@
   <div class="container-main">
     <div>
       <h1>
-        <%= @user.first_name %>
+        <%= "#{@user.first_name} #{@user.last_name}"%>
         <span class="button-link button-edit">
           <%= link_to edit_user_registration_path(@user) do %>
             <i class="fas fa-edit"></i>
