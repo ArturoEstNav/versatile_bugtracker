@@ -3,11 +3,31 @@
   border: 1px solid $black;
   color: $black;
   background-color: transparent;
+  font-weight: 300;
 
   &:active {
     color: $black;
     background-color: transparent;
   }
+
+  &:active {
+    color: inherit;
+    background-color: transparent;
+  }
+
+  &:focus {
+    color: inherit;
+    background-color: transparent;
+  }
+
+  &:not(:disabled):not(.disabled):active {
+    color: inherit;
+    background-color: transparent;
+  }
+}
+
+.form-text, .text-muted, small {
+  color: inherit;
 }
 
 .form-group, .text, .required {

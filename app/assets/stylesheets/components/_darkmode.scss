@@ -78,4 +78,21 @@
   .navbar-selected-item {
     color: $white;
   }
+
+  .button-hours {
+    color: $white;
+    &:hover, &:active {
+      color: $white;
+    }
+  }
+
+  .form-text, .text-muted, small {
+    color: $white;
+  }
+
+  .container-ticket-memos{
+    // display: flex;
+    height: 500px;
+    color: $white;
+  }
 }
