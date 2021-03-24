@@ -5,6 +5,5 @@ class CorrectionsForNewFunctionality < ActiveRecord::Migration[6.0]
     change_column_default :tickets, :priority, from: "3", to: "necessary"
     add_column :projects, :description, :text
     remove_index :memos, :user_id
-    remove_index :events, :owner_id
   end
 end
