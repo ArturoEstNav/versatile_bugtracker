@@ -3,9 +3,29 @@
     <%= render 'shared/navbar_menu' %>
   </div>
   <div class="container-main">
-    <h1>Projects#show</h1>
-    <!-- set as inactive -->
-    <!-- see all project tickets, sort by importance or date opened-->
-    <p>Find me in app/views/projects/show.html.erb</p>
+    <h1>
+      <%= @project.name %>
+      <span class="button-link button-edit">
+        <%= link_to edit_project_path(@project) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </span>
+    </h1>
+    <div class="container-section">
+      <p class="text-project-description"><%= @project.name %></p>
+    </div>
+    <h2>Project tickets</h2>
+    <ul>
+      <% @tickets.each do |ticket| %>
+        <li class="container-clickable">
+          <%= link_to ticket_path(ticket) do %>
+            <h3 class="text-caps">
+              <%= ticket.title %>
+            </h3>
+            <p> <%= ticket.description %> </p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

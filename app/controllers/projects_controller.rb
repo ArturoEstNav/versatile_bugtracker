@@ -47,6 +47,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     authorize @project
+    @tickets = Ticket.where(project_id: @project)
   end
 
   def index

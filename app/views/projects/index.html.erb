@@ -16,7 +16,7 @@
       <% @projects.each do |project| %>
         <li>
           <div class="container-clickable">
-            <%= link_to edit_project_path(project.id) do %>
+            <%= link_to project_path(project.id) do %>
             <h3 class="text-caps">
               <%= project.name %>
             </h3>
