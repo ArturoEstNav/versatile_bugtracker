@@ -5,6 +5,7 @@
   <div class="container-main">
     <h1>Projects#edit</h1>
     <%= simple_form_for @project do |f| %>
+      <%= f.input :name %>
       <%= f.input :description %>
       <%= f.input :active %>
       <%= f.button :submit, class: "button-custom" %>

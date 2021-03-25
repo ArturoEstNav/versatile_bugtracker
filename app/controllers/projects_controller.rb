@@ -28,17 +28,17 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @projects = Project.find(params[:id])
+    @project = Project.find(params[:id])
     authorize @project
     if @project.update(update_params)
       event = Event.new(
-              description: "Edited the project #{@project.name} status" ,
+              description: "Edited the project #{@project.name}",
               user: current_user,
               eventable: @project,
               link: "/projects/#{@project.id}"
               )
       event.save
-      redirect_to root_path
+      redirect_to projects_path
     else
       render :edit
     end
@@ -60,6 +60,6 @@ class ProjectsController < ApplicationController
   end
 
   def update_params
-    params.require(:project).permit(:active)
+    params.require(:project).permit(:active, :name, :description)
   end
 end
