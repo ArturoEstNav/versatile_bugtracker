@@ -7,6 +7,5 @@ class ResetEventsTable < ActiveRecord::Migration[6.0]
     add_reference :events, :user
     add_column :events, :description, :string
     add_column :events, :link, :string, default: ""
-    rename_column :user_events, :event_link, :link
   end
 end
