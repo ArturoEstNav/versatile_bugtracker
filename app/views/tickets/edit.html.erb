@@ -3,7 +3,7 @@
     <%= render 'shared/navbar_menu' %>
   </div>
   <div class="container-main">
-    <h1>Tickets#edit</h1>
+    <h1>Edit ticket</h1>
     <%= simple_form_for @ticket do |f| %>
       <% if current_user.admin %>
         <%= f.input :user_id, collection: @users %>
