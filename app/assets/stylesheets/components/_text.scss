@@ -32,7 +32,6 @@ ul, li {
 // LINK RELATED GOES HERE
 a, .link-to {
    color: inherit;
-  text-transform: capitalize;
 
   &:active, &:visited, &:hover {
     text-decoration: none;
@@ -40,12 +39,19 @@ a, .link-to {
   }
 }
 
-.link-to{
+.link-to, .link-nav{
   font-weight: 500;
 
   &:hover{
     opacity: 0.5;
   }
+
+.link-nav{
+  text-decoration: underline;
+  text-transform: capitalize;
+  font-style: italic;
+}
+
 }
 // TEXT FORMATING
 .text-accent{
