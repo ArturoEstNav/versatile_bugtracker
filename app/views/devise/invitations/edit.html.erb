@@ -1,15 +1,22 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.hidden_field :invitation_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+<div class="container-layout">
+  <div class="navbar-menu">
+    <%= render 'shared/navbar_menu' %>
   </div>
+  <div class="container-main">
+    <h2><%= t "devise.invitations.edit.header" %></h2>
 
-  <div class="form-actions">
-    <%= f.button :submit, t("devise.invitations.edit.submit_button"), class: "button-custom" %>
+    <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.hidden_field :invitation_token %>
+
+      <div class="form-inputs">
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, t("devise.invitations.edit.submit_button"), class: "button-custom" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
