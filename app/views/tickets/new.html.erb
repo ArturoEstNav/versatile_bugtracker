@@ -7,7 +7,7 @@
       <%= simple_form_for @ticket do |f|%>
       <%= f.input :title %>
       <%= f.input :description %>
-      <%= f.input :priority , collection: ['urgent', 'time_sensitive', 'necessary'] %>
+      <%= f.input :priority , collection: [['Urgent', 'urgent'], ['Time sensitive', 'time_sensitive'], ['Necessary', 'necessary']] %>
       <%= f.input :project_id, collection: @projects%>
       <%= f.input :category %>
       <%= f.input :status %>
