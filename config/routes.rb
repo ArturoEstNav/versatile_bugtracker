@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'projects/edit'
   get 'projects/show'
   get 'projects/index'
+  get 'pages/demo'
   patch 'tickets/update_hours/:id' => "tickets#update_hours", as: :update_hours_ticket
 
   devise_for :users, controllers: { invitations: 'users/invitations' }
