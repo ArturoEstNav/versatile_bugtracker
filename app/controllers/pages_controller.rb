@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-   skip_before_action :authenticate_user!, only: [ :home, :demo ]
+   skip_before_action :authenticate_user!, only: [ :demo ]
   def home
     @projects = Project.all
     @tickets = Ticket.all

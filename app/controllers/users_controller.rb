@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     user_events = Event.where(user: @user)
-    # user events go here
-    # events = Event.where(user: current_user) + user_events
     @events = user_events.order('created_at DESC')
     @user_tickets = Ticket.where(user_id: @user)
     authorize @user
