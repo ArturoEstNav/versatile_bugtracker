@@ -3,13 +3,26 @@
 }
 
 .navbar-user-demo {
-  padding: 16px 48px 16px 80px;
-  border: 1px solid green;
+  padding: 16px 24px;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    font-size: 10pt;
+
+    i {
+      font-size: 10pt;
+    }
+  }
 }
 
 .navbar-menu-demo{
-  padding: 16px 0 0 0;
-  border: 1px solid blue;
+  padding: 16px 24px;
+
+  li {
+    font-size: 10pt;
+  }
+
 }
 
 .container-screen-demo{
