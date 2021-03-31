@@ -1,9 +1,20 @@
 .dark-mode {
   background-color: $black-background;
 
-  body {
+  body, .container-event,h1, h2, h3, h4, p, a, .btn, .link,
+  .custom-navbar-main, .custom-navbar-footer, form, .text-red,
+  .form-group, .text, .required, select, link-navbar-user, .link-to,
+  .navbar-show-item, .navbar-selected-item.form-text, .text-muted,
+  small, .container-ticket-memos, .button-hours, .link-navbar-user   {
     color: $white;
+
+    &:visited{
+      color: $white;
+    }
   }
+
+
+
 
   .navbar-user {
     background: linear-gradient(0deg, transparent, $diluted-black, $black-background);
@@ -14,20 +25,10 @@
     border-bottom: 1px solid $white;
   }
 
-  h1, h2, h3, h4, p, a, .btn, .link,
-  .custom-navbar-main, .custom-navbar-footer,
-  form, .text-red  {
-    color: white;
-  }
-
   a, .btn, .link {
     &:hover{
       opacity: 0.7;
     }
-  }
-
-  .container-event {
-    color: $white;
   }
 
   .button-custom {
@@ -48,7 +49,6 @@
   .form-group, .text, .required {
     input {
       border: 1px solid $white;
-      color: $white;
 
       &:active {
         color: $white;
@@ -63,36 +63,14 @@
       }
     }
   }
-  select {
-    color: $white;
-  }
-
-  .link-navbar-user {
-    color: $white;
-  }
-
-  .navbar-show-item{
-    color: $white;
-  }
-
-  .navbar-selected-item {
-    color: $white;
-  }
 
   .button-hours {
-    color: $white;
     &:hover, &:active {
       color: $white;
     }
   }
 
-  .form-text, .text-muted, small {
-    color: $white;
-  }
-
   .container-ticket-memos{
-    // display: flex;
     height: 500px;
-    color: $white;
   }
 }
