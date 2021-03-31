@@ -1,15 +1,27 @@
 <div class="container">
   <div>
     <p>This is the demo!!</p>
-    <%= render 'pages/shared/welcome' %>
-    <%= render 'pages/shared/dashboard' %>
-    <%= render 'pages/shared/navbar' %>
-    <%= render 'pages/shared/projects' %>
-    <%= render 'pages/shared/ticket' %>
-    <%= render 'pages/shared/memo' %>
-    <%= render 'pages/shared/user' %>
-    <%= render 'pages/shared/history' %>
-    <%= render 'pages/shared/action' %>
+    <div class="container-demo">
+      <div class="navbar-user-demo">
+        <%= render 'pages/shared/header_demo' %>
+      </div>
+      <div class="container-layout">
+        <div class="navbar-menu navbar-menu-demo">
+          <%= render 'pages/shared/menu_demo' %>
+        </div>
+        <div class="container-main container-screen-demo">
+          <%= render 'pages/shared/welcome' %>
+          <%= render 'pages/shared/dashboard' %>
+          <%= render 'pages/shared/navbar' %>
+          <%= render 'pages/shared/projects' %>
+          <%= render 'pages/shared/ticket' %>
+          <%= render 'pages/shared/memo' %>
+          <%= render 'pages/shared/user' %>
+          <%= render 'pages/shared/history' %>
+          <%= render 'pages/shared/action' %>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <%= link_to "Sign in", new_user_session_path %>

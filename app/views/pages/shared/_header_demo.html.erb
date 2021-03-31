@@ -1,0 +1,21 @@
+<div class="navbar navbar-expand-sm navbar-user">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <div class="navbar-user-option btn custom-btn-nav toggle-btn">
+          <i class="far fa-moon"></i>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li class="link-navbar-user">
+          LOG OUT
+        </li>
+      <% else %>
+        <li class="link-navbar-user">
+          LOGIN
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
