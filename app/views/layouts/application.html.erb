@@ -9,12 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body data-controller="darkmode" data-target="darkmode.page">
-    <%= render 'shared/navbar_user' %>
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
-    <%= render 'shared/flashes' %>
-    <div class="container">
-      <%= yield %>
+    <!-- Working on responsiveness feature, the banner controller associated data will be removed in a few days -->
+    <div data-controller="banner" data-action="load->banner#adjustSize">
+      <div data-banner-target="mobile" style="display: none;">
+        wonderwhy
+      </div>
+      <div data-banner-target="laptop" style="display: block;">
+          <%= render 'shared/navbar_user' %>
+          <!-- <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p> -->
+          <%= render 'shared/flashes' %>
+          <div class="container">
+            <%= yield %>
+          </div>
+      </div>
     </div>
   </body>
 </html>
