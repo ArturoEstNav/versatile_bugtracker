@@ -7,11 +7,9 @@ export default class extends Controller {
     if (window.innerWidth < 992) {
       this.laptopTarget.style.display = "none"
       this.mobileTarget.style.display = "block"
-      console.log("bummer dude")
     } else {
       this.mobileTarget.style.display = "none"
       this.laptopTarget.style.display = "block"
-      console.log("blah blah")
     }
   }
 }

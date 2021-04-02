@@ -10,7 +10,7 @@
   </head>
   <body data-controller="darkmode" data-target="darkmode.page">
     <!-- Working on responsiveness feature, the banner controller associated data will be removed in a few days -->
-    <div data-controller="banner" data-action="load->banner#adjustSize">
+    <div data-controller="banner" data-action="load@window->banner#adjustSize resize@window->banner#adjustSize">
       <div data-banner-target="mobile" style="display: none;">
         wonderwhy
       </div>
