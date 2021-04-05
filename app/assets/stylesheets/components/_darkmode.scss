@@ -8,7 +8,7 @@
   small, .container-ticket-memos, .button-hours, .link-navbar-user   {
     color: $white;
 
-    &:visited{
+    &:visited, &:hover{
       color: $white;
     }
   }
@@ -36,7 +36,6 @@
   .form-control,
   -internal-autofill-selected{
     border: 1px solid $white;
-    color: $white;
 
     &:active {
       color: $white;
@@ -47,14 +46,7 @@
     input {
       border: 1px solid $white;
 
-      &:active {
-        color: $white;
-      }
-
-      &:focus {
-        color: $white;
-      }
-
+      &:active, &:focus,
       &:not(:disabled):not(.disabled):active {
         color: $white;
       }
