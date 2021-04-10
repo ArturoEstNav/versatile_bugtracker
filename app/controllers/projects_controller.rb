@@ -1,13 +1,16 @@
 class ProjectsController < ApplicationController
   def new
     @project = Project.new
+
     authorize @project
   end
 
   def create
     @project = Project.new(create_params)
     @project.active = true
+
     authorize @project
+
     if @project.save
       event = Event.new(
               description: "Added project #{@project.name}",
@@ -24,12 +27,15 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+
     authorize @project
   end
 
   def update
     @project = Project.find(params[:id])
+
     authorize @project
+
     if @project.update(update_params)
       event = Event.new(
               description: "Edited the project #{@project.name}",
@@ -46,8 +52,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    authorize @project
     @tickets = Ticket.where(project_id: @project)
+
+    authorize @project
   end
 
   def index

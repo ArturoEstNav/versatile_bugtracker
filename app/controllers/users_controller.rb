@@ -1,21 +1,24 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     user_events = Event.where(user: @user)
     @events = user_events.order('created_at DESC')
     @user_tickets = Ticket.where(user_id: @user)
+
     authorize @user
   end
 
   def new
     user = User.new
+
     authorize current_user
   end
 
   def create
     user = User.new(user_params, active: true)
+
     authorize current_user
+
     if user.save
       if user_signed_in?
         event = UserEvent.new(
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
     if @user.update(user_params)
       redirect_to user_path(params[:id])
     else

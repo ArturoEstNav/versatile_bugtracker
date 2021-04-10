@@ -11,6 +11,7 @@ class MemosController < ApplicationController
     @memo.user_id = current_user.id
     @ticket = Ticket.find(params[:ticket_id])
     authorize @memo
+
     if @memo.save
       event = Event.new(
               description: "Added memo \"#{@memo.content}\" to ticket #{@ticket.description}",
@@ -28,13 +29,16 @@ class MemosController < ApplicationController
   def edit
     @ticket = Ticket.find(params[:ticket_id])
     @memo = Memo.find(params[:id])
+
     authorize @memo
   end
 
   def update
     @memo = Memo.find(params[:id])
     @ticket = Ticket.find(params[:ticket_id])
+
     authorize @memo
+
     if @memo.update(memo_params)
       redirect_to ticket_path(params[:ticket_id])
       event = Event.new(

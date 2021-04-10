@@ -6,14 +6,17 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
-    @projects= Project.all.map {|project| [project.name, project.id] }
+    @projects = Project.all.map {|project| [project.name, project.id]}
+
     authorize @ticket
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user_id = current_user.id
+
     authorize @ticket
+
     if @ticket.save
       event = Event.new(
               description: "Opened ticket #{@ticket.title}",
@@ -25,6 +28,7 @@ class TicketsController < ApplicationController
       redirect_to root_path
     else
       @errors = "#{@ticket.errors.messages}"
+
       render :new
     end
   end
@@ -34,14 +38,16 @@ class TicketsController < ApplicationController
     @users = User.all.map do |user|
       ["#{user.first_name} #{user.last_name}", user.id]
     end
+
     authorize @ticket
   end
 
   def update
     @ticket = Ticket.find(params[:id])
-    authorize @ticket
     change_list = Event.identify_changes(ticket: @ticket, params: ticket_params)
     changes = Event.store_changes_record(change_list)
+
+    authorize @ticket
 
     if @ticket.update(ticket_params)
       unless changes == "no changes"
@@ -60,7 +66,9 @@ class TicketsController < ApplicationController
 
   def update_hours
     @ticket = Ticket.find(params[:id])
+
     authorize @ticket
+
     if @ticket.active
       @ticket.end_timer
       redirect_to ticket_path(params[:id])
@@ -88,8 +96,8 @@ class TicketsController < ApplicationController
     @ticket_user = ticket_user.first
     @memo = Memo.new
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
-    authorize @ticket
 
+    authorize @ticket
   end
 
   private
@@ -98,5 +106,4 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(:description, :project_id, :status,
     :priority, :category, :title, :user_id )
   end
-
 end
