@@ -19,10 +19,10 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       event = Event.new(
-              description: "Opened ticket #{@ticket.title}",
-              user: current_user,
-              eventable: @ticket,
-              link: "/tickets/#{params[:ticket_id]}"
+                description: "Opened ticket #{@ticket.title}",
+                user: current_user,
+                eventable: @ticket,
+                link: "/tickets/#{params[:ticket_id]}"
               )
       event.save
       redirect_to root_path
@@ -52,10 +52,11 @@ class TicketsController < ApplicationController
     if @ticket.update(ticket_params)
       unless changes == "no changes"
         event = Event.new(
-                description: "Changed the #{changes} on ticket #{@ticket.title}",
-                user: current_user,
-                eventable: @ticket,
-                link: "/tickets/#{@ticket.id}")
+                  description: "Changed the #{changes} on ticket #{@ticket.title}",
+                  user: current_user,
+                  eventable: @ticket,
+                  link: "/tickets/#{@ticket.id}"
+                )
         event.save
       end
       redirect_to ticket_path(params[:id])
@@ -76,7 +77,8 @@ class TicketsController < ApplicationController
                 description: "#{current_user.first_name} stopped working on ticket #{@ticket.title}",
                 user: current_user,
                 eventable: @ticket,
-                link: "/tickets/#{@ticket.id}")
+                link: "/tickets/#{@ticket.id}"
+              )
       event.save
     else
       @ticket.start_timer
@@ -85,7 +87,8 @@ class TicketsController < ApplicationController
                 description: "#{current_user.first_name} started working on ticket #{@ticket.title}",
                 user: current_user,
                 eventable: @ticket,
-                link: "/tickets/#{@ticket.id}")
+                link: "/tickets/#{@ticket.id}"
+              )
       event.save
     end
   end

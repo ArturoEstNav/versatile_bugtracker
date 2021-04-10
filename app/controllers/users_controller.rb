@@ -22,10 +22,10 @@ class UsersController < ApplicationController
     if user.save
       if user_signed_in?
         event = UserEvent.new(
-              description: "Created user #{user.first_name} #{user.last_name}",
-              user: current_user,
-              link: "/user/#{user.id}"
-              )
+                  description: "Created user #{user.first_name} #{user.last_name}",
+                  user: current_user,
+                  link: "/user/#{user.id}"
+                )
         event.save
       end
       redirect_to root_path

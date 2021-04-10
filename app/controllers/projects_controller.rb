@@ -38,10 +38,10 @@ class ProjectsController < ApplicationController
 
     if @project.update(update_params)
       event = Event.new(
-              description: "Edited the project #{@project.name}",
-              user: current_user,
-              eventable: @project,
-              link: "/projects/#{@project.id}"
+                description: "Edited the project #{@project.name}",
+                user: current_user,
+                eventable: @project,
+                link: "/projects/#{@project.id}"
               )
       event.save
       redirect_to projects_path
