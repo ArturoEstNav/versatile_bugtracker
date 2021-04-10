@@ -40,8 +40,8 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
     authorize @ticket
-    change_list = Event.set_changes_list(ticket: @ticket, params: ticket_params)
-    changes = Event.stringify_changes(change_list)
+    change_list = Event.identify_changes(ticket: @ticket, params: ticket_params)
+    changes = Event.store_changes_record(change_list)
 
     if @ticket.update(ticket_params)
       unless changes == "no changes"

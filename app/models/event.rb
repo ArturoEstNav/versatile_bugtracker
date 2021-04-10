@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   belongs_to :eventable, polymorphic: true
   belongs_to :user
 
-  def self.set_changes_list(attributes = {})
+  def self.identify_changes(attributes = {})
     changes = []
     changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id] || attributes[:params][:user_id].nil? || attributes[:params][:user_id] == ""
     changes << "status" unless attributes[:ticket].status == attributes[:params][:status]
@@ -11,7 +11,7 @@ class Event < ApplicationRecord
     changes
   end
 
-  def self.stringify_changes(array)
+  def self.store_changes_record(array)
     if array.size == 0
       "no changes"
     elsif array.size == 1
