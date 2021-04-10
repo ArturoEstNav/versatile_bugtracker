@@ -46,9 +46,9 @@
          class="container-ticket-hours" >
       <div class="custom-container-hour-control">
         <% if @ticket.active %>
-          <h3>Active</h3>
+          <div class="text-status">Active</div>
         <% else %>
-          <h3>Not active</h3>
+          <div class="text-status">Not active</div>
         <% end %>
         <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
           <div class="button-link button-hours">

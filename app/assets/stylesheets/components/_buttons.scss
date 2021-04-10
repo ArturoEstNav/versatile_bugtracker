@@ -16,9 +16,10 @@
   width: 100%;
   margin: 8px 0;
   font-size: 25pt;
+  opacity: $opacity;
   &:hover, &:active {
     color: $black;
-    opacity: $opacity;
+    opacity: 1;
   }
 }
 
