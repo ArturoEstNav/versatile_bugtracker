@@ -1,25 +1,27 @@
 .button-link {
   margin-left: 4px;
+  color: $secondary-blue;
 }
 
 .button-edit {
   font-size: 11pt;
-
+  color: $secondary-blue;
   &:hover {
     opacity: $opacity;
   }
 }
 
 .button-hours {
-  color: $black;
+  // color: $black;
+  color: $secondary-blue;
   display: inline-block;
   width: 100%;
   margin: 8px 0;
   font-size: 25pt;
-  opacity: $opacity;
+  opacity: 1;
+
   &:hover, &:active {
-    color: $black;
-    opacity: 1;
+    opacity: $opacity;
   }
 }
 
