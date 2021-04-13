@@ -1,11 +1,10 @@
 .dark-mode {
   background-color: $black-background;
-
-  body, .container-event,h1, h2, h3, h4, p, a, .btn, .link, .password,
-  .custom-navbar-main, .custom-navbar-footer, form, .text-red,
-  .form-group, .text, .required, select, link-navbar-user, .link-to,
-  .navbar-show-item, .navbar-selected-item.form-text, .text-muted,
-  small, .container-ticket-memos, .button-hours, .link-navbar-user   {
+  body, .container-event, p, .password, .text-muted,
+  .custom-navbar-footer, form, .text-red, .text-status,
+  .form-group, .text, .required, select, .form-text,
+  small, .container-ticket-memos, .btn,
+  .button-custom {
     color: $white;
 
     &:visited, &:hover{
@@ -61,5 +60,31 @@
 
   .container-ticket-memos{
     height: 500px;
+  }
+
+  h1, h2, h3, h4 {
+    color: $primary-pink;
+  }
+
+  .link, .link-to, .link-navbar-user,
+  .button-link, .button-edit, .button-hours,
+  .navbar-show-item, .navbar-selected-item,
+  .custom-navbar-main, a {
+    color: $ternary-blue;
+
+    &:active, &:visited, &:hover{
+      color: $ternary-blue;
+      opacity: $opacity-dark;
+    }
+  }
+
+  .navbar-user, .navbar-user .navbar-collapse,
+  .navbar-user .navbar-brand, .navbar-show-item,
+  .navbar-selected-item, img {
+    color: $ternary-blue;
+
+    i {
+      color: $ternary-blue;
+    }
   }
 }
