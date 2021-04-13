@@ -1,10 +1,9 @@
 .dark-mode {
   background-color: $black-background;
   body, .container-event, p, .password, .text-muted,
-  .custom-navbar-footer, form, .text-red, .text-status,
+  .custom-navbar-footer, form, .text-red, .button-custom,
   .form-group, .text, .required, select, .form-text,
-  small, .container-ticket-memos, .btn,
-  .button-custom {
+  small, .container-ticket-memos, .btn {
     color: $white;
 
     &:visited, &:hover{
@@ -62,7 +61,7 @@
     height: 500px;
   }
 
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, .text-status {
     color: $primary-pink;
   }
 
