@@ -31,20 +31,21 @@
 
 .container-ticket-memos{
   display: flex;
+  // justify-content: space-between;
   height: 500px;
   color: inherit;
 }
 
 .container-memo-list{
-  flex-basis: 55%;
+  flex-basis: 53%;
 }
 
 .container-memo-new{
-  flex-basis: 45%;
+  flex-basis: 40%;
 }
 
 .container-memo-show{
-  margin-bottom: 16px;
+  margin: 0 16px 16px 0;
 }
 
 .navbar-selected-item {

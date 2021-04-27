@@ -66,7 +66,7 @@
   <div class=" container-section container-ticket-memos">
     <div class="container-memo-list">
       <% @memos.each do |memo| %>
-        <div class="container-memo-show">
+        <div class="container-memo-show ">
            <%= memo.content %>
            <span class="button-link button-edit">
             <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
