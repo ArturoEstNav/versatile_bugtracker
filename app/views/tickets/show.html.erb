@@ -62,9 +62,9 @@
       </div>
     </div>
   </div>
-  <h2>Memo list</h2>
   <div class=" container-section container-ticket-memos">
     <div class="container-memo-list">
+      <h2>Memo list</h2>
       <% @memos.each do |memo| %>
         <div class="container-memo-show ">
            <%= memo.content %>
@@ -78,7 +78,7 @@
        <% end %>
     </div>
     <div class="container-memo-new">
-      <h3>Add new memo</h3>
+      <h2>Add new memo</h2>
       <%= render 'memos/new' %>
     </div>
   </div>
