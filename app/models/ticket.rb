@@ -29,7 +29,7 @@ class Ticket < ApplicationRecord
   end
 
   def ticket_closing_date
-    self.created_at.strftime("Closed on %m/%d/%Y")
+    self.updated_at.strftime("Closed on %m/%d/%Y")
   end
 
   private
