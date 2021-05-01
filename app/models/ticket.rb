@@ -20,6 +20,14 @@ class Ticket < ApplicationRecord
     self.save
   end
 
+  def ticket_age_in_hours
+    (Time.now - self.created_at).round / 60 / 60
+  end
+
+  def ticket_age_in_days
+    (Time.now - self.created_at).round / 60 / 60 /24
+  end
+
   private
 
   def update_completion_hours(time_object)

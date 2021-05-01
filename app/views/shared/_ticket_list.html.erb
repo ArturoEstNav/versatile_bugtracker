@@ -4,10 +4,21 @@
       <%= link_to ticket_path(ticket) do %>
         <h3 class="text-caps">
           <%= ticket.title %>
+          (<%= ticket.status %>)
         </h3>
         <p>
           <%= ticket.description %>
         </p>
+        <% if ticket.status == 'open' %>
+          <% if ticket.ticket_age_in_hours <= 72 %>
+            <p>Opened <%= ticket.ticket_age_in_hours %> hours ago</p>
+          <% else %>
+            <p>Opened <%= ticket.ticket_age_in_days %> days ago</p>
+          <% end %>
+
+        <% else %>
+
+        <% end %>
       <% end %>
     </li>
   <% end %>
