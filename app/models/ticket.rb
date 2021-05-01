@@ -28,7 +28,7 @@ class Ticket < ApplicationRecord
     (Time.now - self.created_at).round / 60 / 60 /24
   end
 
-  def ticked_closing_date
+  def ticket_closing_date
     self.created_at.strftime("Closed on %m/%d/%Y")
   end
 
