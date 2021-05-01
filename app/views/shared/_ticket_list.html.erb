@@ -15,9 +15,8 @@
           <% else %>
             <p>Opened <%= ticket.ticket_age_in_days %> days ago</p>
           <% end %>
-
         <% else %>
-
+            <p><%= ticked_closing_date %></p>
         <% end %>
       <% end %>
     </li>
