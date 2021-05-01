@@ -26,18 +26,7 @@
     <% if @tickets.empty? %>
       <%= link_to "Add a new ticket", new_ticket_path, class: "link-nav" %>
     <% else %>
-      <ul>
-        <% @tickets.each do |ticket| %>
-          <li class="container-clickable">
-            <%= link_to ticket_path(ticket) do %>
-              <h3 class="text-caps">
-                <%= ticket.title %>
-              </h3>
-              <p> <%= ticket.description %> </p>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+      <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
     <% end %>
   </div>
 </div>

@@ -10,19 +10,6 @@
         <% end %>
       </span>
     </h1>
-    <ul>
-      <% @tickets.each do |ticket| %>
-        <li class="container-clickable">
-          <%= link_to ticket_path(ticket) do %>
-            <h3 class="text-caps">
-              <%= ticket.title %>
-            </h3>
-            <p>
-              <%= ticket.description %>
-            </p>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render 'shared/ticket_list', locals: { tickets: @tickets } %>
   </div>
 </div>
