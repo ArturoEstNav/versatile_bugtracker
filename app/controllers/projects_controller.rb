@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @tickets = Ticket.where(project_id: @project)
+    @tickets = Ticket.where(project_id: @project, status: 'open')
 
     authorize @project
   end
