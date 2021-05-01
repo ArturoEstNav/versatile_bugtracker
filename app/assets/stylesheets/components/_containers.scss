@@ -7,7 +7,9 @@
 
 .container-main {
   flex-basis: 80%;
-  padding: 16px 48px 0 0;
+  padding: 16px 48px;
+  border: 1px solid blue;
+  // divider border will be placed here
 }
 
 .container-section {
@@ -19,12 +21,7 @@
   display: flex;
 }
 
-.container-ticket-description{
-  flex-basis: 70%;
-}
-
 .container-ticket-hours{
-  flex-basis: 30%;
   text-align: center;
   font-weight: 500;
 }
@@ -35,12 +32,12 @@
   justify-content: space-between;
   color: inherit;
 }
-
-.container-memo-list{
+// insert the same logic in here
+.container-memo-list, .container-ticket-description{
   flex-basis: 53%;
 }
 
-.container-memo-new{
+.container-memo-new, .container-ticket-hours{
   flex-basis: 40%;
 }
 

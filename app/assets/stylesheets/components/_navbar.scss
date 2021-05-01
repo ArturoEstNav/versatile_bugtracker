@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: transparent;
   padding: 16px 48px 16px 80px;
+  border: 1px solid green;
 
   i {
     color: $secondary-blue;
@@ -20,7 +21,8 @@
 
 .navbar-menu {
   flex-basis: 18%;
-  padding: 16px 0 0 0;
+  padding: 16px;
+  border: 1px solid red;
 }
 
 .navbar-show{
@@ -38,7 +40,6 @@
 }
 
 .navbar-show-item{
-  // color: $black;
   color: $secondary-blue;
   display: inline-block;
   font-style: italic;
@@ -50,7 +51,6 @@
 }
 
 .navbar-selected-item {
-  // color: $black;
   color: $secondary-blue;
   font-style: normal;
   font-weight: 500;
