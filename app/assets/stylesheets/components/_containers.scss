@@ -1,6 +1,7 @@
 .container {
   padding-bottom: 40px;
 }
+
 .container-layout {
   display: flex;
 }
@@ -8,8 +9,6 @@
 .container-main {
   flex-basis: 80%;
   padding: 16px 48px;
-  border-left: 1px solid;
-  border-color: $blue;
 }
 
 .container-section {
@@ -44,13 +43,11 @@
 }
 
 .container-clickable {
-  margin: 0 0 16px 0;
-
-  a, h3 {
-    &:hover, &:active{
-      font-weight: 500;
-    }
-  }
+  margin: 16px;
+  padding: 16px;
+  border: 2px solid $light-gray;
+  border-radius: 8px;
+  background-color: #FAFFFF;
 }
 
 .container-event {
@@ -79,7 +76,6 @@
     &:hover, &:active {
       background-color: transparent;
     }
-
   }
 }
 

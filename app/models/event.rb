@@ -4,7 +4,9 @@ class Event < ApplicationRecord
 
   def self.identify_changes(attributes = {})
     changes = []
-    changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id] || attributes[:params][:user_id].nil? || attributes[:params][:user_id] == ""
+    changes << "user" unless attributes[:ticket].user_id == attributes[:params][:user_id]
+    # changes << "user" unless attributes[:params][:user_id].nil?
+    # changes << "user" unless attributes[:params][:user_id] == ""
     changes << "status" unless attributes[:ticket].status == attributes[:params][:status]
     changes << "priority" unless attributes[:ticket].priority == attributes[:params][:priority]
     changes << "category" unless attributes[:ticket].category == attributes[:params][:category]

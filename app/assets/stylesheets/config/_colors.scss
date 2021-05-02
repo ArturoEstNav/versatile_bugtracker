@@ -1,19 +1,15 @@
 // Define variables for your color scheme
-$red: #FD1015;
 $blue: #2A8EE6;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
-$black-background: #0A2338;
+$light-gray: transparentize(#CFCFCF, .4);
+$black-background: #030D1C;
 $diluted-black: transparentize($black-background, .2);
 $background-color: #F4F3FF;
 $diluted-background: transparentize($background-color, .2);
 $black: #010305;
-$white: #FFF;
+$white: #FAFFFF;
+$dark-card: #041124;
 $opacity: 0.5;
 $opacity-dark: 0.8;
-$secondary-blue: #3E3E63;
+$secondary-blue: #1E66A6;
 // For use on darkmode
 $ternary-blue: #2E9DFF;

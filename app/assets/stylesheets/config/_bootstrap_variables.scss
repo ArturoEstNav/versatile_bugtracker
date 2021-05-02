@@ -10,16 +10,14 @@ $body-bg:                 $background-color;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
+$body-color: $black;
 $primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$success:    $secondary-blue;
+$info:       $ternary-blue;
+$danger:     $ternary-blue;
+$warning:    $ternary-blue;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
-
-// Override other variables below!

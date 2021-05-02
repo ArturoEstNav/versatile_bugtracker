@@ -1,8 +1,10 @@
 .dark-mode {
   background-color: $black-background;
-  color: white;
+  body {
+    color: $white;
+  }
 
-  body, .container-event, p, .password, .text-muted,
+  .container-event, p, .password, .text-muted,
   .custom-navbar-footer, form, .text-red, .button-custom,
   .form-group, .text, .required, select, .form-text,
   small, .container-ticket-memos, .btn {
@@ -66,10 +68,7 @@
     color: white;
   }
 
-  h1, h2, .link, .link-to, .link-navbar-user,
-  .button-link, .button-edit, .button-hours,
-  .navbar-show-item, .navbar-selected-item,
-  .custom-navbar-main, a {
+  h1, h2, .link, a {
     color: $ternary-blue;
 
     &:active, &:visited, &:hover{
@@ -86,5 +85,9 @@
     i {
       color: $ternary-blue;
     }
+  }
+
+  .container-clickable{
+    background-color: $dark-card;
   }
 }
