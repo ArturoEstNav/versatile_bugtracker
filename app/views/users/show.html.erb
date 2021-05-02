@@ -52,8 +52,12 @@
           <p>You have no activity yet.</p>
         <% end %>
       </div>
-        <div data-navbar-target="tickets" style="display: block;">
+      <div data-navbar-target="tickets" style="display: block;">
+        <% if @tickets.empty? %>
+          You got no open tickets assigned to you.
+        <% else %>
         <%= render 'shared/ticket_list', locals: { tickets: @tickets } %>
+        <% end %>
       </div>
     </div>
   </div>

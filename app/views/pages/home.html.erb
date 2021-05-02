@@ -4,7 +4,11 @@
   </div>
   <div class="container-main">
     <h1>My pending tickets</h1>
-    <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
+    <% if @tickets.empty?%>
+      There are no open tickets assigned to you
+    <% else %>
+      <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
+    <% end %>
   </div>
 </div>
 
