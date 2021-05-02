@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'projects/index'
   get 'pages/demo'
   patch 'tickets/update_hours/:id' => "tickets#update_hours", as: :update_hours_ticket
+  patch 'tickets/close_ticket/:id' => "tickets#close_ticket", as: :close_ticket
 
   devise_for :users, controllers: { invitations: 'users/invitations' }
   root to: 'pages#home'

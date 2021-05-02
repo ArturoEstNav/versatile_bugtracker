@@ -42,6 +42,26 @@ class TicketsController < ApplicationController
     authorize @ticket
   end
 
+  def close_ticket
+    @ticket = Ticket.find(params[:id])
+
+    authorize @ticket
+
+    if @ticket.active
+      @ticket.end_timer
+    end
+    @ticket.update(status: 'closed')
+    @ticket.save
+      event = Event.new(
+                description: "#{current_user.first_name} closed ticket #{@ticket.title}",
+                user: current_user,
+                eventable: @ticket,
+                link: "/tickets/#{@ticket.id}"
+              )
+      event.save
+    redirect_to ticket_path(params[:id])
+  end
+
   def update
     @ticket = Ticket.find(params[:id])
     change_list = Event.identify_changes(ticket: @ticket, params: ticket_params)

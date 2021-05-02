@@ -18,22 +18,20 @@
   margin: 0 0 40px 0;
 }
 
-.container-ticket-data{
+.container-ticket-data, .container-ticket-memos {
   display: flex;
+  justify-content: space-between;
 }
 
 .container-ticket-hours{
-  text-align: center;
   font-weight: 500;
 }
 
 .container-ticket-memos{
-  display: flex;
   height: 500px;
-  justify-content: space-between;
   color: inherit;
 }
-// insert the same logic in here
+
 .container-memo-list, .container-ticket-description{
   flex-basis: 53%;
 }

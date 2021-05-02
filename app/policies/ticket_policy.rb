@@ -17,6 +17,15 @@ class TicketPolicy < ApplicationPolicy
     true
   end
 
+  def close_ticket?
+    if user.admin || record.user_id == user.id
+      true
+    else
+      false
+    end
+    true
+  end
+
   def edit?
     if user.admin || record.user_id == user.id
       true
