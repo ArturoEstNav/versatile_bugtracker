@@ -32,7 +32,7 @@
   }
 
   .form-control,
-  -internal-autofill-selected{
+  .-internal-autofill-selected{
     border: 1px solid $white;
 
     &:active {
@@ -61,11 +61,11 @@
     height: 500px;
   }
 
-  h1, h2, h3, h4, .text-status {
+  h3, h4, .text-status {
     color: white;
   }
 
-  .link, .link-to, .link-navbar-user,
+  h1, h2, .link, .link-to, .link-navbar-user,
   .button-link, .button-edit, .button-hours,
   .navbar-show-item, .navbar-selected-item,
   .custom-navbar-main, a {

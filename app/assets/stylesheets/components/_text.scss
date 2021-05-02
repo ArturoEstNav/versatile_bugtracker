@@ -1,13 +1,15 @@
-// OVERRIDE DEFAULT ELEMENT BEHAVIOR
 body {
   font-weight: 300;
   color: $black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  text-transform: capitalize;
   margin-bottom: 16px;
+}
+
+h1, h2 {
+  color: $blue;
+  font-weight: 300;
 }
 
 h1 {
@@ -31,25 +33,27 @@ ul, li {
 }
 // LINK RELATED GOES HERE
 a, .link-to {
-   color: $secondary-blue;
+   color: $black;
+   font-weight: 500;
 
-  &:active, &:visited, &:hover {
+  &:active, &:hover {
     text-decoration: none;
-    color: $secondary-blue;
+    color: $blue;
+    transition: 150ms ease-out color;
   }
 }
 
 .link-to, .link-nav{
+  color: $black;
   font-weight: 500;
 
   &:hover{
-    opacity: 0.5;
+    color: $blue;
+    transition: 250ms ease-in-out color;
   }
 
 .link-nav{
   text-decoration: underline;
-  text-transform: capitalize;
-  font-style: italic;
 }
 
 }
@@ -58,16 +62,15 @@ a, .link-to {
   font-weight: 500;
 }
 
-.header-margin-override{
-  // margin-left: -16px;
-}
+// .header-margin-override{
+// }
 
 .custom-link {
   color: $black
 }
 
 .text-title, .text-caps, .link-navbar-user {
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
   &:hover, &:active {
     background-color: transparent;
@@ -77,10 +80,8 @@ a, .link-to {
 
 .text-caps {
   font-size: 18pt;
-  text-transform: uppercase;
   display: block;
   margin: 0 0 8px 0;
-  font-style: italic;
   font-size: 15pt;
 }
 
@@ -88,16 +89,18 @@ a, .link-to {
   color: $black;
   padding-top: 8px;
   margin: 0;
-  font-style: italic;
 }
 
-.text-project-description {
-  font-style: italic;
-}
+// .text-project-description {
+// }
 
 .text-status{
   font-size: 22pt;
   font-weight: 300;
-  text-transform: uppercase;
   font-style: italic;
+}
+
+.navbar-selected-item {
+  font-style: normal;
+  font-weight: 500;
 }

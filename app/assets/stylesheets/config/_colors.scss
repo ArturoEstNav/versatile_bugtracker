@@ -1,8 +1,6 @@
 // Define variables for your color scheme
-
-// For example:
 $red: #FD1015;
-$blue: #1C648C;
+$blue: #2A8EE6;
 $yellow: #FFC65A;
 $orange: #E67E22;
 $green: #1EDD88;
@@ -12,9 +10,10 @@ $black-background: #0A2338;
 $diluted-black: transparentize($black-background, .2);
 $background-color: #F4F3FF;
 $diluted-background: transparentize($background-color, .2);
-$black: #000;
+$black: #010305;
 $white: #FFF;
 $opacity: 0.5;
 $opacity-dark: 0.8;
 $secondary-blue: #3E3E63;
-$ternary-blue: #99C7C5;
+// For use on darkmode
+$ternary-blue: #2E9DFF;

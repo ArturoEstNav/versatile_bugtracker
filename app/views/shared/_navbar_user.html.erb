@@ -1,4 +1,4 @@
-  <div class="navbar navbar-expand-sm navbar-user">
+<div class="navbar navbar-expand-sm navbar-user">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,14 +13,13 @@
       </li>
       <% if user_signed_in? %>
         <li class="link-navbar-user">
-          <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li class="link-navbar-user">
-          <%= link_to "LOGIN", new_user_session_path %>
+          <%= link_to "Log in", new_user_session_path %>
         </li>
       <% end %>
     </ul>
   </div>
 </div>
-
