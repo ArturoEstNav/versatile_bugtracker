@@ -1,18 +1,12 @@
 .button-link {
   margin-left: 4px;
-  color: $secondary-blue;
 }
 
 .button-edit {
   font-size: 11pt;
-  color: $secondary-blue;
-  &:hover {
-    opacity: $opacity;
-  }
 }
 
 .button-hours {
-  // color: $black;
   color: $secondary-blue;
   display: inline-block;
   width: 100%;
@@ -40,4 +34,12 @@
 
 .toggle-btn {
   padding-right: 24px;
+}
+
+i, .far, .toggle-btn, .button-darktheme {
+  color: $black;
+  transition: 250ms ease-out color;
+  &:hover{
+    color: $blue;
+  }
 }

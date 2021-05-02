@@ -49,13 +49,12 @@ a, .link-to {
 
   &:hover{
     color: $blue;
-    transition: 250ms ease-in-out color;
+    transition: 250ms ease-out color;
   }
 
-.link-nav{
-  text-decoration: underline;
-}
-
+  .link-nav{
+    text-decoration: underline;
+  }
 }
 // TEXT FORMATING
 .text-accent{

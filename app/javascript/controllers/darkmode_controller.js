@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     if (localStorage.darkMode == 'true') {
       this.element.classList.add("dark-mode");
-      this.toggleTarget.innerHTML = '<i class="fas fa-sun"></i>';
+      this.toggleTarget.innerHTML = '<i class="fas fa-sun button-darktheme"></i>';
     }
   }
 
@@ -14,11 +14,11 @@ export default class extends Controller {
     if(this.element.classList.contains("dark-mode") ) {
       this.element.classList.remove("dark-mode");
       localStorage.setItem('darkMode', 'false');
-      this.toggleTarget.innerHTML = '<i class="far fa-moon"></i>';
+      this.toggleTarget.innerHTML = '<i class="far fa-moon button-darktheme"></i>';
     } else {
       this.element.classList.add("dark-mode");
       localStorage.setItem('darkMode', 'true');
-      this.toggleTarget.innerHTML = '<i class="fas fa-sun"></i>';
+      this.toggleTarget.innerHTML = '<i class="fas fa-sun button-darktheme"></i>';
     }
   }
 }
