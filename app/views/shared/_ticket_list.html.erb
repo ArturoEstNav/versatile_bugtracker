@@ -10,7 +10,11 @@
           <%= ticket.description   %>
         </p>
         <% if ticket.status == 'open' %>
-          <% if ticket.ticket_age_in_hours <= 72 %>
+          <% if ticket.ticket_age_in_hours == 0 %>
+            <p>Opened less than an hour ago</p>
+          <% elsif ticket.ticket_age_in_hours == 1 %>
+            <p>Opened an hour ago</p>
+          <% elsif ticket.ticket_age_in_hours <= 72 %>
             <p>Opened <%= ticket.ticket_age_in_hours %> hours ago</p>
           <% else %>
             <p>Opened <%= ticket.ticket_age_in_days %> days ago</p>
