@@ -1,5 +1,6 @@
 .navbar-user {
-  justify-content: space-between;
+  // justify-content: space-between;
+  display: block;
   background: transparent;
   padding: 16px 48px 16px 80px;
 
@@ -18,10 +19,16 @@
   color: $secondary-blue;
 }
 
-// to be dissappeared
-.navbar-menu {
-  flex-basis: 18%;
-  padding: 16px;
+.navbar-inner-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.link-navbar-user {
+  a {
+    margin-right: 16px;
+    color: $secondary-blue;
+  }
 }
 
 .navbar-show{

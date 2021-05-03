@@ -2,28 +2,36 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li>
-        <div class="navbar-user-option btn custom-btn-nav toggle-btn",
-          data-target="darkmode.toggle",
-          data-action="click->darkmode#adjustBackground">
-          <i class="far fa-moon button-darktheme"></i>
-        </div>
-      </li>
-      <li class="link-navbar-user"><%= link_to "Dashboard", root_path, class: "link-navbar-user" %></li>
-      <li class="link-navbar-user"><%= link_to "Project list", projects_index_path, class: "link-navbar-user" %></li>
-      <li class="link-navbar-user"><%= link_to "Ticket list", tickets_path, class: "link-navbar-user" %><br></li>
-      <li class="link-navbar-user"><%= link_to "Profile", user_path(current_user), class: "link-navbar-user" %></li>
+  <div class="collapse navbar-collapse navbar-inner-flex" id="navbarSupportedContent">
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <div class="navbar-user-option btn custom-btn-nav toggle-btn",
+            data-target="darkmode.toggle",
+            data-action="click->darkmode#adjustBackground">
+            <i class="far fa-moon button-darktheme"></i>
+          </div>
+        </li>
+        <li class="link-navbar-user">
+          <%= link_to "Dashboard", root_path, class: "link-navbar-user" %>
+        </li>
+        <li class="link-navbar-user">
+          <%= link_to "Project list", projects_index_path, class: "link-navbar-user" %>
+        </li>
+        <li class="link-navbar-user">
+          <%= link_to "Ticket list", tickets_path, class: "link-navbar-user" %>
+        </li>
+        <li class="link-navbar-user">
+          <%= link_to "Profile", user_path(current_user), class: "link-navbar-user" %>
+        </li>
+      </ul>
+    </div>
+    <div>
       <% if user_signed_in? %>
-        <li class="link-navbar-user">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       <% else %>
-        <li class="link-navbar-user">
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
+        <%= link_to "Log in", new_user_session_path %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>

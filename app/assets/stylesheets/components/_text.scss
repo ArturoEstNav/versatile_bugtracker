@@ -33,7 +33,7 @@ ul, li {
 }
 
 a, .link-to {
-   color: $black;
+   color: $secondary-blue;
    font-weight: 500;
 
   &:active, &:hover {
@@ -66,15 +66,6 @@ a, .link-to {
 
 .custom-link {
   color: $black
-}
-
-.link-navbar-user {
-  text-transform: uppercase;
-
-  &:hover, &:active {
-    background-color: transparent;
-    font-weight: 500;
-  }
 }
 
 .text-caps {

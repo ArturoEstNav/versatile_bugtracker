@@ -38,10 +38,10 @@
             </span>
           </p>
         </div>
-    </div>
-    <div style="display: inline-block;"
+      </div>
+      <div style="display: inline-block;"
          class="container-ticket-hours" >
-      <div class="custom-container-hour-control">
+        <div class="custom-container-hour-control">
         <% if @ticket.status == 'closed' %>
           <div class="text-status">Closed</div>
         <% elsif @ticket.active %>
@@ -65,27 +65,28 @@
             <%= link_to "Close ticket?", close_ticket_path(@ticket) ,method: :patch, remote: true  %>
           </div>
         <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class=" container-section container-ticket-memos">
-    <div class="container-memo-list">
-      <h2>Memo list</h2>
-      <% @memos.each do |memo| %>
-        <div class="container-memo-show ">
-           <%= memo.content %>
-           <span class="button-link button-edit">
-            <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-           </span>
-          <br>
-        </div>
-       <% end %>
-    </div>
-    <div class="container-memo-new">
-      <h2>Add new memo</h2>
-      <%= render 'memos/new' %>
+    <div class=" container-section container-ticket-memos">
+      <div class="container-memo-list">
+        <h2>Memo list</h2>
+        <% @memos.each do |memo| %>
+          <div class="container-memo-show ">
+             <%= memo.content %>
+             <span class="button-link button-edit">
+              <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+             </span>
+            <br>
+          </div>
+         <% end %>
+      </div>
+      <div class="container-memo-new">
+        <h2>Add new memo</h2>
+        <%= render 'memos/new' %>
+      </div>
     </div>
   </div>
 </div>
