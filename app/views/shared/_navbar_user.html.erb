@@ -12,6 +12,7 @@
             <i class="far fa-moon button-darktheme"></i>
           </div>
         </li>
+        <% if user_signed_in? %>
         <li class="link-navbar-user">
           <%= link_to "Dashboard", root_path, class: "link-navbar-user" %>
         </li>
@@ -21,9 +22,11 @@
         <li class="link-navbar-user">
           <%= link_to "Ticket list", tickets_path, class: "link-navbar-user" %>
         </li>
+
         <li class="link-navbar-user">
           <%= link_to "Profile", user_path(current_user), class: "link-navbar-user" %>
         </li>
+        <% end %>
       </ul>
     </div>
     <div>
