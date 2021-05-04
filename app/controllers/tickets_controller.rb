@@ -85,6 +85,7 @@ class TicketsController < ApplicationController
     if @ticket.active
       @ticket.end_timer
       redirect_to ticket_path(params[:id])
+      current_user.working_ticket.destroy
       event = Event.new(
         description: "#{current_user.first_name} stopped working on ticket #{@ticket.title}",
         user: current_user,
@@ -95,6 +96,10 @@ class TicketsController < ApplicationController
     else
       @ticket.start_timer
       redirect_to ticket_path(params[:id])
+      WorkingTicket.create(
+        user: current_user,
+        ticket: @ticket
+      )
       event = Event.new(
         description: "#{current_user.first_name} started working on ticket #{@ticket.title}",
         user: current_user,
