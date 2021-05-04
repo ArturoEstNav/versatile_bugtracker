@@ -23,4 +23,5 @@ Rails.application.routes.draw do
     resources :memos
     resources :events, only: [ :new, :create ]
   end
+  resources :working_tickets, only: [ :show, :index ]
 end

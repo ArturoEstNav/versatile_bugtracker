@@ -1,0 +1,4 @@
+<h4><%= @ticket.title %></h4>
+<p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
+<p>Chronometer</p>
+<%= link_to 'Go to ticket', ticket_path(@ticket) %>

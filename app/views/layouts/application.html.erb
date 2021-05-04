@@ -24,8 +24,8 @@
             <div class="container-layout">
               <div class="container-status">
                 <h3>Current work</h3>
-                <% if true %>
-                  <%= render 'shared/status_bar' %>
+                <% if current_user.working_ticket %>
+                  <%= render 'working_tickets/show' %>
                 <% else %>
                   <p>
                     You are not working on any tickets right now
