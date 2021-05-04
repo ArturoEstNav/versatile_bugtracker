@@ -1,10 +1,6 @@
-<div class="container-layout">
-  <div class="container-main">
-    <div>
-      <% @users.each do |user| %>
-        <p><%= user.first_name %></p>
-      <% end %>
-    </div>
-    <%= link_to 'add new user', new_user_invitation_path, class: "button-custom" %>
-  </div>
+<div>
+  <% @users.each do |user| %>
+    <p><%= user.first_name %></p>
+  <% end %>
 </div>
+<%= link_to 'add new user', new_user_invitation_path, class: "button-custom" %>

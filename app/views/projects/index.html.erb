@@ -1,30 +1,25 @@
-<div class="container-layout">
-  <div class="container-main">
-    <h1>Project list
-      <% if current_user.admin %>
-        <span class="button-link button-edit">
-          <%= link_to projects_new_path do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        </span>
+<h1>Project list
+  <% if current_user.admin %>
+    <span class="button-link button-edit">
+      <%= link_to projects_new_path do %>
+        <i class="fas fa-plus"></i>
       <% end %>
-    </h1>
-    <ul>
-      <% @projects.each do |project| %>
-        <li>
-          <div class="container-clickable">
-            <%= link_to project_path(project.id) do %>
-            <h3 class="text-caps">
-              <%= project.name %>
-            </h3>
-            <p>
-              <%= project.description %>
-            </p>
-           <% end %>
-          </div>
-
-        </li>
+    </span>
+  <% end %>
+</h1>
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <div class="container-clickable">
+        <%= link_to project_path(project.id) do %>
+        <h3 class="text-caps">
+          <%= project.name %>
+        </h3>
+        <p>
+          <%= project.description %>
+        </p>
       <% end %>
-    </ul>
-  </div>
-</div>
+      </div>
+     </li>
+  <% end %>
+</ul>

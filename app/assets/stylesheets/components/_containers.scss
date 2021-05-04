@@ -4,11 +4,17 @@
 
 .container-layout {
   display: flex;
+  border: 3px solid red;
 }
 
 .container-main {
   flex-basis: 80%;
   padding: 16px 48px;
+}
+
+.container-status {
+  flex-basis: 20%;
+  border: 1px solid blue;
 }
 
 .container-section {

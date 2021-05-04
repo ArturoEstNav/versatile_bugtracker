@@ -1,62 +1,58 @@
-<div class="container-layout">
-  <div class="container-main">
-    <div>
-      <h1>
-        <%= "#{@user.first_name} #{@user.last_name}"%>
-        <span class="button-link button-edit">
-          <%= link_to edit_user_registration_path(@user) do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-        </span>
-      </h1>
-    </div>
-    <div data-controller="navbar">
-      <div>
-        <ul class="navbar-show">
-          <li data-navbar-target="ticketsToggle"
-          data-action="click->navbar#setDisplay"
-          class="navbar-selected-item">
-            Tickets
+<div>
+  <h1>
+    <%= "#{@user.first_name} #{@user.last_name}"%>
+    <span class="button-link button-edit">
+      <%= link_to edit_user_registration_path(@user) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </span>
+  </h1>
+</div>
+<div data-controller="navbar">
+  <div>
+    <ul class="navbar-show">
+      <li data-navbar-target="ticketsToggle"
+      data-action="click->navbar#setDisplay"
+      class="navbar-selected-item">
+        Tickets
+      </li>
+      <li data-navbar-target="historyToggle"
+      data-action="click->navbar#setDisplay"
+      class="navbar-show-item">
+        History
+      </li>
+    </ul>
+  </div>
+  <div data-navbar-target="history" style="display: none;">
+    <% unless @events.empty? %>
+      <ul>
+        <% @events.each do |event| %>
+          <li>
+            <div class="container-event">
+              <div class="container-event-date">
+                <%= event.created_at.in_time_zone('America/Mexico_City').strftime("%m/%d/%Y at %I:%M%p") %>
+              </div>
+              <div class="container-event-description">
+                <%= tag.a(href: event.link) do%>
+                  <span class="link-to">
+                    <%= event.description %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
           </li>
-          <li data-navbar-target="historyToggle"
-          data-action="click->navbar#setDisplay"
-          class="navbar-show-item">
-            History
-          </li>
-        </ul>
-      </div>
-      <div data-navbar-target="history" style="display: none;">
-        <% unless @events.empty? %>
-          <ul>
-            <% @events.each do |event| %>
-              <li>
-                <div class="container-event">
-                  <div class="container-event-date">
-                    <%= event.created_at.in_time_zone('America/Mexico_City').strftime("%m/%d/%Y at %I:%M%p") %>
-                  </div>
-                  <div class="container-event-description">
-                    <%= tag.a(href: event.link) do%>
-                      <span class="link-to">
-                        <%= event.description %>
-                      </span>
-                    <% end %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        <% else %>
-          <p>You have no activity yet.</p>
         <% end %>
-      </div>
-      <div data-navbar-target="tickets" style="display: block;">
-        <h2>My open tickets</h2>
-        <% if @tickets.empty? %>
-          You got no open tickets assigned to you.
-        <% else %>
-        <%= render 'shared/ticket_list', locals: { tickets: @tickets } %>
-        <% end %>
-      </div>
-    </div>
+      </ul>
+    <% else %>
+      <p>You have no activity yet.</p>
+    <% end %>
+  </div>
+  <div data-navbar-target="tickets" style="display: block;">
+    <h2>My open tickets</h2>
+    <% if @tickets.empty? %>
+      You got no open tickets assigned to you.
+    <% else %>
+    <%= render 'shared/ticket_list', locals: { tickets: @tickets } %>
+    <% end %>
   </div>
 </div>

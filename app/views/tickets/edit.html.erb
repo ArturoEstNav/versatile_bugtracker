@@ -1,16 +1,12 @@
-<div class="container-layout">
-  <div class="container-main">
-    <h1>Edit ticket</h1>
-    <%= simple_form_for @ticket do |f| %>
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <% if current_user.admin %>
-        <%= f.input :user_id, collection: @users, hint: "Assign ticket to another users" %>
-      <% end %>
-      <%= f.input :status, collection: [['Open', 'open'], ['Closed', 'closed']] %>
-      <%= f.input :priority , collection: [['Urgent', 'urgent'], ['Time sensitive', 'time_sensitive'], ['Necessary', 'necessary']] %>
-      <%= f.input :category, collection: [['Front end', 'front_end'], ['Back end', 'back_end']] %>
-      <%= f.button :submit, class: "button-custom" %>
-    <% end %>
-  </div>
-</div>
+<h1>Edit ticket</h1>
+<%= simple_form_for @ticket do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <% if current_user.admin %>
+    <%= f.input :user_id, collection: @users, hint: "Assign ticket to another users" %>
+  <% end %>
+  <%= f.input :status, collection: [['Open', 'open'], ['Closed', 'closed']] %>
+  <%= f.input :priority , collection: [['Urgent', 'urgent'], ['Time sensitive', 'time_sensitive'], ['Necessary', 'necessary']] %>
+  <%= f.input :category, collection: [['Front end', 'front_end'], ['Back end', 'back_end']] %>
+  <%= f.button :submit, class: "button-custom" %>
+<% end %>

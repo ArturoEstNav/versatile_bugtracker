@@ -1,92 +1,88 @@
-<div class="container-layout">
-  <div class="container-main">
-    <h1><%= @ticket.title %>
-      <span class="button-link button-edit">
-        <%= link_to edit_ticket_path(@ticket) do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
-      </span>
-    </h1>
-    <div class="container-section container-ticket-data">
-      <div class="container-ticket-description">
-        <h2 class="header-margin-override">Statistics</h2>
-        <div>
-          <p>
-            <span class="text-accent">
-              Priority:&nbsp;
-            </span>
-            <%= @ticket.priority.capitalize %>
-          </p>
-          <p>
-            <span class="text-accent">
-              Ticket goals:&nbsp;
-            </span>
-            <%= @ticket.description %>
-          </p>
-          <p>
-            <span class="text-accent">
-              Worked hours:&nbsp;
-            </span>
-           <%= @ticket.completion_time %>
-          </p>
-          <p>
-            <span class="text-accent">
-              Ticket owner:&nbsp;
-              <%= link_to user_path(@ticket_user) do %>
-                <%= "#{@ticket_user.first_name} #{@ticket_user.last_name}"%>
-              <% end %>
-            </span>
-          </p>
-        </div>
-      </div>
-      <div style="display: inline-block;"
-         class="container-ticket-hours" >
-        <div class="custom-container-hour-control">
-        <% if @ticket.status == 'closed' %>
-          <div class="text-status">Closed</div>
-        <% elsif @ticket.active %>
-          <div class="text-status">Active</div>
-        <% else %>
-          <div class="text-status">Not active</div>
-        <% end %>
-        <% if @ticket.status == 'closed' %>
-          This ticket is closed and cannot be worked on
-        <% else %>
-          <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
-            <div class="button-link button-hours">
-              <% if @ticket.active %>
-                <i class="fas fa-pause"></i>
-              <% else %>
-                <i class="fas fa-play"></i>
-              <% end %>
-            </div>
+<h1><%= @ticket.title %>
+  <span class="button-link button-edit">
+    <%= link_to edit_ticket_path(@ticket) do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+  </span>
+</h1>
+<div class="container-section container-ticket-data">
+  <div class="container-ticket-description">
+    <h2 class="header-margin-override">Statistics</h2>
+    <div>
+      <p>
+        <span class="text-accent">
+          Priority:&nbsp;
+        </span>
+        <%= @ticket.priority.capitalize %>
+      </p>
+      <p>
+        <span class="text-accent">
+          Ticket goals:&nbsp;
+        </span>
+        <%= @ticket.description %>
+      </p>
+      <p>
+        <span class="text-accent">
+          Worked hours:&nbsp;
+        </span>
+        <%= @ticket.completion_time %>
+      </p>
+      <p>
+        <span class="text-accent">
+          Ticket owner:&nbsp;
+          <%= link_to user_path(@ticket_user) do %>
+            <%= "#{@ticket_user.first_name} #{@ticket_user.last_name}"%>
           <% end %>
-          <div>
-            <%= link_to "Close ticket?", close_ticket_path(@ticket) ,method: :patch, remote: true  %>
-          </div>
-        <% end %>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block;"
+      class="container-ticket-hours" >
+    <div class="custom-container-hour-control">
+    <% if @ticket.status == 'closed' %>
+      <div class="text-status">Closed</div>
+    <% elsif @ticket.active %>
+      <div class="text-status">Active</div>
+    <% else %>
+      <div class="text-status">Not active</div>
+    <% end %>
+    <% if @ticket.status == 'closed' %>
+      This ticket is closed and cannot be worked on
+      <% else %>
+      <%= link_to update_hours_ticket_path(@ticket), method: :patch, remote: true do %>
+        <div class="button-link button-hours">
+          <% if @ticket.active %>
+            <i class="fas fa-pause"></i>
+          <% else %>
+            <i class="fas fa-play"></i>
+          <% end %>
         </div>
+      <% end %>
+      <div>
+        <%= link_to "Close ticket?", close_ticket_path(@ticket) ,method: :patch, remote: true  %>
       </div>
+    <% end %>
     </div>
-    <div class=" container-section container-ticket-memos">
-      <div class="container-memo-list">
-        <h2>Memo list</h2>
-        <% @memos.each do |memo| %>
-          <div class="container-memo-show ">
-             <%= memo.content %>
-             <span class="button-link button-edit">
-              <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
-                <i class="fas fa-edit"></i>
-              <% end %>
-             </span>
-            <br>
-          </div>
-         <% end %>
+  </div>
+</div>
+<div class=" container-section container-ticket-memos">
+  <div class="container-memo-list">
+    <h2>Memo list</h2>
+    <% @memos.each do |memo| %>
+      <div class="container-memo-show ">
+          <%= memo.content %>
+         <span class="button-link button-edit">
+          <%= link_to edit_ticket_memo_path(ticket_id: @ticket.id, id: memo.id) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </span>
+        <br>
       </div>
-      <div class="container-memo-new">
-        <h2>Add new memo</h2>
-        <%= render 'memos/new' %>
-      </div>
-    </div>
+    <% end %>
+  </div>
+  <div class="container-memo-new">
+    <h2>Add new memo</h2>
+    <%= render 'memos/new' %>
   </div>
 </div>

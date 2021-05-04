@@ -1,29 +1,25 @@
-<div class="container-layout">
-  <div class="container-main">
-    <h1>
-      <%= @project.name %>
-      <span class="button-link button-edit">
-        <%= link_to edit_project_path(@project) do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
-      </span>
-    </h1>
-    <div class="container-section">
-      <p class="text-project-description"><%= @project.description %></p>
-    </div>
-    <h2>Project tickets
-      <% unless @tickets.empty? %>
-        <span class="button-link button-edit">
-        <%= link_to new_ticket_path do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
-      </span>
-      <% end %>
-    </h2>
-    <% if @tickets.empty? %>
-      <%= link_to "Add a new ticket", new_ticket_path, class: "link-nav" %>
-    <% else %>
-      <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
+<h1>
+  <%= @project.name %>
+  <span class="button-link button-edit">
+    <%= link_to edit_project_path(@project) do %>
+      <i class="fas fa-edit"></i>
     <% end %>
-  </div>
+  </span>
+</h1>
+<div class="container-section">
+  <p class="text-project-description"><%= @project.description %></p>
 </div>
+<h2>Project tickets
+  <% unless @tickets.empty? %>
+    <span class="button-link button-edit">
+    <%= link_to new_ticket_path do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </span>
+  <% end %>
+</h2>
+<% if @tickets.empty? %>
+  <%= link_to "Add a new ticket", new_ticket_path, class: "link-nav" %>
+<% else %>
+  <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
+<% end %>
