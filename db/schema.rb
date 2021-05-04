@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_220936) do
+ActiveRecord::Schema.define(version: 2021_05_04_170334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,19 @@ ActiveRecord::Schema.define(version: 2021_03_09_220936) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "working_tickets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ticket_id", null: false
+    t.float "worked_time", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_working_tickets_on_ticket_id"
+    t.index ["user_id"], name: "index_working_tickets_on_user_id"
+  end
+
   add_foreign_key "memos", "tickets"
   add_foreign_key "tickets", "projects"
   add_foreign_key "user_events", "users"
+  add_foreign_key "working_tickets", "tickets"
+  add_foreign_key "working_tickets", "users"
 end
