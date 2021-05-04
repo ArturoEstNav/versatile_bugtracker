@@ -1,5 +1,6 @@
 .container {
   padding-bottom: 40px;
+  padding-top: 24px;
 }
 
 .container-layout {
@@ -14,6 +15,23 @@
 .container-status {
   flex-basis: 20%;
   padding: 16px;
+  border: 2px solid $light-gray;
+  border-radius: 8px;
+  height: calc(100vh - 70px);
+}
+
+.container-working-ticket{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-working-description {
+
+}
+
+.container-working-link {
+
 }
 
 .container-section {

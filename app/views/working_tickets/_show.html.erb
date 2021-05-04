@@ -1,4 +1,15 @@
-<h4><%= current_user.working_ticket.ticket.title %></h4>
-<p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
-<p>Chronometer</p>
-<%= link_to 'Go to ticket', ticket_path(current_user.working_ticket.ticket) %>
+<h3></h3>
+<div class="container-working-ticket">
+  <% if current_user.working_ticket %>
+    <div class="container-working-description">
+      <h4><%= current_user.working_ticket.ticket.title %></h4>
+      <p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
+      <!-- <p>Chronometer</p> -->
+    </div>
+    <div class="container-working-link">
+      <%= link_to 'Go to ticket', ticket_path(current_user.working_ticket.ticket) %>
+    </div>
+  <% else %>
+    <p>You are not working on any tickets right now</p>
+  <% end %>
+</div>
