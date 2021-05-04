@@ -7,23 +7,21 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @projects = Project.all.map {|project| [project.name, project.id]}
-
     authorize @ticket
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user_id = current_user.id
-
     authorize @ticket
 
     if @ticket.save
       event = Event.new(
-                description: "Opened ticket #{@ticket.title}",
-                user: current_user,
-                eventable: @ticket,
-                link: "/tickets/#{params[:ticket_id]}"
-              )
+        description: "Opened ticket #{@ticket.title}",
+        user: current_user,
+        eventable: @ticket,
+        link: "/tickets/#{params[:ticket_id]}"
+      )
       event.save
       redirect_to root_path
     else
@@ -38,44 +36,40 @@ class TicketsController < ApplicationController
     @users = User.all.map do |user|
       ["#{user.first_name} #{user.last_name}", user.id]
     end
-
     authorize @ticket
   end
 
   def close_ticket
     @ticket = Ticket.find(params[:id])
-
     authorize @ticket
 
-    if @ticket.active
-      @ticket.end_timer
-    end
+    @ticket.end_timer if @ticket.active
     @ticket.update(status: 'closed')
     @ticket.save
-      event = Event.new(
-                description: "#{current_user.first_name} closed ticket #{@ticket.title}",
-                user: current_user,
-                eventable: @ticket,
-                link: "/tickets/#{@ticket.id}"
-              )
-      event.save
+    event = Event.new(
+      description: "#{current_user.first_name} closed ticket #{@ticket.title}",
+      user: current_user,
+      eventable: @ticket,
+      link: "/tickets/#{@ticket.id}"
+    )
+    event.save
     redirect_to ticket_path(params[:id])
   end
 
   def update
     @ticket = Ticket.find(params[:id])
-
     authorize @ticket
 
     if @ticket.update(ticket_params)
-      changes = @ticket.identify_ticket_changes
+      changes = Event.store_changes_record(@ticket.identify_ticket_changes)
+
       unless changes == "no changes"
         event = Event.new(
-                  description: "Changed the #{changes} on ticket #{@ticket.title}",
-                  user: current_user,
-                  eventable: @ticket,
-                  link: "/tickets/#{@ticket.id}"
-                )
+          description: "Changed the #{changes} on ticket #{@ticket.title}",
+          user: current_user,
+          eventable: @ticket,
+          link: "/tickets/#{@ticket.id}"
+        )
         event.save
       end
       redirect_to ticket_path(params[:id])
@@ -86,28 +80,27 @@ class TicketsController < ApplicationController
 
   def update_hours
     @ticket = Ticket.find(params[:id])
-
     authorize @ticket
 
     if @ticket.active
       @ticket.end_timer
       redirect_to ticket_path(params[:id])
       event = Event.new(
-                description: "#{current_user.first_name} stopped working on ticket #{@ticket.title}",
-                user: current_user,
-                eventable: @ticket,
-                link: "/tickets/#{@ticket.id}"
-              )
+        description: "#{current_user.first_name} stopped working on ticket #{@ticket.title}",
+        user: current_user,
+        eventable: @ticket,
+        link: "/tickets/#{@ticket.id}"
+      )
       event.save
     else
       @ticket.start_timer
       redirect_to ticket_path(params[:id])
       event = Event.new(
-                description: "#{current_user.first_name} started working on ticket #{@ticket.title}",
-                user: current_user,
-                eventable: @ticket,
-                link: "/tickets/#{@ticket.id}"
-              )
+        description: "#{current_user.first_name} started working on ticket #{@ticket.title}",
+        user: current_user,
+        eventable: @ticket,
+        link: "/tickets/#{@ticket.id}"
+      )
       event.save
     end
   end
@@ -118,7 +111,6 @@ class TicketsController < ApplicationController
     @ticket_user = ticket_user.first
     @memo = Memo.new
     @memos = Memo.where(ticket_id: params[:id]).order(created_at: :desc)
-
     authorize @ticket
   end
 

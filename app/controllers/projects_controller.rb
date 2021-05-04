@@ -37,13 +37,17 @@ class ProjectsController < ApplicationController
     authorize @project
 
     if @project.update(update_params)
-      event = Event.new(
-                description: "Edited the project #{@project.name}",
-                user: current_user,
-                eventable: @project,
-                link: "/projects/#{@project.id}"
-              )
-      event.save
+      changes = Event.store_changes_record(@project.identify_project_changes)
+
+      unless changes == "no changes"
+        event = Event.new(
+                  description: "Changed the #{changes} on project #{@project.name}",
+                  user: current_user,
+                  eventable: @project,
+                  link: "/projects/#{@project.id}"
+                )
+        event.save
+      end
       redirect_to projects_path
     else
       render :edit
