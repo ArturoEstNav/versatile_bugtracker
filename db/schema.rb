@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_170334) do
+ActiveRecord::Schema.define(version: 2021_05_04_184214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_170334) do
     t.string "category"
     t.string "title"
     t.bigint "user_id"
-    t.float "completion_time", default: 0.0
+    t.float "working_time", default: 0.0
     t.boolean "active", default: false
     t.integer "start_time", default: 0
     t.integer "end_time", default: 0
@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_170334) do
     t.float "worked_time", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "start_time", default: 0
+    t.integer "end_time", default: 0
     t.index ["ticket_id"], name: "index_working_tickets_on_ticket_id"
     t.index ["user_id"], name: "index_working_tickets_on_user_id"
   end
