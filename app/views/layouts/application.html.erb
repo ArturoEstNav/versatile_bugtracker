@@ -23,7 +23,14 @@
             <% if user_signed_in? %>
             <div class="container-layout">
               <div class="container-status">
-                Hyiah
+                <h3>Current work</h3>
+                <% if true %>
+                  <%= render 'shared/status_bar' %>
+                <% else %>
+                  <p>
+                    You are not working on any tickets right now
+                  </p>
+                <% end %>
               </div>
               <div class="container-main">
             <% end %>

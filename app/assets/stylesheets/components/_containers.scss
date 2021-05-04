@@ -4,7 +4,6 @@
 
 .container-layout {
   display: flex;
-  border: 3px solid red;
 }
 
 .container-main {
@@ -14,7 +13,7 @@
 
 .container-status {
   flex-basis: 20%;
-  border: 1px solid blue;
+  padding: 16px;
 }
 
 .container-section {
