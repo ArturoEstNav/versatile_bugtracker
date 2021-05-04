@@ -1,23 +1,6 @@
 .dark-mode {
   background-color: $black-background;
-  body {
-    color: $white;
-  }
-
-  .container-event, p, .password, .text-muted,
-  .custom-navbar-footer, form, .text-red, .button-custom,
-  .form-group, .text, .required, select, .form-text,
-  small, .container-ticket-memos, .btn {
-
-    &:visited, &:hover{
-      color: $white;
-    }
-  }
-
-  .navbar-user {
-    background: linear-gradient(0deg, transparent, $diluted-black, $black-background);
-    color: white;
-  }
+  color: $white;
 
   .navbar-show{
     border-bottom: 1px solid $white;
@@ -43,51 +26,11 @@
     }
   }
 
-  .form-group, .text, .required {
-    input {
-      border: 1px solid $white;
-
-      &:active, &:focus,
-      &:not(:disabled):not(.disabled):active {
-        color: $white;
-      }
-    }
-  }
-
-  .button-hours {
-    &:hover, &:active {
-      color: $white;
-    }
-  }
-
-  .container-ticket-memos{
-    height: 500px;
-  }
-
   h3, h4, .text-status {
     color: white;
   }
 
-  h1, h2, .link, a {
-    color: $ternary-blue;
-
-    &:active, &:visited, &:hover{
-      color: $ternary-blue;
-      opacity: $opacity-dark;
-    }
-  }
-
-  .navbar-user, .navbar-user .navbar-collapse,
-  .navbar-user .navbar-brand, .navbar-show-item,
-  .navbar-selected-item, img {
-    color: $ternary-blue;
-
-    i {
-      color: $ternary-blue;
-    }
-  }
-
-  .container-clickable{
+  .container-clickable, .container-status{
     background-color: $dark-card;
   }
 }

@@ -3,20 +3,20 @@
   display: block;
   background: transparent;
   padding: 16px 48px 16px 80px;
-
-  i {
-    color: $secondary-blue;
+  background-color: $black-background;
+  i, a, .link-to  {
+    color: $white;
   }
 }
 
 .navbar-user .navbar-collapse {
   flex-grow: 0;
-  color: $secondary-blue;
+  color: $white;
 }
 
 .navbar-user .navbar-brand img {
   width: 40px;
-  color: $secondary-blue;
+  color: $white;
 }
 
 .navbar-inner-flex{

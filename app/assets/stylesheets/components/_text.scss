@@ -8,7 +8,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-  color: $blue;
   font-weight: 300;
 }
 
@@ -22,6 +21,10 @@ h2 {
 
 h3 {
   font-size: 18pt;
+}
+
+h4 {
+  font-size: 16pt;
 }
 
 ul, li {
@@ -61,9 +64,6 @@ a, .link-to {
   font-weight: 500;
 }
 
-// .header-margin-override{
-// }
-
 .custom-link {
   color: $black
 }
@@ -76,9 +76,18 @@ a, .link-to {
 }
 
 .link-navbar-user {
-  color: $black;
+  color: $white;
   padding-top: 8px;
   margin: 0;
+
+  a {
+    color: $white;
+
+    &:active, &:hover {
+      color: $blue;
+      transition: 150ms ease-out color;
+    }
+  }
 }
 
 // .text-project-description {
