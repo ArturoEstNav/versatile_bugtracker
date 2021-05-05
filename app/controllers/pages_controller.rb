@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-   skip_before_action :authenticate_user!, only: [ :demo ]
+   skip_before_action :authenticate_user!, only: [ :demo, :guest ]
   def home
     @projects = Project.all
     @tickets = Ticket.where(status: 'open')
@@ -7,5 +7,8 @@ class PagesController < ApplicationController
   end
 
   def demo
+  end
+
+  def guest
   end
 end

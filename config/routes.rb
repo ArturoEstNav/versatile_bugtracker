@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'projects/show'
   get 'projects/index'
   get 'pages/demo'
+  get 'pages/guest'
   patch 'tickets/update_hours/:id' => "tickets#update_hours", as: :update_hours_ticket
   patch 'tickets/close_ticket/:id' => "tickets#close_ticket", as: :close_ticket
 

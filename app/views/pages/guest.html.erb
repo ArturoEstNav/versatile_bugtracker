@@ -1,0 +1,11 @@
+<h1 class="text-primary">Welcome to our versatile bugtracker!</h1>
+<p>We are currently working on a full demo page for you to familiarize with all of our capabilities.</p>
+<p>In the meantime, feel free to use the following guest account to explore our site:</p>
+<p><strong>Email: </strong> tester@bugtracker.com</p>
+<p><strong>Password: </strong> 123456</p>
+<p>Thank you for visiting our site!</p><br><br>
+<% if user_signed_in? %>
+  <%= link_to 'Go to your dashboard', root_path, class: 'btn btn-primary button-custom' %>
+<% else %>
+  <%= link_to "Log in as a guest", new_user_session_path, class: 'btn btn-primary button-custom' %>
+<% end %>
