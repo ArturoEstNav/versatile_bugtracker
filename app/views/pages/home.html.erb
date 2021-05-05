@@ -1,5 +1,5 @@
 <h1>My pending tickets</h1>
-<% if @tickets.empty?%>
+<% if @user_tickets.empty?%>
   There are no open tickets assigned to you
 <% else %>
   <%= render 'shared/ticket_list', locals: { tickets: @user_tickets } %>
