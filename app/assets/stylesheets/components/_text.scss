@@ -36,12 +36,12 @@ ul, li {
 }
 
 a, .link-to {
-   color: $secondary-blue;
+   color: inherit;
    font-weight: 500;
 
   &:active, &:hover {
     text-decoration: none;
-    color: $blue;
+    color: $secondary-blue;
     transition: 150ms ease-out color;
   }
 }

@@ -36,6 +36,7 @@
   border-bottom: 1px solid $light-gray;
   margin: 16px 0 32px 0;
   padding-bottom: 12px;
+  color: $black;
 }
 
 .navbar-show li {
@@ -45,7 +46,6 @@
 }
 
 .navbar-show-item{
-  color: $secondary-blue;
   display: inline-block;
   font-weight: 300;
 
@@ -55,7 +55,6 @@
 }
 
 .navbar-selected-item {
-  color: $secondary-blue;
   font-style: normal;
   font-weight: 500;
 }
