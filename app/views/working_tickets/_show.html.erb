@@ -6,7 +6,7 @@
     <div class="container-working-description container-clickable">
       <%= link_to ticket_path(current_user.working_ticket.ticket) do %>
         <h4><%= current_user.working_ticket.ticket.title %></h4>
-        <p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
+        <p><%= current_user.working_ticket.created_at.in_time_zone("Mexico City").strftime("Started working at %I:%M%p")%></p>
       <% end %>
     </div>
     <div class="container-working-link">
