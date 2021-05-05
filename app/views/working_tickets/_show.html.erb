@@ -1,14 +1,20 @@
-<h3></h3>
+<div class="container-working-title">
+  <h3>Current ticket</h3>
+</div>
 <div class="container-working-ticket">
   <% if current_user.working_ticket %>
-    <div class="container-working-description">
-      <h4><%= current_user.working_ticket.ticket.title %></h4>
-      <p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
+    <div class="container-working-description container-clickable">
+      <%= link_to ticket_path(current_user.working_ticket.ticket) do %>
+        <h4><%= current_user.working_ticket.ticket.title %></h4>
+        <p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
+      <% end %>
     </div>
-    <div class="container-working-link">
+ <!--    <div class="container-working-link">
       <%= link_to 'Go to ticket', ticket_path(current_user.working_ticket.ticket) %>
-    </div>
+    </div> -->
   <% else %>
-    <p>You are not working on any tickets right now</p>
+    <div class="container-working-description">
+      <p>You are not working on any tickets right now</p>
+    </div>
   <% end %>
 </div>

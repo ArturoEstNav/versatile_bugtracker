@@ -1,6 +1,6 @@
 <ul>
   <% @tickets.each do |ticket|%>
-    <li class="container-clickable">
+    <li class="container-clickable-ticket">
       <%= link_to ticket_path(ticket) do %>
         <h3 class="text-caps">
           <%= ticket.title %>

@@ -14,26 +14,29 @@
 
 .container-status {
   flex-basis: 20%;
-  padding: 16px;
+  padding: 0;
   border: 2px solid $light-gray;
   border-radius: 8px;
   height: calc(100vh - 70px);
-  background-color: $white;
 }
 
-.container-working-ticket{
+.container-working-ticket {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-// .container-working-description {
+.container-working-title{
+  background-color: $light-gray;
+  padding: 16px;
+  border-radius: 6px 6px 0 0;
 
-// }
+}
 
-// .container-working-link {
-
-// }
+.container-working-description {
+  // margin-top: 32px;
+}
 
 .container-section {
   padding: 0 16px;
@@ -67,12 +70,19 @@
 }
 
 .container-clickable {
+  &:hover {
+    font-weight: inherit;
+    color: inherit
+  }
+}
+
+.container-clickable-ticket {
   margin: 16px;
   padding: 16px;
   border: 2px solid $light-gray;
   border-radius: 8px;
-  background-color: #FAFFFF;
 }
+
 
 .container-event {
   margin-bottom: 16px;

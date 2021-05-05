@@ -30,7 +30,8 @@
     color: white;
   }
 
-  .container-clickable, .container-status{
-    background-color: $dark-card;
+  .container-working-title {
+    background-color: $black-background;
+    border-bottom: 1px solid $light-gray
   }
 }
