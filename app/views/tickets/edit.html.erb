@@ -8,5 +8,5 @@
   <%= f.input :status, collection: [['Open', 'open'], ['Closed', 'closed']] %>
   <%= f.input :priority , collection: [['Urgent', 'urgent'], ['Time sensitive', 'time_sensitive'], ['Necessary', 'necessary']] %>
   <%= f.input :category, collection: [['Front end', 'front_end'], ['Back end', 'back_end']] %>
-  <%= f.button :submit, class: "button-custom" %>
+  <%= f.button :submit, class: "btn btn-success button-custom" %>
 <% end %>
