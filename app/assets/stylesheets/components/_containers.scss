@@ -27,7 +27,7 @@
   justify-content: space-between;
 }
 
-.container-working-title{
+.container-working-title {
   background-color: $light-gray;
   padding: 16px;
   border-radius: 6px 6px 0 0;
@@ -81,6 +81,11 @@
   padding: 16px;
   border: 2px solid $light-gray;
   border-radius: 8px;
+  transition: 150ms ease-out;
+
+  &:hover {
+    box-shadow: 2px 2px 4px $light-gray;
+  }
 }
 
 
