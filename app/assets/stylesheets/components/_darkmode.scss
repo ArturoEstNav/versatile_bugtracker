@@ -2,19 +2,31 @@
   background-color: $black-background;
   color: $white;
 
+  .container-event, .navbar-show, .container-event-description,
+  input, .form-control, .link-to {
+    color: $white;
+  }
+
   .navbar-show{
+    color: $white;
     border-bottom: 1px solid $white;
   }
 
-  a, .btn, .link {
+  a, .btn, .link, i, .fas, .toggle-btn {
     &:hover{
-      opacity: 0.7;
+      color: $ternary-blue;
     }
   }
 
   .button-custom {
     background-color: transparent;
     border: 1px solid $white;
+    transition: 150ms ease-out color;
+
+    &:hover{
+      color: $ternary-blue;
+      border: 1px solid $ternary-blue;
+    }
   }
 
   .form-control,
@@ -23,10 +35,11 @@
 
     &:active {
       color: $white;
+
     }
   }
 
-  h3, h4, .text-status {
+  .fas {
     color: white;
   }
 

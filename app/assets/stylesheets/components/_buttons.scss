@@ -24,9 +24,13 @@
 }
 
 i, .far, .toggle-btn, .button-darktheme {
-  color: $black;
+  color: inherit;
   transition: 250ms ease-out color;
   &:hover{
     color: $blue;
   }
+}
+
+.fas {
+  color: $black;
 }

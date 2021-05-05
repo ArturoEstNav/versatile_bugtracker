@@ -9,9 +9,14 @@
         <p><%= current_user.working_ticket.created_at.strftime("Started working at %I:%M%p")%></p>
       <% end %>
     </div>
- <!--    <div class="container-working-link">
-      <%= link_to 'Go to ticket', ticket_path(current_user.working_ticket.ticket) %>
-    </div> -->
+    <div class="container-working-link">
+      <%= link_to 'Pause ticket',
+        update_hours_ticket_path((current_user.working_ticket.ticket)),
+        method: :patch,
+        class: "btn btn-primary button-custom",
+        remote: true  %>
+
+    </div>
   <% else %>
     <div class="container-working-description">
       <p>You are not working on any tickets right now</p>
