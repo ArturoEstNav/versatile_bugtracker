@@ -11,21 +11,8 @@
   display: inline-block;
   width: 100%;
   margin: 8px 0;
-  font-size: 25pt;
-  opacity: 1;
-
-  &:hover, &:active {
-    opacity: $opacity;
-  }
-}
-
-.button-custom {
-  background-color: transparent;
-  border: 1px solid $black;
-
-  &:hover, &:active {
-    background-color: transparent;
-  }
+  font-size: 40pt;
+  transition: 150ms ease-out;
 }
 
 .toggle-btn {

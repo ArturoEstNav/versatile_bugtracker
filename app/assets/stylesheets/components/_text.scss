@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 16px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .text-status {
   font-weight: 300;
 }
 
@@ -15,7 +15,7 @@ h1 {
   margin-bottom: 32px;
 }
 
-h2 {
+h2, .text-status {
   font-size: 24pt;
 }
 
@@ -88,15 +88,6 @@ a, .link-to {
       transition: 150ms ease-out color;
     }
   }
-}
-
-// .text-project-description {
-// }
-
-.text-status{
-  font-size: 22pt;
-  font-weight: 300;
-  font-style: italic;
 }
 
 .navbar-selected-item {

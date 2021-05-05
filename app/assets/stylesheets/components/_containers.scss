@@ -45,24 +45,32 @@
 
 .container-ticket-data, .container-ticket-memos {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
-.container-ticket-hours{
-  font-weight: 500;
+.container-memo-list, .container-ticket-description{
+  flex-basis: 55%;
+  margin-right: 20px;
+}
+
+.container-memo-new, .custom-container-hour-control{
+  flex-basis: 40%;
+}
+
+.container-ticket-hours {
+  display: inline-block;
+  height: 100%;
+}
+
+.custom-container-hour-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container-ticket-memos{
   height: 500px;
   color: inherit;
-}
-
-.container-memo-list, .container-ticket-description{
-  flex-basis: 53%;
-}
-
-.container-memo-new, .container-ticket-hours{
-  flex-basis: 40%;
 }
 
 .container-memo-show{

@@ -1,4 +1,4 @@
 <%= simple_form_for [ @ticket, @memo ], remote: true do |f| %>
   <%= f.input :content, hint: "Please use short, sweet, github style comments." %>
-  <%= f.button :submit, class: "button-custom" %>
+  <%= f.button :submit, class: "btn btn-success button-custom" %>
 <% end %>
